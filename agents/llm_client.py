@@ -25,6 +25,7 @@ import re
 import time
 import urllib.error
 import urllib.request
+from pathlib import Path
 from typing import Optional
 
 
@@ -43,6 +44,34 @@ def _env_flag(name: str, default: bool = False) -> bool:
     if value is None:
         return default
     return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _load_dotenv(path: Optional[Path] = None) -> None:
+    """Load a simple ``.env`` file without requiring python-dotenv."""
+    if path is None:
+        path = Path(__file__).resolve().parents[1] / ".env"
+    if not path.exists():
+        return
+
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("export "):
+            line = line[7:].strip()
+        if "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+        if not key:
+            continue
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+            value = value[1:-1]
+        os.environ.setdefault(key, value)
+
+
+_load_dotenv()
 
 
 def _retry_backoff(provider: str, retries: int) -> list[float]:
