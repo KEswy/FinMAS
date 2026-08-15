@@ -11,6 +11,7 @@ from finmas.schemas import (
     FactorSignal,
     SignalBundle,
 )
+from finmas.agents.text_factor_extractor import TextFactorExtractor
 
 
 def test_direction_decision_roundtrip():
@@ -76,3 +77,9 @@ def test_direction_fusion_abstains_on_high_disagreement():
     decision = DirectionFusion().decide(bundle)
     assert decision.abstain is True
 
+
+def test_text_factor_extractor_emits_signed_factors():
+    event = EventInput("2024-01-02", "央行降息降准", "monetary_policy", "801780")
+    factors = TextFactorExtractor().extract(event)
+    assert factors
+    assert any(f.direction == "+" for f in factors)

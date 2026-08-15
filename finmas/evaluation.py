@@ -11,6 +11,10 @@ import pandas as pd
 
 from .data.feature_store import FeatureStore
 from .fusion.calibration import TemporalCalibrator
+from .agents.llm_provider import LLMProvider
+from .agents.mechanism_extractor import MechanismExtractor
+from .agents.text_factor_extractor import TextFactorExtractor
+from .schemas import EventInput
 
 
 FEATURE_ORDER = [
@@ -48,10 +52,19 @@ def load_irf(data_dir: str = "data") -> Dict[str, Dict[str, Dict[str, float]]]:
 
 
 class WalkForwardEvaluator:
-    def __init__(self, data_dir: str = "data", car_csv: str = "data/processed/car_results_expanded.csv") -> None:
+    def __init__(
+        self,
+        data_dir: str = "data",
+        car_csv: str = "data/processed/car_results_expanded.csv",
+        llm_mode: str = "none",
+    ) -> None:
         self.data_dir = Path(data_dir)
         self.store = FeatureStore(data_dir=str(self.data_dir))
         self.irf = load_irf(data_dir)
+        self.llm_mode = llm_mode.lower()
+        self.llm_provider = LLMProvider() if self.llm_mode == "llm" else None
+        self.llm_extractor = MechanismExtractor(self.llm_provider) if self.llm_provider else None
+        self.text_extractor = TextFactorExtractor() if self.llm_mode == "heuristic" else None
         self.car = pd.read_csv(car_csv)
         self.car = self.car[self.car["window"] == 5].copy()
         self.car["event_date"] = self.car["event_date"].astype(str).str[:10]
@@ -75,19 +88,54 @@ class WalkForwardEvaluator:
         scale = float(np.nanstd(ret) + 1e-8)
         return float(1.0 / (1.0 + np.exp(-3.0 * signal / max(scale * 5.0, 0.01))))
 
-    def build_vector(self, event_date: str, event_type: str, industry_code: str) -> Optional[np.ndarray]:
+    def _llm_stats(self, factors) -> tuple[float, float, float]:
+        if not factors:
+            return 0.0, 0.0, 0.0
+        bull = float(sum(max(f.signed_value(), 0.0) for f in factors))
+        bear = float(sum(max(-f.signed_value(), 0.0) for f in factors))
+        net = bull - bear
+        total = abs(bull) + abs(bear)
+        disagreement = 0.0 if total < 1e-8 else min(1.0, 2.0 * min(bull, bear) / total)
+        return net, net, disagreement
+
+    def _extract_llm_factors(self, event_date: str, event_type: str,
+                             industry_code: str, event_text: str):
+        if self.llm_mode == "none":
+            return []
+        event = EventInput(
+            event_date=event_date,
+            event_text=event_text,
+            event_type=event_type,
+            industry_code=industry_code,
+        )
+        if self.llm_mode == "heuristic" and self.text_extractor:
+            return self.text_extractor.extract(event)
+        if self.llm_mode == "llm" and self.llm_extractor:
+            try:
+                return self.llm_extractor.to_signals(
+                    event, self.llm_extractor.extract(event)
+                )
+            except Exception:
+                return []
+        return []
+
+    def build_vector(self, event_date: str, event_type: str, industry_code: str,
+                     event_text: str = "") -> Optional[np.ndarray]:
         features = self.store.build_features(
             industry_code, event_date, include_text=False
         )
         matrix = self.store.pre_event_matrix(industry_code, event_date, lookback=120)
         ts_prob = self._momentum_prob(matrix)
         irf = self.irf.get(event_type, {}).get(str(industry_code), {})
+        llm_net, llm_bull_bear, disagreement = self._llm_stats(
+            self._extract_llm_factors(event_date, event_type, industry_code, event_text)
+        )
         values = {
-            "disagreement": 0.0,
+            "disagreement": disagreement,
             "froth": float(features.get("froth", 0.0) or 0.0),
             "irf_prior": float(irf.get("signed_strength", 0.0) or 0.0),
-            "llm_bull_bear": 0.0,
-            "llm_net": 0.0,
+            "llm_bull_bear": llm_bull_bear,
+            "llm_net": llm_net,
             "ts_prob_up": float(ts_prob or 0.5),
             "ts_signal": float(features.get("momentum_20", 0.0) or 0.0),
             "valuation_signal": float(features.get("valuation_signal", 0.0) or 0.0),
@@ -105,7 +153,12 @@ class WalkForwardEvaluator:
         results: List[Dict[str, object]] = []
 
         for _, row in rows.iterrows():
-            vec = self.build_vector(row["event_date"], row["event_type"], row["industry_code"])
+            vec = self.build_vector(
+                row["event_date"],
+                row["event_type"],
+                row["industry_code"],
+                str(row.get("event_name", "")),
+            )
             label = int(row["CAR"] >= 0)
             if vec is None:
                 continue

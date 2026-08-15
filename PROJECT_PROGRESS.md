@@ -45,6 +45,17 @@
   - 20% coverage: 67.19% accuracy
   - 30% coverage: 54.17% accuracy
 - Analysis output: `data/processed/finmas_v5_analysis.json`
+- Added text-factor fallback and real-LLM modes to the walk-forward evaluator.
+- Heuristic text-factor full 321 baseline:
+  - full accuracy: 51.40%
+  - committed accuracy: 55.10%
+  - committed coverage: 147/321
+- Real-LLM smoke (first 20 monetary_policy rows):
+  - full accuracy: 60.00%
+  - committed accuracy: 70.59%
+  - committed coverage: 17/20
+  - output: `data/processed/all_experiment_results_finmas_v5_llm_20_walk_forward.csv`
+- Tests: 30 passed after adding text-factor extractor coverage.
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
