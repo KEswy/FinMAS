@@ -28,19 +28,24 @@
 - Added deterministic walk-forward evaluation script and smoke-run verification.
 - Added repository `README.md` and `DATA_LICENSE.md`.
 - Updated `.gitignore` to include risk-center/report results while keeping `.env` excluded.
+- Performed secret audit; no real API keys found in tracked files, `.env` remains untracked.
+- Created local `FinMAS` branch and pushed it to `git@github.com:KEswy/FinMAS.git`.
+- Ran full 321-scenario deterministic v5 walk-forward baseline:
+  - forced full-sample direction accuracy: 52.34%
+  - committed subset accuracy: 61.26%
+  - committed coverage: 111/321 rows
+  - output: `data/processed/all_experiment_results_finmas_v5_full_walk_forward.csv`
 
 ## In Progress
 
-- End-to-end pipeline smoke test and API integration.
-- Full 321-scenario multi-seed validation harness.
-- GitHub branch preparation and secret audit.
+- End-to-end API integration and final documentation.
+- Add paired bootstrap / per-event-type selective-prediction reporting.
 
 ## Next
 
-- Wire the new pipeline into a repeatable evaluation script.
 - Add paired bootstrap and selective-prediction reporting.
-- Run baseline regression against legacy 321 results.
-- Prepare `README`, `DATA_LICENSE`, and `FinMAS` branch.
+- Compare v5 decision layer against legacy baselines.
+- Update repository documentation with benchmark results.
 
 ## Blockers
 

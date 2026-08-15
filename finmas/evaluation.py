@@ -126,11 +126,14 @@ class WalkForwardEvaluator:
                     "event_type": row["event_type"],
                     "industry_code": row["industry_code"],
                     "real_dir": "+" if label == 1 else "-",
-                    "final_dir": "0" if abstain else direction,
+                    "final_dir": direction,
                     "prob_up": prob,
                     "confidence": confidence,
                     "abstain": abstain,
-                    "dir_correct": bool(not abstain and ((direction == "+") == bool(label))),
+                    "dir_correct": bool((direction == "+") == bool(label)),
+                    "committed_dir_correct": bool(
+                        (not abstain) and ((direction == "+") == bool(label))
+                    ),
                     "real_CAR": float(row["CAR"]),
                 }
             )
@@ -164,4 +167,3 @@ class WalkForwardEvaluator:
         y = np.asarray(labels, dtype=int)[mask]
         # A simple abstention threshold: require confidence above the observed imbalance.
         return float(min(max(abs(y.mean() - 0.5) * 2.0, 0.10), 0.25))
-

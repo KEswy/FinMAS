@@ -32,7 +32,7 @@ def main() -> None:
     if len(df):
         print(f"full direction accuracy={df['dir_correct'].mean():.4f}")
     if len(committed):
-        print(f"committed direction accuracy={committed['dir_correct'].mean():.4f}")
+        print(f"committed direction accuracy={committed['committed_dir_correct'].mean():.4f}")
     print(f"output={out}")
 
 
