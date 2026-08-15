@@ -31,6 +31,20 @@
 - Performed secret audit; no real API keys found in tracked files, `.env` remains untracked.
 - Created local `FinMAS` branch and pushed it to `git@github.com:KEswy/FinMAS.git`.
 - Verified `python -m finmas --help` and FastAPI app import.
+- Added evaluation reporting and paired-bootstrap comparison scripts.
+- v5 full-sample paired bootstrap vs legacy DeepSeek:
+  - candidate full accuracy: 52.34%
+  - legacy full accuracy: 51.09%
+  - delta: +1.25pp, paired bootstrap p=0.7675 (not significant)
+- v5 committed subset vs legacy on the same rows:
+  - candidate committed accuracy: 61.26%
+  - legacy same-row accuracy: 50.45%
+  - delta: +10.81pp, paired bootstrap p=0.531 (not yet significant)
+- Selective coverage-accuracy curve at top confidence decile:
+  - 10% coverage: 78.13% accuracy
+  - 20% coverage: 67.19% accuracy
+  - 30% coverage: 54.17% accuracy
+- Analysis output: `data/processed/finmas_v5_analysis.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
