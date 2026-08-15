@@ -15,6 +15,7 @@ from rag.prompts import (
     PROPAGATION_TEMPLATE, REVERSE_RETRIEVAL_TEMPLATE,
     TASK_TEMPLATES
 )
+from agents.llm_client import chat_completion, get_llm_config
 
 logger = logging.getLogger(__name__)
 
@@ -77,11 +78,16 @@ class MechanismAgent:
     ):
         self.retriever = retriever
         self.kg = kg
-        self.ollama_url = "http://localhost:11434/api/chat"
-        # LLM_MODEL env var lets cross-LLM ablations switch model without code edits
-        # (e.g. LLM_MODEL=llama3.1:8b, LLM_MODEL=qwen2.5:14b). Default: qwen2.5:32b.
-        import os as _os
-        self.model_name = _os.environ.get("LLM_MODEL", "qwen2.5:32b")
+        self.llm_config = get_llm_config()
+        self.provider = self.llm_config["provider"]
+        self.ollama_url = (
+            self.llm_config["chat_url"]
+            if self.provider == "ollama"
+            else ""
+        )
+        # LLM_MODEL / DEEPSEEK_MODEL switch the cross-LLM ablation model without
+        # code edits. Defaults: qwen2.5:32b (Ollama) or deepseek-v4-flash (API).
+        self.model_name = self.llm_config["model"]
         self.cfg = CONFIG.llm
         # blind_mode=True 时完全屏蔽方向先验，用于无标签泄漏的评测
         self.blind_mode = blind_mode
@@ -90,6 +96,16 @@ class MechanismAgent:
 
     # ── LLM 调用（带重试 + 服务可用性检查） ────────────────
     def _call_llm(self, user_msg: str, system: str = SYSTEM_PROMPT) -> str:
+        """Unified provider call: Ollama or DeepSeek V4 Flash."""
+        return chat_completion(
+            system=system,
+            user=user_msg,
+            model=self.model_name,
+            temperature=self.cfg.temperature,
+            max_tokens=self.cfg.max_tokens,
+        )
+
+    def _call_llm_legacy_ollama(self, user_msg: str, system: str = SYSTEM_PROMPT) -> str:
         """
         指数退避重试：5s -> 10s -> 20s -> 40s -> 60s -> 60s -> 60s -> 60s -> 60s -> 60s
         总等待预算 ~6 分钟，足够 Ollama 服务从 OOM-kill 后自动重启

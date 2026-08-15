@@ -18,6 +18,8 @@ from __future__ import annotations
 import os, re, json, logging
 from typing import List, Dict, Tuple, Optional
 
+from agents.llm_client import chat_completion, get_llm_config
+
 logger = logging.getLogger(__name__)
 
 N_ROUNDS = int(os.environ.get("DEBATE_ROUNDS", "3"))     # bull+bear exchanges
@@ -26,6 +28,18 @@ _OLLAMA = "http://localhost:11434/api/chat"
 
 def _call(model: str, system: str, user: str, temperature: float = 0.4,
           timeout: int = 180) -> str:
+    """Single provider call used by bull/bear/judge."""
+    return chat_completion(
+        system=system,
+        user=user,
+        model=model or get_llm_config()["model"],
+        temperature=temperature,
+        timeout=timeout,
+    )
+
+
+def _call_legacy_ollama(model: str, system: str, user: str, temperature: float = 0.4,
+                        timeout: int = 180) -> str:
     """Single Ollama chat call, <think> stripped. Mirrors MechanismAgent._call_llm
     (same endpoint/model) but standalone so the debate module is self-contained."""
     import urllib.request, urllib.error

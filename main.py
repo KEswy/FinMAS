@@ -19,6 +19,7 @@ import numpy as np
 import torch
 import pandas as pd
 from config import CONFIG
+from agents.llm_client import get_llm_config
 from windowing import (
     FEATURE_COLS,
     build_feature_frame,
@@ -80,9 +81,11 @@ torch.cuda.manual_seed_all(SEED)
 torch.backends.cudnn.deterministic = True
 print(f"🎲 SEED = {SEED}")
 
-if not os.environ.get("ANTHROPIC_API_KEY"):
-    _llm = os.environ.get("LLM_MODEL", "qwen2.5:32b")
-    print(f"🤖 使用本地 Ollama 模型（{_llm}）运行")
+_llm_config = get_llm_config()
+if _llm_config["provider"] == "deepseek":
+    print(f"🤖 使用 DeepSeek API 模型（{_llm_config['model']}）运行")
+else:
+    print(f"🤖 使用本地 Ollama 模型（{_llm_config['model']}）运行")
 
 if ABLATION_MODE != "none":
     print(f"🔬 消融模式：{ABLATION_MODE}")
@@ -337,7 +340,8 @@ def build_system(api_key: str = None, use_mock_kg: bool = True, blind_mode: bool
     mechanism_agent = MechanismAgent(retriever, kg, api_key=api_key, blind_mode=blind_mode)
 
     logger.info("初始化数据 Agent…")
-    data_agent = DataAgent(device="cuda")
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    data_agent = DataAgent(device=device)
 
     return mechanism_agent, data_agent, kg
 
@@ -691,7 +695,7 @@ def run_analysis(
             if USE_DEBATE:
                 try:
                     from agents.debate_agent import run_debate
-                    _dbg_model = os.environ.get("LLM_MODEL", "qwen2.5:32b")
+                    _dbg_model = _llm_config["model"]
                     _dsig, _debate_info = run_debate(
                         event=str(event), industry=str(industry_code),
                         evidence="", model=_dbg_model)
@@ -711,7 +715,7 @@ def run_analysis(
             if USE_RELDECOMP:
                 try:
                     from agents.reldecomp_agent import run_reldecomp
-                    _rd_model = os.environ.get("LLM_MODEL", "qwen2.5:32b")
+                    _rd_model = _llm_config["model"]
                     _rsig, _reld_info = run_reldecomp(
                         event=str(event), industry=str(industry_code),
                         evidence="", model=_rd_model)
@@ -919,11 +923,23 @@ def run_analysis(
                f"区间=[{_risk.risk_interval[0]:+.4f},{_risk.risk_interval[1]:+.4f}]")
     logger.info(_rk_msg); print(_rk_msg)
 
+    risk_by_horizon = {}
+    for _k in (1, 5, 20):
+        _risk_k = RiskHead(alpha=0.05).compute(
+            point_path=list(pred_ret_real),
+            lower_95=list(pred_lo95_real),
+            upper_95=list(pred_hi95_real),
+            dispersion=transmission.dispersion(),
+            k=_k,
+        )
+        risk_by_horizon[str(_k)] = _risk_k.to_dict()
+
     return {
         "chain":       chain.raw,
         "exog_factors": exog_factors,
         "transmission": transmission.to_dict(),   # Phase 1 张量视图（供 Phase 3/4 消费）
         "risk": _risk.to_dict(),                   # Phase 4 事件级风险目标（独立评测）
+        "risk_by_horizon": risk_by_horizon,        # 多期限事件级风险（供风控服务消费）
         "prediction": {
             "point_forecast":      pred.point_forecast.tolist(),
             "point_forecast_real": pred_ret_real.tolist(),

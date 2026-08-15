@@ -21,6 +21,8 @@ from __future__ import annotations
 import os, re, json, logging
 from typing import Tuple, Dict
 
+from agents.llm_client import chat_completion, get_llm_config
+
 logger = logging.getLogger(__name__)
 _OLLAMA = "http://localhost:11434/api/chat"
 
@@ -35,6 +37,17 @@ _STEP3_JSON = ('严格输出一行JSON：{"r_ind":"+"或"-","r_mkt":"+"或"-",'
 
 
 def _call(model, system, user, temperature=0.3, timeout=180):
+    """Single provider call used by the three-step decomposition."""
+    return chat_completion(
+        system=system,
+        user=user,
+        model=model or get_llm_config()["model"],
+        temperature=temperature,
+        timeout=timeout,
+    )
+
+
+def _call_legacy_ollama(model, system, user, temperature=0.3, timeout=180):
     import urllib.request
     payload = json.dumps({
         "model": model,

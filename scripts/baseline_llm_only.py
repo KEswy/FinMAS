@@ -33,10 +33,12 @@ if sys.platform == "win32" and hasattr(sys.stdout, "buffer"):
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR   = os.path.dirname(SCRIPT_DIR)
+sys.path.insert(0, ROOT_DIR)
 os.chdir(ROOT_DIR)
 
 import pandas as pd
 import numpy as np
+from agents.llm_client import chat_completion, get_llm_config
 
 
 # Shenwan industry code → name mapping (top sectors used in our 88-event benchmark)
@@ -51,6 +53,17 @@ INDUSTRY_NAMES = {
 
 
 def _call_llm(model: str, prompt: str, timeout: int = 90) -> str:
+    """Single provider call for the LLM-only baseline."""
+    return chat_completion(
+        system="You are a financial analyst. Reply concisely.",
+        user=prompt,
+        model=model or get_llm_config()["model"],
+        temperature=0.3,
+        timeout=timeout,
+    )
+
+
+def _call_ollama_legacy(model: str, prompt: str, timeout: int = 90) -> str:
     """Single-shot Ollama call. Returns raw text response."""
     url = "http://localhost:11434/api/chat"
     payload = json.dumps({
@@ -100,7 +113,7 @@ def main() -> int:
                         help="Retries per scenario on LLM call failure")
     args = parser.parse_args()
 
-    model = os.environ.get("LLM_MODEL", "qwen2.5:32b")
+    model = get_llm_config()["model"]
     ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     out_path = args.out or f"data/processed/baseline_llm_only_{model.replace(':','_').replace('/','_')}_{ts}.csv"
     log_path = f"data/results/baseline_llm_only_{model.replace(':','_').replace('/','_')}_{ts}.txt"

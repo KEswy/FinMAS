@@ -22,6 +22,7 @@ ROOT_DIR   = os.path.dirname(SCRIPT_DIR)
 os.chdir(ROOT_DIR)
 sys.path.insert(0, ROOT_DIR)
 
+from agents.llm_client import get_llm_config
 from scripts.calibrate_sensitivity_v2 import compute_sensitivity_v2
 
 # ── Pre-compute the v2 matrix from full car_results.csv ───────────────
@@ -58,7 +59,7 @@ class Tee:
         self.file.close()
 
 _SEED_TAG  = os.environ.get("SEED", "42")
-_MODEL_RAW = os.environ.get("LLM_MODEL", "qwen2.5:32b")
+_MODEL_RAW = get_llm_config()["model"]
 _MODEL_TAG = _MODEL_RAW.split(":")[0].replace("/", "_")  # qwen2.5 / llama3.1 / deepseek-r1
 TAG = f"v2_seed{_SEED_TAG}" if _SEED_TAG != "42" else "v2"
 TS  = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")

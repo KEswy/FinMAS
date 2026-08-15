@@ -19,9 +19,18 @@ any downstream default respects the firewall.
 
 Usage (PowerShell):
     $env:WALK_FORWARD="1"; $env:SEED="42"; python scripts/run_walk_forward.py
+
+DeepSeek V4 Flash (recommended):
+    $env:DEEPSEEK_API_KEY="sk-..."
+    $env:LLM_MODEL="deepseek-v4-flash"
+    $env:MAX_CONCURRENCY="4"
+    $env:WALK_FORWARD="1"; $env:SEED="42"; python scripts/run_walk_forward.py
 """
 from __future__ import annotations
 import os, sys, datetime
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 import numpy as np
 import pandas as pd
 
@@ -30,6 +39,8 @@ ROOT_DIR = os.path.dirname(SCRIPT_DIR)
 os.chdir(ROOT_DIR)
 sys.path.insert(0, ROOT_DIR)
 
+from agents.llm_client import get_llm_config
+
 # force firewall on for this whole run
 os.environ["WALK_FORWARD"] = "1"
 
@@ -37,16 +48,21 @@ os.environ["WALK_FORWARD"] = "1"
 class Tee:
     def __init__(self, p):
         self.terminal = sys.stdout
+        self.lock = threading.Lock()
         os.makedirs(os.path.dirname(p), exist_ok=True)
         self.file = open(p, "w", encoding="utf-8")
     def write(self, m):
-        try:
-            self.terminal.write(m)
-        except UnicodeEncodeError:
-            self.terminal.write(m.encode("ascii", "replace").decode("ascii"))
-        self.file.write(m); self.file.flush()
+        with self.lock:
+            try:
+                self.terminal.write(m)
+            except UnicodeEncodeError:
+                self.terminal.write(m.encode("ascii", "replace").decode("ascii"))
+            self.file.write(m)
+            self.file.flush()
     def flush(self):
-        self.terminal.flush(); self.file.flush()
+        with self.lock:
+            self.terminal.flush()
+            self.file.flush()
     def isatty(self):
         return self.terminal.isatty()
     def close(self):
@@ -54,8 +70,12 @@ class Tee:
 
 
 _SEED_TAG = os.environ.get("SEED", "42")
-_MODEL_RAW = os.environ.get("LLM_MODEL", "qwen2.5:32b")
+_LLM_CONFIG = get_llm_config()
+_LLM_PROVIDER = _LLM_CONFIG["provider"]
+_MODEL_RAW = _LLM_CONFIG["model"]
 _MODEL_TAG = _MODEL_RAW.split(":")[0].replace("/", "_")
+_DEFAULT_WORKERS = 4 if _LLM_PROVIDER == "deepseek" else 1
+MAX_WORKERS = max(1, int(os.environ.get("MAX_CONCURRENCY", str(_DEFAULT_WORKERS))))
 # RUN_TAG 区分消融配置（如 base / irf / fund / all），避免四跑 CSV 只靠时间戳
 _RUN_TAG = os.environ.get("RUN_TAG", "")
 _seed_part = f"_seed{_SEED_TAG}" if _SEED_TAG != "42" else ""
@@ -67,7 +87,7 @@ tee = Tee(log_path); sys.stdout = tee
 
 print(f"[walk-forward] log: {log_path}")
 print(f"运行时间: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-print(f"模型: {_MODEL_RAW}  SEED={_SEED_TAG}")
+print(f"模型: {_MODEL_RAW}  提供方: {_LLM_PROVIDER}  并发: {MAX_WORKERS}  SEED={_SEED_TAG}")
 print(f"WALK_FORWARD=1  (L1 时间隔离先验 / L2 无标签 / L3-5 RAG pub_date<t)")
 print("=" * 60)
 
@@ -96,17 +116,32 @@ if RESUME_FROM and os.path.exists(RESUME_FROM):
     print(f"[续跑] 载入 {len(done_keys)} 个已完成场景，待跑 {len(targets)-len(done_keys)}\n")
 
 success = failed = 0
-for idx, row in targets.iterrows():
+results_lock = threading.Lock()
+
+
+def _save_results():
+    if not results:
+        return
+    with results_lock:
+        frame = pd.DataFrame(results)
+        if "_order" in frame.columns:
+            frame = frame.sort_values("_order").drop(columns=["_order"])
+        frame.to_csv(out_path, index=False, encoding="utf-8-sig")
+
+
+def _process_one(task):
+    idx, row = task
     event_date = str(row["event_date"])[:10]
     industry_code = str(row["industry_code"])
+    key = (event_date, industry_code)
+    if key in done_keys:
+        return None
+
     event_name = row["event_name"]
     real_car = float(row["CAR"])
     real_dir = "+" if real_car >= 0 else "-"
-
-    if (event_date, industry_code) in done_keys:
-        continue
-
     print(f"\n[{idx+1}/{len(targets)}] {event_date} | {industry_code} | {event_name[:40]}")
+
     try:
         r = _main.run_analysis(
             event=event_name,
@@ -130,8 +165,20 @@ for idx, row in targets.iterrows():
         dis = r.get("disagreement", {}) or {}
         rk = r.get("risk", {}) or {}     # Phase 4 事件级风险
         rk_iv = rk.get("risk_interval", [0.0, 0.0])
+        risk_by_horizon = r.get("risk_by_horizon", {}) or {}
+        horizon_risk_fields = {}
+        for _k in (1, 5, 20):
+            _rk = risk_by_horizon.get(str(_k), {}) or {}
+            _iv = _rk.get("risk_interval", [float("nan"), float("nan")])
+            horizon_risk_fields.update({
+                f"event_VaR_T{_k}": _rk.get("event_VaR", float("nan")),
+                f"expected_MDD_T{_k}": _rk.get("expected_MDD", float("nan")),
+                f"tail_prob_T{_k}": _rk.get("tail_prob", float("nan")),
+                f"risk_lo_T{_k}": _iv[0],
+                f"risk_hi_T{_k}": _iv[1],
+            })
 
-        results.append({
+        record = {
             "event_date": event_date, "event_name": event_name[:35],
             "industry_code": industry_code, "real_CAR": real_car,
             "real_dir": real_dir, "final_dir": pred_dir, "dir_correct": correct,
@@ -150,23 +197,52 @@ for idx, row in targets.iterrows():
             "reld_r_ind": dis.get("reld_r_ind", None),
             "reld_r_mkt": dis.get("reld_r_mkt", None),
             "reld_beats_market": dis.get("reld_beats_market", None),
-            # Phase 4 风险列（供 analyze_risk.py 跨事件 VaR 回测）
             "event_VaR": rk.get("event_VaR", float("nan")),
             "expected_MDD": rk.get("expected_MDD", float("nan")),
             "tail_prob": rk.get("tail_prob", float("nan")),
             "risk_lo": rk_iv[0], "risk_hi": rk_iv[1],
             "dispersion": rk.get("dispersion", float("nan")),
+            **horizon_risk_fields,
             **kp_results,
-        })
-        success += 1
+            "_order": int(idx),
+        }
+        return {"ok": True, "record": record}
     except Exception as e:
         print(f"  ✗ 失败: {e}")
-        failed += 1
-    # incremental save so a crash mid-run is resumable
-    pd.DataFrame(results).to_csv(out_path, index=False, encoding="utf-8-sig")
+        return {"ok": False, "error": str(e)}
+
+
+tasks = [(idx, row) for idx, row in targets.iterrows()]
+if MAX_WORKERS == 1:
+    for task in tasks:
+        res = _process_one(task)
+        if res is None:
+            continue
+        if res["ok"]:
+            results.append(res["record"])
+            success += 1
+        else:
+            failed += 1
+        _save_results()
+else:
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        futures = [executor.submit(_process_one, task) for task in tasks]
+        for future in as_completed(futures):
+            res = future.result()
+            if res is None:
+                continue
+            if res["ok"]:
+                results.append(res["record"])
+                success += 1
+            else:
+                failed += 1
+            _save_results()
 
 # ── summary ─────────────────────────────────────────────
 df = pd.DataFrame(results)
+if "_order" in df.columns:
+    df = df.sort_values("_order").drop(columns=["_order"])
+_save_results()
 print("\n" + "=" * 60)
 print(f"walk-forward 完成：成功 {success} 失败 {failed} 总计 {len(targets)}")
 if len(df) > 0:

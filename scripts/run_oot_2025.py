@@ -39,6 +39,8 @@ ROOT_DIR   = os.path.dirname(SCRIPT_DIR)
 os.chdir(ROOT_DIR)
 sys.path.insert(0, ROOT_DIR)
 
+from agents.llm_client import get_llm_config
+
 from scripts.calibrate_sensitivity_v2 import compute_sensitivity_v2
 
 # ── Load CAR archive, split 2020-2024 (train) vs 2025 (test) ─────────
@@ -79,7 +81,7 @@ class Tee:
     def close(self):
         self.file.close()
 
-_MODEL_RAW = os.environ.get("LLM_MODEL", "qwen2.5:32b")
+_MODEL_RAW = get_llm_config()["model"]
 _MODEL_TAG = _MODEL_RAW.split(":")[0].replace("/", "_")
 TS = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 log_path = f"data/results/experiment_{_MODEL_TAG}_oot2025_{TS}.txt"
