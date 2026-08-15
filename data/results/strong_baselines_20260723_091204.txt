@@ -1,0 +1,34 @@
+==========================================================================
+Strong non-LLM baselines under the temporal firewall (walk-forward)
+==========================================================================
+base CSV : data/processed/all_experiment_results_qwen2.5_wf_basex96_20260723_010023.csv
+LLM CSV  : data/processed\baseline_llm_only_qwen2.5_32b_20260531_130014.csv
+
+Trained / rule baselines (expanding walk-forward, strictly pre-t):
+  B1_majority                overall=52.65%  pos= 0.00%  neg=100.00%  (n=321, +152/-169)
+  B2_type_prior              overall=53.58%  pos=35.53%  neg=69.82%  (n=321, +152/-169)
+  B3_momentum                overall=52.34%  pos=53.95%  neg=50.89%  (n=321, +152/-169)
+  B4_logistic                overall=51.71%  pos=24.34%  neg=76.33%  (n=321, +152/-169)
+  B5_lightgbm                overall=50.16%  pos=37.50%  neg=61.54%  (n=321, +152/-169)
+  B6_text                    overall=49.22%  pos=25.00%  neg=71.01%  (n=321, +152/-169)
+
+Reference systems (from logged artifacts):
+  pure-TS (Informer/KF)      overall=47.98%  pos=30.92%  neg=63.31%  (n=321, +152/-169)
+  LLM-only (direct prompt)   overall=59.52%  pos=84.15%  neg=36.05%  (n=168, +82/-86)
+
+Anchors (from keyData_v4): firewalled base 3-seed 60.52%±0.28 (maj-vote 61.31%); pos~74.4% neg 47.29%.
+
+==========================================================================
+LaTeX rows (overall / pos / neg):
+
+Majority class                   & $52.65$ & $0.00$ & $100.00$ \\
+Event-type sign prior            & $53.58$ & $35.53$ & $69.82$ \\
+Price-momentum rule              & $52.34$ & $53.95$ & $50.89$ \\
+Text classifier (TF-IDF)         & $49.22$ & $25.00$ & $71.01$ \\
+Logistic (price feats)           & $51.71$ & $24.34$ & $76.33$ \\
+LightGBM (price feats)           & $50.16$ & $37.50$ & $61.54$ \\
+Time-series only (Informer/KF)   & $47.98$ & $30.92$ & $63.31$ \\
+LLM-only (direct prompt)         & $59.52$ & $84.15$ & $36.05$ \\
+
+JSON : data/processed/strong_baselines_20260723_091204.json
+Log  : data/results/strong_baselines_20260723_091204.txt

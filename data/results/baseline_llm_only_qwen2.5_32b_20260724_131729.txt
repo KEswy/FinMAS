@@ -1,0 +1,362 @@
+========================================================================
+LLM-Only Baseline (model: qwen2.5:32b, ts: 20260724_131729)
+========================================================================
+Total events: 321
+
+[ 4/321] 2020-01-01 801780 monetary_policy      real=-(-0.0107) pred=+ ❌
+[ 5/321] 2020-01-01 801790 monetary_policy      real=-(-0.0191) pred=+ ❌
+[ 6/321] 2020-01-01 801180 monetary_policy      real=-(-0.0104) pred=+ ❌
+[13/321] 2020-02-03 801780 monetary_policy      real=-(-0.0268) pred=+ ❌
+[14/321] 2020-02-03 801790 monetary_policy      real=-(-0.0271) pred=+ ❌
+[15/321] 2020-02-03 801180 monetary_policy      real=-(-0.0266) pred=+ ❌
+[22/321] 2020-02-17 801780 monetary_policy      real=-(-0.0322) pred=+ ❌
+[23/321] 2020-02-17 801790 monetary_policy      real=+(+0.0201) pred=+ ✅
+[24/321] 2020-02-17 801180 monetary_policy      real=-(-0.0469) pred=+ ❌
+[31/321] 2020-02-20 801780 monetary_policy      real=-(-0.0122) pred=+ ❌
+[32/321] 2020-02-20 801790 monetary_policy      real=+(+0.0052) pred=+ ✅
+[33/321] 2020-02-20 801180 monetary_policy      real=-(-0.0085) pred=+ ❌
+[40/321] 2020-03-13 801780 monetary_policy      real=+(+0.0069) pred=+ ✅
+[41/321] 2020-03-13 801790 monetary_policy      real=-(-0.0086) pred=+ ❌
+[42/321] 2020-03-13 801180 monetary_policy      real=-(-0.0090) pred=+ ❌
+[49/321] 2020-03-30 801780 monetary_policy      real=-(-0.0277) pred=+ ❌
+[50/321] 2020-03-30 801790 monetary_policy      real=-(-0.0182) pred=+ ❌
+[51/321] 2020-03-30 801180 monetary_policy      real=-(-0.0162) pred=+ ❌
+[58/321] 2020-04-03 801780 monetary_policy      real=-(-0.0138) pred=+ ❌
+[59/321] 2020-04-03 801790 monetary_policy      real=-(-0.0113) pred=+ ❌
+[60/321] 2020-04-03 801180 monetary_policy      real=-(-0.0046) pred=+ ❌
+[67/321] 2020-04-15 801780 monetary_policy      real=-(-0.0116) pred=+ ❌
+[68/321] 2020-04-15 801790 monetary_policy      real=-(-0.0047) pred=+ ❌
+[69/321] 2020-04-15 801180 monetary_policy      real=-(-0.0177) pred=+ ❌
+[77/321] 2020-04-20 801780 monetary_policy      real=+(+0.0080) pred=+ ✅
+[78/321] 2020-04-20 801790 monetary_policy      real=-(-0.0220) pred=+ ❌
+[79/321] 2020-04-20 801180 monetary_policy      real=-(-0.0072) pred=+ ❌
+[80/321] 2020-04-20 801710 monetary_policy      real=+(+0.0198) pred=+ ✅
+[88/321] 2020-06-12 801790 capital_market_policy real=-(-0.0067) pred=+ ❌
+[89/321] 2020-06-12 801780 capital_market_policy real=-(-0.0327) pred=+ ❌
+[90/321] 2020-06-12 801750 capital_market_policy real=-(-0.0005) pred=+ ❌
+[97/321] 2020-08-04 801080 industry_policy      real=-(-0.0361) pred=+ ❌
+[98/321] 2020-08-04 801750 industry_policy      real=-(-0.0263) pred=+ ❌
+[99/321] 2020-08-04 801770 industry_policy      real=-(-0.0233) pred=+ ❌
+[109/321] 2020-08-17 801080 geopolitical         real=+(+0.0013) pred=- ❌
+[110/321] 2020-08-17 801880 geopolitical         real=-(-0.0024) pred=- ✅
+[111/321] 2020-08-17 801110 geopolitical         real=-(-0.0231) pred=- ✅
+[112/321] 2020-08-17 801890 geopolitical         real=+(+0.0091) pred=- ❌
+[113/321] 2020-08-17 801750 geopolitical         real=-(-0.0051) pred=- ✅
+[114/321] 2020-08-17 801770 geopolitical         real=-(-0.0107) pred=- ✅
+[125/321] 2020-09-22 801730 industry_policy      real=+(+0.0092) pred=+ ✅
+[126/321] 2020-09-22 801160 industry_policy      real=-(-0.0219) pred=- ✅
+[127/321] 2020-09-22 801050 industry_policy      real=-(-0.0440) pred=- ✅
+[128/321] 2020-09-22 801770 industry_policy      real=-(-0.0266) pred=- ✅
+[134/321] 2020-11-05 801150 industry_policy      real=-(-0.0484) pred=- ✅
+[138/321] 2020-11-10 801760 industry_policy      real=-(-0.0264) pred=- ✅
+[139/321] 2020-11-10 801750 industry_policy      real=-(-0.0332) pred=- ✅
+[148/321] 2020-12-18 801080 geopolitical         real=+(+0.0045) pred=- ❌
+[149/321] 2020-12-18 801880 geopolitical         real=+(+0.0109) pred=- ❌
+[150/321] 2020-12-18 801110 geopolitical         real=+(+0.0053) pred=- ❌
+[151/321] 2020-12-18 801890 geopolitical         real=+(+0.0028) pred=- ❌
+[152/321] 2020-12-18 801750 geopolitical         real=-(-0.0563) pred=- ✅
+[153/321] 2020-12-18 801770 geopolitical         real=-(-0.0513) pred=- ✅
+[163/321] 2020-12-31 801790 capital_market_policy real=-(-0.0407) pred=- ✅
+[164/321] 2020-12-31 801780 capital_market_policy real=-(-0.0541) pred=- ✅
+[165/321] 2020-12-31 801750 capital_market_policy real=-(-0.0597) pred=- ✅
+[171/321] 2021-02-07 801760 industry_policy      real=+(+0.0261) pred=- ❌
+[172/321] 2021-02-07 801750 industry_policy      real=+(+0.0490) pred=- ❌
+[177/321] 2021-04-10 801760 industry_policy      real=+(+0.0019) pred=- ❌
+[178/321] 2021-04-10 801750 industry_policy      real=+(+0.0252) pred=- ❌
+[182/321] 2021-06-23 801150 industry_policy      real=-(-0.0041) pred=- ✅
+[187/321] 2021-07-09 801780 monetary_policy      real=-(-0.0142) pred=+ ❌
+[188/321] 2021-07-09 801790 monetary_policy      real=+(+0.0046) pred=+ ✅
+[189/321] 2021-07-09 801180 monetary_policy      real=-(-0.0194) pred=+ ❌
+[194/321] 2021-07-26 801760 industry_policy      real=-(-0.0169) pred=- ✅
+[199/321] 2021-09-02 801790 capital_market_policy real=+(+0.0186) pred=+ ✅
+[200/321] 2021-09-02 801780 capital_market_policy real=+(+0.0032) pred=- ❌
+[201/321] 2021-09-02 801750 capital_market_policy real=+(+0.0024) pred=+ ✅
+[207/321] 2021-10-08 801760 industry_policy      real=+(+0.0197) pred=- ❌
+[208/321] 2021-10-08 801750 industry_policy      real=+(+0.0174) pred=- ❌
+[212/321] 2021-11-26 801150 industry_policy      real=-(-0.0184) pred=- ✅
+[215/321] 2021-12-03 801150 industry_policy      real=-(-0.0255) pred=- ✅
+[220/321] 2021-12-06 801780 monetary_policy      real=-(-0.0221) pred=+ ❌
+[221/321] 2021-12-06 801790 monetary_policy      real=+(+0.0050) pred=+ ✅
+[222/321] 2021-12-06 801180 monetary_policy      real=-(-0.0225) pred=+ ❌
+[228/321] 2021-12-20 801780 monetary_policy      real=-(-0.0064) pred=+ ❌
+[229/321] 2021-12-20 801790 monetary_policy      real=-(-0.0079) pred=+ ❌
+[235/321] 2022-01-17 801780 monetary_policy      real=+(+0.0293) pred=+ ✅
+[236/321] 2022-01-17 801790 monetary_policy      real=+(+0.0063) pred=+ ✅
+[237/321] 2022-01-17 801180 monetary_policy      real=+(+0.0181) pred=+ ✅
+[245/321] 2022-01-20 801780 monetary_policy      real=+(+0.0294) pred=+ ✅
+[246/321] 2022-01-20 801790 monetary_policy      real=+(+0.0032) pred=+ ✅
+[247/321] 2022-01-20 801180 monetary_policy      real=-(-0.0206) pred=+ ❌
+[248/321] 2022-01-20 801710 monetary_policy      real=-(-0.0407) pred=+ ❌
+[256/321] 2022-01-24 801780 monetary_policy      real=+(+0.0247) pred=+ ✅
+[257/321] 2022-01-24 801790 monetary_policy      real=-(-0.0016) pred=+ ❌
+[258/321] 2022-01-24 801180 monetary_policy      real=+(+0.0043) pred=+ ✅
+[265/321] 2022-04-15 801780 monetary_policy      real=+(+0.0251) pred=+ ✅
+[266/321] 2022-04-15 801790 monetary_policy      real=+(+0.0048) pred=+ ✅
+[267/321] 2022-04-15 801180 monetary_policy      real=-(-0.0116) pred=+ ❌
+[274/321] 2022-04-25 801780 monetary_policy      real=-(-0.0330) pred=+ ❌
+[275/321] 2022-04-25 801790 monetary_policy      real=-(-0.0453) pred=+ ❌
+[276/321] 2022-04-25 801180 monetary_policy      real=-(-0.0389) pred=- ✅
+[282/321] 2022-05-20 801180 monetary_policy      real=-(-0.0465) pred=+ ❌
+[283/321] 2022-05-20 801710 monetary_policy      real=-(-0.0039) pred=+ ❌
+[289/321] 2022-08-15 801780 monetary_policy      real=-(-0.0086) pred=+ ❌
+[290/321] 2022-08-15 801790 monetary_policy      real=-(-0.0067) pred=+ ❌
+[291/321] 2022-08-15 801180 monetary_policy      real=+(+0.0394) pred=+ ✅
+[299/321] 2022-08-22 801780 monetary_policy      real=+(+0.0051) pred=+ ✅
+[300/321] 2022-08-22 801790 monetary_policy      real=+(+0.0174) pred=+ ✅
+[301/321] 2022-08-22 801180 monetary_policy      real=-(-0.0130) pred=+ ❌
+[302/321] 2022-08-22 801710 monetary_policy      real=-(-0.0297) pred=+ ❌
+[310/321] 2022-09-05 801780 monetary_policy      real=+(+0.0031) pred=+ ✅
+[311/321] 2022-09-05 801790 monetary_policy      real=+(+0.0052) pred=+ ✅
+[312/321] 2022-09-05 801180 monetary_policy      real=+(+0.0318) pred=- ❌
+[323/321] 2022-10-07 801080 geopolitical         real=+(+0.0327) pred=- ❌
+[324/321] 2022-10-07 801880 geopolitical         real=+(+0.0291) pred=- ❌
+[325/321] 2022-10-07 801110 geopolitical         real=-(-0.0192) pred=- ✅
+[326/321] 2022-10-07 801890 geopolitical         real=+(+0.0741) pred=- ❌
+[327/321] 2022-10-07 801750 geopolitical         real=+(+0.0802) pred=- ❌
+[328/321] 2022-10-07 801770 geopolitical         real=+(+0.0517) pred=- ❌
+[329/321] 2022-10-07 801030 geopolitical         real=+(+0.0320) pred=- ❌
+[341/321] 2022-11-25 801780 monetary_policy      real=+(+0.0035) pred=+ ✅
+[342/321] 2022-11-25 801790 monetary_policy      real=+(+0.0125) pred=+ ✅
+[343/321] 2022-11-25 801180 monetary_policy      real=+(+0.0526) pred=+ ✅
+[344/321] 2022-11-25 801710 monetary_policy      real=+(+0.0039) pred=+ ✅
+[352/321] 2022-11-28 801180 industry_policy      real=-(-0.0006) pred=+ ❌
+[353/321] 2022-11-28 801780 industry_policy      real=-(-0.0064) pred=+ ❌
+[354/321] 2022-11-28 801710 industry_policy      real=+(+0.0029) pred=+ ✅
+[361/321] 2023-02-01 801790 capital_market_policy real=-(-0.0088) pred=+ ❌
+[362/321] 2023-02-01 801780 capital_market_policy real=-(-0.0094) pred=+ ❌
+[363/321] 2023-02-01 801750 capital_market_policy real=+(+0.0593) pred=+ ✅
+[370/321] 2023-02-17 801790 capital_market_policy real=+(+0.0088) pred=+ ✅
+[371/321] 2023-02-17 801780 capital_market_policy real=+(+0.0124) pred=+ ✅
+[372/321] 2023-02-17 801750 capital_market_policy real=-(-0.0117) pred=+ ❌
+[379/321] 2023-03-17 801780 monetary_policy      real=-(-0.0235) pred=+ ❌
+[380/321] 2023-03-17 801790 monetary_policy      real=+(+0.0009) pred=+ ✅
+[381/321] 2023-03-17 801180 monetary_policy      real=-(-0.0116) pred=+ ❌
+[388/321] 2023-05-21 801080 geopolitical         real=+(+0.0314) pred=- ❌
+[389/321] 2023-05-21 801750 geopolitical         real=+(+0.0145) pred=- ❌
+[390/321] 2023-05-21 801770 geopolitical         real=+(+0.0456) pred=- ❌
+[397/321] 2023-06-13 801780 monetary_policy      real=-(-0.0549) pred=+ ❌
+[398/321] 2023-06-13 801790 monetary_policy      real=-(-0.0298) pred=+ ❌
+[399/321] 2023-06-13 801180 monetary_policy      real=-(-0.0537) pred=+ ❌
+[406/321] 2023-06-15 801780 monetary_policy      real=-(-0.0257) pred=+ ❌
+[407/321] 2023-06-15 801790 monetary_policy      real=-(-0.0286) pred=+ ❌
+[408/321] 2023-06-15 801180 monetary_policy      real=-(-0.0401) pred=+ ❌
+[416/321] 2023-06-20 801780 monetary_policy      real=+(+0.0062) pred=+ ✅
+[417/321] 2023-06-20 801790 monetary_policy      real=-(-0.0097) pred=+ ❌
+[418/321] 2023-06-20 801180 monetary_policy      real=-(-0.0002) pred=+ ❌
+[419/321] 2023-06-20 801710 monetary_policy      real=-(-0.0100) pred=+ ❌
+[428/321] 2023-06-21 801730 industry_policy      real=+(+0.0385) pred=+ ✅
+[429/321] 2023-06-21 801160 industry_policy      real=+(+0.0471) pred=- ❌
+[430/321] 2023-06-21 801880 industry_policy      real=+(+0.0323) pred=+ ✅
+[431/321] 2023-06-21 801050 industry_policy      real=+(+0.0119) pred=+ ✅
+[442/321] 2023-07-03 801080 geopolitical         real=+(+0.0012) pred=- ❌
+[443/321] 2023-07-03 801880 geopolitical         real=+(+0.0190) pred=- ❌
+[444/321] 2023-07-03 801110 geopolitical         real=-(-0.0266) pred=- ✅
+[445/321] 2023-07-03 801890 geopolitical         real=-(-0.0156) pred=+ ❌
+[446/321] 2023-07-03 801050 geopolitical         real=+(+0.0224) pred=+ ✅
+[447/321] 2023-07-03 801030 geopolitical         real=+(+0.0048) pred=+ ✅
+[457/321] 2023-07-21 801180 industry_policy      real=+(+0.0712) pred=+ ✅
+[458/321] 2023-07-21 801710 industry_policy      real=+(+0.0247) pred=+ ✅
+[459/321] 2023-07-21 801780 industry_policy      real=+(+0.0179) pred=- ❌
+[467/321] 2023-07-24 801790 capital_market_policy real=+(+0.0723) pred=+ ✅
+[468/321] 2023-07-24 801780 capital_market_policy real=+(+0.0214) pred=+ ✅
+[469/321] 2023-07-24 801750 capital_market_policy real=-(-0.0241) pred=+ ❌
+[470/321] 2023-07-24 801760 capital_market_policy real=-(-0.0538) pred=+ ❌
+[478/321] 2023-08-09 801080 geopolitical         real=-(-0.0315) pred=- ✅
+[479/321] 2023-08-09 801750 geopolitical         real=-(-0.0148) pred=- ✅
+[480/321] 2023-08-09 801770 geopolitical         real=-(-0.0160) pred=- ✅
+[488/321] 2023-08-15 801780 monetary_policy      real=+(+0.0253) pred=+ ✅
+[489/321] 2023-08-15 801790 monetary_policy      real=+(+0.0060) pred=+ ✅
+[490/321] 2023-08-15 801180 monetary_policy      real=+(+0.0039) pred=+ ✅
+[491/321] 2023-08-15 801710 monetary_policy      real=+(+0.0213) pred=+ ✅
+[498/321] 2023-08-21 801780 monetary_policy      real=+(+0.0200) pred=+ ✅
+[499/321] 2023-08-21 801790 monetary_policy      real=+(+0.0064) pred=+ ✅
+[505/321] 2023-08-25 801180 industry_policy      real=+(+0.0116) pred=+ ✅
+[506/321] 2023-08-25 801710 industry_policy      real=+(+0.0218) pred=+ ✅
+[507/321] 2023-08-25 801780 industry_policy      real=-(-0.0132) pred=+ ❌
+[513/321] 2023-08-27 801790 capital_market_policy real=-(-0.0243) pred=+ ❌
+[514/321] 2023-08-27 801780 capital_market_policy real=-(-0.0210) pred=+ ❌
+[520/321] 2023-09-01 801790 capital_market_policy real=+(+0.0127) pred=- ❌
+[521/321] 2023-09-01 801780 capital_market_policy real=+(+0.0120) pred=- ❌
+[522/321] 2023-09-01 801750 capital_market_policy real=-(-0.0105) pred=- ✅
+[529/321] 2023-09-15 801780 monetary_policy      real=+(+0.0087) pred=+ ✅
+[530/321] 2023-09-15 801790 monetary_policy      real=+(+0.0138) pred=+ ✅
+[531/321] 2023-09-15 801180 monetary_policy      real=-(-0.0037) pred=+ ❌
+[537/321] 2023-10-07 801030 geopolitical         real=-(-0.0003) pred=- ✅
+[538/321] 2023-10-07 801040 geopolitical         real=+(+0.0039) pred=- ❌
+[548/321] 2023-10-17 801080 geopolitical         real=-(-0.0028) pred=- ✅
+[549/321] 2023-10-17 801880 geopolitical         real=-(-0.0037) pred=- ✅
+[550/321] 2023-10-17 801110 geopolitical         real=+(+0.0075) pred=- ❌
+[551/321] 2023-10-17 801890 geopolitical         real=-(-0.0142) pred=- ✅
+[552/321] 2023-10-17 801750 geopolitical         real=-(-0.0330) pred=- ✅
+[553/321] 2023-10-17 801770 geopolitical         real=-(-0.0453) pred=- ✅
+[554/321] 2023-10-17 801030 geopolitical         real=+(+0.0017) pred=- ❌
+[568/321] 2023-10-20 801080 geopolitical         real=-(-0.0102) pred=- ✅
+[569/321] 2023-10-20 801880 geopolitical         real=+(+0.0248) pred=- ❌
+[570/321] 2023-10-20 801110 geopolitical         real=-(-0.0025) pred=- ✅
+[571/321] 2023-10-20 801890 geopolitical         real=+(+0.0016) pred=- ❌
+[572/321] 2023-10-20 801050 geopolitical         real=+(+0.0121) pred=- ❌
+[573/321] 2023-10-20 801030 geopolitical         real=+(+0.0166) pred=- ❌
+[583/321] 2023-10-31 801780 industry_policy      real=-(-0.0056) pred=+ ❌
+[584/321] 2023-10-31 801790 industry_policy      real=+(+0.0226) pred=+ ✅
+[585/321] 2023-10-31 801180 industry_policy      real=+(+0.0049) pred=+ ✅
+[593/321] 2024-01-24 801780 monetary_policy      real=+(+0.0521) pred=+ ✅
+[594/321] 2024-01-24 801790 monetary_policy      real=+(+0.0295) pred=+ ✅
+[595/321] 2024-01-24 801180 monetary_policy      real=+(+0.0308) pred=+ ✅
+[596/321] 2024-01-24 801710 monetary_policy      real=+(+0.0075) pred=+ ✅
+[605/321] 2024-02-05 801790 market_event         real=-(-0.0126) pred=- ✅
+[606/321] 2024-02-05 801780 market_event         real=-(-0.0341) pred=- ✅
+[607/321] 2024-02-05 801750 market_event         real=+(+0.0342) pred=- ❌
+[608/321] 2024-02-05 801080 market_event         real=+(+0.0391) pred=- ❌
+[615/321] 2024-02-07 801790 capital_market_policy real=-(-0.0034) pred=- ✅
+[616/321] 2024-02-07 801780 capital_market_policy real=-(-0.0101) pred=- ✅
+[622/321] 2024-02-20 801180 monetary_policy      real=+(+0.0247) pred=+ ✅
+[623/321] 2024-02-20 801710 monetary_policy      real=+(+0.0143) pred=+ ✅
+[624/321] 2024-02-20 801780 monetary_policy      real=-(-0.0109) pred=+ ❌
+[632/321] 2024-03-13 801890 industry_policy      real=+(+0.0201) pred=+ ✅
+[633/321] 2024-03-13 801040 industry_policy      real=+(+0.0171) pred=+ ✅
+[634/321] 2024-03-13 801030 industry_policy      real=+(+0.0220) pred=+ ✅
+[635/321] 2024-03-13 801880 industry_policy      real=+(+0.0424) pred=+ ✅
+[642/321] 2024-04-12 801790 capital_market_policy real=-(-0.0031) pred=+ ❌
+[643/321] 2024-04-12 801780 capital_market_policy real=+(+0.0284) pred=+ ✅
+[649/321] 2024-05-14 801880 geopolitical         real=-(-0.0182) pred=- ✅
+[650/321] 2024-05-14 801730 geopolitical         real=-(-0.0245) pred=- ✅
+[651/321] 2024-05-14 801080 geopolitical         real=+(+0.0090) pred=- ❌
+[658/321] 2024-05-17 801180 industry_policy      real=+(+0.0279) pred=+ ✅
+[659/321] 2024-05-17 801710 industry_policy      real=-(-0.0104) pred=+ ❌
+[660/321] 2024-05-17 801780 industry_policy      real=+(+0.0152) pred=+ ✅
+[667/321] 2024-05-24 801790 capital_market_policy real=-(-0.0059) pred=- ✅
+[668/321] 2024-05-24 801780 capital_market_policy real=+(+0.0023) pred=- ❌
+[669/321] 2024-05-24 801750 capital_market_policy real=-(-0.0013) pred=- ✅
+[675/321] 2024-06-19 801790 capital_market_policy real=-(-0.0091) pred=+ ❌
+[676/321] 2024-06-19 801780 capital_market_policy real=+(+0.0282) pred=+ ✅
+[682/321] 2024-07-10 801790 capital_market_policy real=+(+0.0065) pred=+ ✅
+[683/321] 2024-07-10 801780 capital_market_policy real=-(-0.0116) pred=+ ❌
+[684/321] 2024-07-10 801750 capital_market_policy real=-(-0.0166) pred=+ ❌
+[692/321] 2024-07-22 801780 monetary_policy      real=+(+0.0232) pred=+ ✅
+[693/321] 2024-07-22 801790 monetary_policy      real=+(+0.0258) pred=+ ✅
+[694/321] 2024-07-22 801180 monetary_policy      real=+(+0.0020) pred=+ ✅
+[695/321] 2024-07-22 801710 monetary_policy      real=+(+0.0126) pred=+ ✅
+[704/321] 2024-08-05 801080 market_event         real=-(-0.0277) pred=- ✅
+[705/321] 2024-08-05 801750 market_event         real=-(-0.0422) pred=- ✅
+[706/321] 2024-08-05 801790 market_event         real=-(-0.0075) pred=- ✅
+[707/321] 2024-08-05 801770 market_event         real=-(-0.0295) pred=- ✅
+[718/321] 2024-08-15 801080 geopolitical         real=-(-0.0205) pred=- ✅
+[719/321] 2024-08-15 801880 geopolitical         real=-(-0.0176) pred=- ✅
+[720/321] 2024-08-15 801110 geopolitical         real=+(+0.0129) pred=- ❌
+[721/321] 2024-08-15 801890 geopolitical         real=-(-0.0180) pred=- ✅
+[722/321] 2024-08-15 801050 geopolitical         real=+(+0.0085) pred=- ❌
+[723/321] 2024-08-15 801030 geopolitical         real=-(-0.0294) pred=- ✅
+[734/321] 2024-09-09 801080 capital_market_policy real=-(-0.0146) pred=+ ❌
+[735/321] 2024-09-09 801750 capital_market_policy real=+(+0.0111) pred=+ ✅
+[736/321] 2024-09-09 801770 capital_market_policy real=+(+0.0354) pred=+ ✅
+[737/321] 2024-09-09 801790 capital_market_policy real=+(+0.0191) pred=+ ✅
+[746/321] 2024-09-24 801780 monetary_policy      real=-(-0.1472) pred=+ ❌
+[747/321] 2024-09-24 801790 monetary_policy      real=+(+0.1658) pred=+ ✅
+[748/321] 2024-09-24 801180 monetary_policy      real=+(+0.0173) pred=+ ✅
+[749/321] 2024-09-24 801750 monetary_policy      real=+(+0.1723) pred=+ ✅
+[757/321] 2024-09-26 801180 capital_market_policy real=-(-0.0173) pred=+ ❌
+[758/321] 2024-09-26 801710 capital_market_policy real=-(-0.0100) pred=+ ❌
+[759/321] 2024-09-26 801780 capital_market_policy real=-(-0.0956) pred=+ ❌
+[767/321] 2024-09-27 801080 capital_market_policy real=+(+0.1035) pred=+ ✅
+[768/321] 2024-09-27 801750 capital_market_policy real=+(+0.1060) pred=+ ✅
+[769/321] 2024-09-27 801790 capital_market_policy real=+(+0.0767) pred=+ ✅
+[770/321] 2024-09-27 801030 capital_market_policy real=-(-0.0252) pred=+ ❌
+[780/321] 2024-10-21 801780 monetary_policy      real=-(-0.0349) pred=+ ❌
+[781/321] 2024-10-21 801790 monetary_policy      real=-(-0.0106) pred=+ ❌
+[782/321] 2024-10-21 801180 monetary_policy      real=+(+0.0555) pred=+ ✅
+[783/321] 2024-10-21 801710 monetary_policy      real=+(+0.0680) pred=+ ✅
+[784/321] 2024-10-21 801750 monetary_policy      real=+(+0.0091) pred=+ ✅
+[792/321] 2024-10-29 801880 geopolitical         real=+(+0.0212) pred=- ❌
+[793/321] 2024-10-29 801730 geopolitical         real=+(+0.0006) pred=- ❌
+[799/321] 2024-11-08 801780 industry_policy      real=+(+0.0090) pred=+ ✅
+[800/321] 2024-11-08 801710 industry_policy      real=-(-0.0326) pred=+ ❌
+[801/321] 2024-11-08 801180 industry_policy      real=-(-0.0765) pred=+ ❌
+[807/321] 2024-12-02 801080 geopolitical         real=-(-0.0072) pred=- ✅
+[808/321] 2024-12-02 801770 geopolitical         real=-(-0.0039) pred=- ✅
+[817/321] 2024-12-03 801080 geopolitical         real=-(-0.0119) pred=- ✅
+[818/321] 2024-12-03 801880 geopolitical         real=+(+0.0071) pred=- ❌
+[819/321] 2024-12-03 801110 geopolitical         real=+(+0.0214) pred=- ❌
+[820/321] 2024-12-03 801890 geopolitical         real=+(+0.0270) pred=- ❌
+[821/321] 2024-12-03 801050 geopolitical         real=-(-0.0025) pred=- ✅
+[822/321] 2024-12-03 801030 geopolitical         real=-(-0.0042) pred=- ✅
+[833/321] 2024-12-09 801780 industry_policy      real=+(+0.0194) pred=+ ✅
+[834/321] 2024-12-09 801790 industry_policy      real=-(-0.0213) pred=+ ❌
+[835/321] 2024-12-09 801180 industry_policy      real=-(-0.0141) pred=+ ❌
+[836/321] 2024-12-09 801710 industry_policy      real=+(+0.0053) pred=+ ✅
+[846/321] 2024-12-12 801780 industry_policy      real=+(+0.0127) pred=+ ✅
+[847/321] 2024-12-12 801790 industry_policy      real=-(-0.0258) pred=+ ❌
+[848/321] 2024-12-12 801180 industry_policy      real=-(-0.0580) pred=+ ❌
+[849/321] 2024-12-12 801710 industry_policy      real=-(-0.0370) pred=+ ❌
+[850/321] 2024-12-12 801880 industry_policy      real=-(-0.0120) pred=+ ❌
+[859/321] 2025-01-13 801080 geopolitical         real=+(+0.0249) pred=- ❌
+[860/321] 2025-01-13 801750 geopolitical         real=+(+0.0401) pred=- ❌
+[861/321] 2025-01-13 801770 geopolitical         real=+(+0.0472) pred=- ❌
+[868/321] 2025-01-15 801080 geopolitical         real=+(+0.0324) pred=- ❌
+[869/321] 2025-01-15 801770 geopolitical         real=+(+0.0694) pred=- ❌
+[870/321] 2025-01-15 801750 geopolitical         real=+(+0.0036) pred=- ❌
+[878/321] 2025-01-27 801080 industry_policy      real=+(+0.0218) pred=+ ✅
+[879/321] 2025-01-27 801750 industry_policy      real=+(+0.1368) pred=+ ✅
+[880/321] 2025-01-27 801770 industry_policy      real=-(-0.0025) pred=+ ❌
+[881/321] 2025-01-27 801760 industry_policy      real=+(+0.1029) pred=+ ✅
+[889/321] 2025-03-05 801780 industry_policy      real=-(-0.0021) pred=- ✅
+[890/321] 2025-03-05 801790 industry_policy      real=+(+0.0016) pred=- ❌
+[891/321] 2025-03-05 801180 industry_policy      real=-(-0.0273) pred=- ✅
+[901/321] 2025-04-02 801080 geopolitical         real=-(-0.0577) pred=- ✅
+[902/321] 2025-04-02 801110 geopolitical         real=-(-0.0346) pred=- ✅
+[903/321] 2025-04-02 801880 geopolitical         real=-(-0.0536) pred=- ✅
+[904/321] 2025-04-02 801030 geopolitical         real=-(-0.0267) pred=- ✅
+[905/321] 2025-04-02 801050 geopolitical         real=-(-0.0335) pred=- ✅
+[906/321] 2025-04-02 801890 geopolitical         real=-(-0.0541) pred=- ✅
+[917/321] 2025-04-04 801010 geopolitical         real=+(+0.0675) pred=- ❌
+[918/321] 2025-04-04 801030 geopolitical         real=-(-0.0136) pred=- ✅
+[919/321] 2025-04-04 801050 geopolitical         real=+(+0.0063) pred=- ❌
+[920/321] 2025-04-04 801080 geopolitical         real=-(-0.0055) pred=- ✅
+[930/321] 2025-04-07 801080 market_event         real=-(-0.0055) pred=- ✅
+[931/321] 2025-04-07 801790 market_event         real=-(-0.0218) pred=- ✅
+[932/321] 2025-04-07 801750 market_event         real=-(-0.0225) pred=- ✅
+[933/321] 2025-04-07 801730 market_event         real=-(-0.0471) pred=- ✅
+[934/321] 2025-04-07 801880 market_event         real=-(-0.0117) pred=- ✅
+[944/321] 2025-05-07 801780 monetary_policy      real=+(+0.0310) pred=+ ✅
+[945/321] 2025-05-07 801790 monetary_policy      real=+(+0.0247) pred=+ ✅
+[946/321] 2025-05-07 801180 monetary_policy      real=-(-0.0333) pred=+ ❌
+[947/321] 2025-05-07 801710 monetary_policy      real=-(-0.0226) pred=+ ❌
+[956/321] 2025-05-20 801780 monetary_policy      real=+(+0.0168) pred=+ ✅
+[957/321] 2025-05-20 801790 monetary_policy      real=-(-0.0075) pred=+ ❌
+[958/321] 2025-05-20 801180 monetary_policy      real=-(-0.0138) pred=+ ❌
+[959/321] 2025-05-20 801710 monetary_policy      real=-(-0.0106) pred=+ ❌
+
+========================================================================
+LLM-Only Baseline Summary
+========================================================================
+CAR sign accuracy: 51.71% (166/321)
+
+By event type:
+                      accuracy    n
+event_type                         
+capital_market_policy   51.06%   47
+geopolitical            49.38%   81
+industry_policy         58.06%   62
+market_event            84.62%   13
+monetary_policy         46.61%  118
+
+By industry (n >= 3):
+              accuracy   n
+industry_code             
+801780          49.15%  59
+801790          55.36%  56
+801180          36.36%  44
+801750          56.67%  30
+801080          52.17%  23
+801710          52.38%  21
+801880          53.33%  15
+801770          57.14%  14
+801030          63.64%  11
+801890          40.00%  10
+801110          55.56%   9
+801050          62.50%   8
+801760          42.86%   7
+801730          80.00%   5
+801150         100.00%   4
+
+CSV: data/processed/baseline_llm_only_qwen2.5_32b_20260724_131729.csv
+Log: data/results/baseline_llm_only_qwen2.5_32b_20260724_131729.txt

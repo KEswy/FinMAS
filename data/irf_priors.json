@@ -1,0 +1,349 @@
+{
+  "_meta": {
+    "source": "irf-prior-build workflow (propose + adversarial verify)",
+    "semantics": "direction/strength = industry response sign & signed prior to the canonical shock of each event_type, from transmission economics; strength shrunk under theory/data conflict or thin n. Historical CAR used only to calibrate strength. Prediction-time use must still respect the temporal firewall.",
+    "n_event_types": 5,
+    "n_cells": 47
+  },
+  "priors": {
+    "market_event": {
+      "801080": {
+        "industry_name": "电子",
+        "direction": -1,
+        "strength": -0.2,
+        "reason": "Electronics: high-beta growth + foreign-outflow channel says neg, but n=3 mean_CAR +0.002 (P_pos .33) conflicts -> shrink.",
+        "verified_agree": true
+      },
+      "801750": {
+        "industry_name": "计算机",
+        "direction": -1,
+        "strength": -0.35,
+        "reason": "Computer: growth-duration/risk-premium repricing neg; n=3 data agrees (mean -0.010), modest strength as n<5.",
+        "verified_agree": true
+      },
+      "801790": {
+        "industry_name": "非银金融",
+        "direction": -1,
+        "strength": -0.5,
+        "reason": "Non-bank financials: direct market-beta (brokerage/insurance) channel; n=3 P_pos=0 mean -0.014 confirms. Capped, n<5.",
+        "verified_agree": true
+      },
+      "801730": {
+        "industry_name": "电气设备",
+        "direction": -1,
+        "strength": -0.3,
+        "reason": "Power equipment: cyclical capex + new-energy high-beta neg; n=1 datum ignored, modest theory strength.",
+        "verified_agree": true
+      },
+      "801770": {
+        "industry_name": "通信",
+        "direction": -1,
+        "strength": -0.22,
+        "reason": "Communications: mixed defensive telco vs cyclical equipment -> mild neg; n=1 ignored, low strength.",
+        "verified_agree": true
+      },
+      "801780": {
+        "industry_name": "银行",
+        "direction": -1,
+        "strength": -0.15,
+        "reason": "Banks: defensive low-beta safe-haven, only mildly neg in absolute crash; n=1 ignored, lowest conviction.",
+        "verified_agree": true
+      },
+      "801880": {
+        "industry_name": "汽车",
+        "direction": -1,
+        "strength": -0.3,
+        "reason": "Autos: cyclical consumer-discretionary + EV high-beta neg; n=1 datum ignored, modest theory strength.",
+        "verified_agree": true
+      }
+    },
+    "monetary_policy": {
+      "801780": {
+        "industry_name": "银行",
+        "direction": 1,
+        "strength": 0.1,
+        "reason": "NIM-compression offsets liquidity/valuation gains; P_pos=0.65 but mean_CAR~0 (n=20) signals priced-in, near-neutral. Weak positive.",
+        "verified_agree": true
+      },
+      "801180": {
+        "industry_name": "房地产",
+        "direction": 1,
+        "strength": 0.1,
+        "reason": "Rate channel says strong+, but P_pos=0.368/flat CAR (n=19) sharply conflict: property-crisis regime, priced-in. Sign kept, strength gutted.",
+        "verified_agree": false
+      },
+      "801790": {
+        "industry_name": "非银金融",
+        "direction": 1,
+        "strength": 0.6,
+        "reason": "Broker valuation/trading-volume channel; theory+data align strongly (P_pos=0.737, CAR+1.39%, n=19). High conviction.",
+        "verified_agree": true
+      },
+      "801710": {
+        "industry_name": "建筑材料",
+        "direction": 1,
+        "strength": 0.25,
+        "reason": "Credit-FAI-construction demand channel, lagged/second-order; P_pos=0.538, CAR+0.23% (n=13) weakly confirm. Moderate.",
+        "verified_agree": true
+      },
+      "801750": {
+        "industry_name": "计算机",
+        "direction": 1,
+        "strength": 0.25,
+        "reason": "Discount-rate/duration channel favors long-duration growth; n=2 datum (P_pos=1) ignored per rule; theory-only modest strength.",
+        "verified_agree": true
+      }
+    },
+    "geopolitical": {
+      "801080": {
+        "industry_name": "电子",
+        "direction": -1,
+        "strength": -0.2,
+        "reason": "Export controls hit chips directly; domestic substitution offsets. n=5 mean-0.0058 mildly negative, agrees theory. Two-sided nature caps strength.",
+        "verified_agree": true
+      },
+      "801030": {
+        "industry_name": "化工",
+        "direction": -1,
+        "strength": -0.4,
+        "reason": "Trade friction cuts chemical export demand. n=3 all-negative (P_pos=0, mean-0.0135) confirms theory; robust agreement but small-n caps conviction.",
+        "verified_agree": true
+      },
+      "801880": {
+        "industry_name": "汽车",
+        "direction": -1,
+        "strength": -0.35,
+        "reason": "EU/US tariffs on Chinese auto/EV exports negative. n=3 P_pos=0.33 mean-0.0168 agrees. Modest conviction given small sample.",
+        "verified_agree": true
+      },
+      "801050": {
+        "industry_name": "有色金属",
+        "direction": -1,
+        "strength": -0.15,
+        "reason": "Two-sided: base-metal demand fear vs gold safe-haven plus rare-earth retaliation. n=2 datum ignored; low conviction, near-zero.",
+        "verified_agree": true
+      },
+      "801730": {
+        "industry_name": "电气设备",
+        "direction": -1,
+        "strength": -0.25,
+        "reason": "Tariffs on solar/battery exports negative; domestic energy-transition support offsets. n=2 ignored; modest conviction.",
+        "verified_agree": true
+      },
+      "801770": {
+        "industry_name": "通信",
+        "direction": -1,
+        "strength": -0.12,
+        "reason": "Equipment sanctions negative but operators domestic plus strong substitution. n=2 datum positive (+0.0327) hints substitution; near coin-flip, minimal conviction.",
+        "verified_agree": true
+      },
+      "801010": {
+        "industry_name": "农林牧渔",
+        "direction": 1,
+        "strength": 0.3,
+        "reason": "Flip positive: retaliatory tariffs on US soybeans/pork lift domestic ag prices plus food-security theme. Naive negative prior wrong; n=1 +0.0675 consistent.",
+        "verified_agree": false
+      },
+      "801040": {
+        "industry_name": "钢铁",
+        "direction": -1,
+        "strength": -0.2,
+        "reason": "Steel export tariffs negative but sector mostly domestic-demand/stimulus-driven, low export share. n=1 ignored; weak conviction.",
+        "verified_agree": true
+      },
+      "801110": {
+        "industry_name": "家用电器",
+        "direction": -1,
+        "strength": -0.35,
+        "reason": "Highly export-dependent appliances (Midea/Haier/Gree); tariffs bite directly. n=1 P_pos=0 mean-0.0346 agrees. Solid theory, small-n caps strength.",
+        "verified_agree": true
+      },
+      "801750": {
+        "industry_name": "计算机",
+        "direction": 1,
+        "strength": 0.12,
+        "reason": "Two-sided: export controls hurt compute access but domestic-substitution (xinchuang) rally historically dominates software index. Low-conviction positive flip; n=1 +0.0036.",
+        "verified_agree": false
+      },
+      "801890": {
+        "industry_name": "机械设备",
+        "direction": -1,
+        "strength": -0.3,
+        "reason": "Capex/global-growth-sensitive plus high-end equipment import curbs and export exposure. n=1 mean-0.0541 agrees. Modest conviction, small sample.",
+        "verified_agree": true
+      }
+    },
+    "industry_policy": {
+      "801180": {
+        "industry_name": "房地产",
+        "direction": -1,
+        "strength": -0.4,
+        "reason": "Property-tightening regime (三道红线/房住不炒) dominates sample; theory and robust n=7 data agree negative; capped by regime-dependence (support policies would flip sign).",
+        "verified_agree": true
+      },
+      "801780": {
+        "industry_name": "银行",
+        "direction": 1,
+        "strength": 0.12,
+        "reason": "Defensive; 化债 cuts LGFV tail-risk and 中特估 re-rating mildly positive, margin compression offsets; n=7 data near-zero. Low conviction.",
+        "verified_agree": true
+      },
+      "801710": {
+        "industry_name": "建筑材料",
+        "direction": -1,
+        "strength": -0.35,
+        "reason": "双碳 production caps plus property-demand weakness hit cement/glass; theory and n=5 data agree negative. Moderate.",
+        "verified_agree": true
+      },
+      "801790": {
+        "industry_name": "非银金融",
+        "direction": 0,
+        "strength": 0.0,
+        "reason": "Industrial policy only indirect for brokers/insurers (they track capital-market policy); n=4 at P_pos=0.5, mean≈0. No robust sign.",
+        "verified_agree": false
+      },
+      "801760": {
+        "industry_name": "传媒",
+        "direction": 1,
+        "strength": 0.12,
+        "reason": "Mixed: 双减 restrictive vs digital-economy/AI/gaming-approval supportive; recent regime leans positive; n=2 datum ignored. Low conviction.",
+        "verified_agree": false
+      },
+      "801770": {
+        "industry_name": "通信",
+        "direction": 1,
+        "strength": 0.2,
+        "reason": "新基建/数字经济/设备更新 benefit telecom equipment; operators are 中特估 high-dividend beneficiaries. Theory positive; n=2 negative datum ignored (rule 4).",
+        "verified_agree": false
+      },
+      "801880": {
+        "industry_name": "汽车",
+        "direction": 1,
+        "strength": 0.3,
+        "reason": "以旧换新/设备更新 trade-in subsidies plus NEV support directly boost auto demand; strong policy channel; n=2 data consistent.",
+        "verified_agree": true
+      },
+      "801030": {
+        "industry_name": "化工",
+        "direction": 1,
+        "strength": 0.2,
+        "reason": "双碳/能耗双控 supply constraints lift chemical prices for incumbents (2021 precedent) plus stimulus demand; n=1 datum consistent. Modest.",
+        "verified_agree": true
+      },
+      "801040": {
+        "industry_name": "钢铁",
+        "direction": 1,
+        "strength": 0.25,
+        "reason": "双碳 production caps → supply constraint → price/margin up (2021 steel-cut precedent); infra demand; n=1 data consistent.",
+        "verified_agree": true
+      },
+      "801050": {
+        "industry_name": "有色金属",
+        "direction": 1,
+        "strength": 0.25,
+        "reason": "Energy-transition metals (copper/lithium/aluminum) demand plus aluminum smelting caps favor incumbents; theory positive; single n=1 negative datum ignored.",
+        "verified_agree": false
+      },
+      "801080": {
+        "industry_name": "电子",
+        "direction": 1,
+        "strength": 0.3,
+        "reason": "Semiconductor self-sufficiency (大基金/信创) and digital-economy support are flagship industrial policies; strong positive channel; n=1 data consistent.",
+        "verified_agree": true
+      },
+      "801160": {
+        "industry_name": "公用事业",
+        "direction": 0,
+        "strength": 0.0,
+        "reason": "双碳 pressures thermal power (−) but electricity-price marketization and defensive re-rating (+) roughly offset; regulated near-zero; n=1 ignored.",
+        "verified_agree": false
+      },
+      "801730": {
+        "industry_name": "电气设备",
+        "direction": 1,
+        "strength": 0.35,
+        "reason": "Flagship 双碳 beneficiary — solar/wind/battery/grid direct energy-transition demand; strong theory though n=1. Mid-range strength.",
+        "verified_agree": true
+      },
+      "801750": {
+        "industry_name": "计算机",
+        "direction": 1,
+        "strength": 0.3,
+        "reason": "数字经济/信创/AI-support policy directly benefits software; positive channel; n=1 datum (+0.137) ignored for magnitude, sign consistent.",
+        "verified_agree": true
+      },
+      "801890": {
+        "industry_name": "机械设备",
+        "direction": 1,
+        "strength": 0.35,
+        "reason": "设备更新 (in shock list) directly drives machinery capex; strong direct policy channel; n=1 data consistent.",
+        "verified_agree": true
+      }
+    },
+    "capital_market_policy": {
+      "801790": {
+        "industry_name": "非银金融",
+        "direction": 1,
+        "strength": 0.32,
+        "reason": "Non-bank = most direct beneficiary (commission/turnover/beta channel), but P_pos=0.429<0.5 sub-random sign hit → strong shrink despite +mean_CAR.",
+        "verified_agree": true
+      },
+      "801780": {
+        "industry_name": "银行",
+        "direction": 0,
+        "strength": 0.05,
+        "reason": "Weak-benefit channel offset by rotation-OUT of defensives into high-beta brokers; n=6 flat/neg data (mean -0.8%, P_pos=0.5) → no positive conviction.",
+        "verified_agree": false
+      },
+      "801750": {
+        "industry_name": "计算机",
+        "direction": 1,
+        "strength": 0.38,
+        "reason": "Risk-on/growth-beta + fintech channel; calibrated +0.307 cell; n=3 P_pos=0.667, mean_CAR +3.1% both agree.",
+        "verified_agree": true
+      },
+      "801080": {
+        "industry_name": "电子",
+        "direction": 1,
+        "strength": 0.22,
+        "reason": "Risk-on high-beta lift only (electronics is export/fundamental-driven); n=2 datum ignored, modest theory strength.",
+        "verified_agree": true
+      },
+      "801030": {
+        "industry_name": "化工",
+        "direction": 1,
+        "strength": 0.12,
+        "reason": "Cyclical, no direct capital-market linkage; weak risk-on spillover only; n=1 negative datum ignored.",
+        "verified_agree": true
+      },
+      "801180": {
+        "industry_name": "房地产",
+        "direction": 1,
+        "strength": 0.12,
+        "reason": "Weak policy-sentiment spillover; property regime headwind (collapsed elasticity per RAG); n=1 datum ignored, near-zero conviction.",
+        "verified_agree": true
+      },
+      "801710": {
+        "industry_name": "建筑材料",
+        "direction": 1,
+        "strength": 0.1,
+        "reason": "Building materials tied to infra/property, not capital market; only faint risk-on; n=1 datum ignored.",
+        "verified_agree": true
+      },
+      "801760": {
+        "industry_name": "传媒",
+        "direction": 1,
+        "strength": 0.28,
+        "reason": "Media = classic liquidity/risk-on thematic beta; moderate theory; n=1 negative datum ignored per rule.",
+        "verified_agree": true
+      },
+      "801770": {
+        "industry_name": "通信",
+        "direction": 1,
+        "strength": 0.28,
+        "reason": "TMT/growth risk-on beneficiary, moderate; n=1 datum (P_pos=1, +3.5%) agrees but too thin to lift strength.",
+        "verified_agree": true
+      }
+    }
+  }
+}

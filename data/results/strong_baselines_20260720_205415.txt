@@ -1,0 +1,34 @@
+==========================================================================
+Strong non-LLM baselines under the temporal firewall (walk-forward)
+==========================================================================
+base CSV : data/processed/all_experiment_results_qwen2.5_wf_base_20260717_163837.csv
+LLM CSV  : data/processed\baseline_llm_only_qwen2.5_32b_20260531_130014.csv
+
+Trained / rule baselines (expanding walk-forward, strictly pre-t):
+  B1_majority                overall=48.81%  pos=53.66%  neg=44.19%  (n=168, +82/-86)
+  B2_type_prior              overall=47.62%  pos=40.24%  neg=54.65%  (n=168, +82/-86)
+  B3_momentum                overall=54.17%  pos=59.76%  neg=48.84%  (n=168, +82/-86)
+  B4_logistic                overall=51.79%  pos=31.71%  neg=70.93%  (n=168, +82/-86)
+  B5_lightgbm                overall=52.98%  pos=47.56%  neg=58.14%  (n=168, +82/-86)
+  B6_text                    overall=48.21%  pos=37.80%  neg=58.14%  (n=168, +82/-86)
+
+Reference systems (from logged artifacts):
+  pure-TS (Informer/KF)      overall=47.62%  pos=18.29%  neg=75.58%  (n=168, +82/-86)
+  LLM-only (direct prompt)   overall=59.52%  pos=84.15%  neg=36.05%  (n=168, +82/-86)
+
+Anchors (from keyData_v4): firewalled base 3-seed 60.52%±0.28 (maj-vote 61.31%); pos~74.4% neg 47.29%.
+
+==========================================================================
+LaTeX rows (overall / pos / neg):
+
+Majority class                   & $48.81$ & $53.66$ & $44.19$ \\
+Event-type sign prior            & $47.62$ & $40.24$ & $54.65$ \\
+Price-momentum rule              & $54.17$ & $59.76$ & $48.84$ \\
+Text classifier (TF-IDF)         & $48.21$ & $37.80$ & $58.14$ \\
+Logistic (price feats)           & $51.79$ & $31.71$ & $70.93$ \\
+LightGBM (price feats)           & $52.98$ & $47.56$ & $58.14$ \\
+Time-series only (Informer/KF)   & $47.62$ & $18.29$ & $75.58$ \\
+LLM-only (direct prompt)         & $59.52$ & $84.15$ & $36.05$ \\
+
+JSON : data/processed/strong_baselines_20260720_205415.json
+Log  : data/results/strong_baselines_20260720_205415.txt
