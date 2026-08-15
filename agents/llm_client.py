@@ -79,7 +79,10 @@ def _load_dotenv(path: Optional[Path] = None) -> None:
             continue
         if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
             value = value[1:-1]
-        os.environ.setdefault(key, value)
+        # Prefer the project-local .env over a stale value inherited from the
+        # current PowerShell/terminal session. This avoids a common failure mode
+        # where an old DEEPSEEK_API_KEY remains exported in the parent shell.
+        os.environ[key] = value
 
 
 _load_dotenv()
