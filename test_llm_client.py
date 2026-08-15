@@ -3,6 +3,7 @@ import os
 
 from agents.llm_client import (
     LLMError,
+    _ascii_clean,
     _strip_thinking,
     chat_completion,
     get_llm_config,
@@ -31,6 +32,11 @@ def test_deepseek_provider_autodetect(monkeypatch):
 def test_strip_thinking():
     assert _strip_thinking("<think>hidden</think>final") == "final"
     assert _strip_thinking("plain") == "plain"
+
+
+def test_ascii_clean_removes_hidden_unicode():
+    assert _ascii_clean("sk-abc\u200bdef") == "sk-abcdef"
+    assert _ascii_clean("sk-abc\u00a0def") == "sk-abcdef"
 
 
 def test_deepseek_chat_completion(monkeypatch):

@@ -46,6 +46,17 @@ def _env_flag(name: str, default: bool = False) -> bool:
     return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
+def _ascii_clean(value: str) -> str:
+    """Keep only printable ASCII characters.
+
+    API keys copied from web pages occasionally contain zero-width characters
+    or non-breaking spaces. ``http.client`` encodes request headers as
+    latin-1, so such characters would otherwise fail with:
+    ``'latin-1' codec can't encode characters ...``.
+    """
+    return "".join(ch for ch in value if 32 <= ord(ch) < 127)
+
+
 def _load_dotenv(path: Optional[Path] = None) -> None:
     """Load a simple ``.env`` file without requiring python-dotenv."""
     if path is None:
@@ -97,6 +108,7 @@ def get_llm_config() -> dict:
         or os.environ.get("LLM_API_KEY")
         or ""
     ).strip()
+    api_key = _ascii_clean(api_key)
 
     explicit = os.environ.get("LLM_PROVIDER", "").strip().lower()
     if explicit == "ollama":
