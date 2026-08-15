@@ -1,0 +1,211 @@
+[walk-forward] log: data/results/experiment_deepseek-v4-flash_wf_deepseek_flash_20260815_195808.txt
+运行时间: 2026-08-15 19:58:08
+模型: deepseek-v4-flash  提供方: deepseek  并发: 4  SEED=42
+WALK_FORWARD=1  (L1 时间隔离先验 / L2 无标签 / L3-5 RAG pub_date<t)
+============================================================
+🎲 SEED = 42
+🤖 使用 DeepSeek API 模型（deepseek-v4-flash）运行
+[walk-forward] target benchmark: data/processed/car_results.csv
+
+共 168 个场景
+
+
+[1/168] 2020-02-20 | 801780 | LPR下调：1年期降至4.05%(-10bp)，5年期降至4.75%(-5bp)
+
+[2/168] 2020-02-20 | 801790 | LPR下调：1年期降至4.05%(-10bp)，5年期降至4.75%(-5bp)
+
+[3/168] 2020-02-20 | 801180 | LPR下调：1年期降至4.05%(-10bp)，5年期降至4.75%(-5bp)
+
+[4/168] 2020-04-20 | 801780 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [FW L1 ON] 敏感度先验基于 0 个历史事件（<2020-02-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [FW L1 ON] 敏感度先验基于 0 个历史事件（<2020-02-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [FW L1 ON] 敏感度先验基于 0 个历史事件（<2020-02-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-04-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-20 过滤，可见文档=0/74
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-20 过滤，可见文档=0/74
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-20 过滤，可见文档=0/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[5/168] 2020-04-20 | 801790 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-04-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[6/168] 2020-04-20 | 801180 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+
+[7/168] 2020-04-20 | 801710 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-04-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-04-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[8/168] 2020-09-22 | 801730 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 7 个历史事件（<2020-09-22），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[9/168] 2020-09-22 | 801160 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 7 个历史事件（<2020-09-22），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[10/168] 2020-09-22 | 801050 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 7 个历史事件（<2020-09-22），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[11/168] 2020-09-22 | 801770 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 7 个历史事件（<2020-09-22），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[12/168] 2021-07-26 | 801760 | 教育双减政策：学科类培训机构不得上市融资
+  [FW L1 ON] 敏感度先验基于 11 个历史事件（<2021-07-26），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2021-07-26 过滤，可见文档=11/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[13/168] 2021-12-06 | 801780 | 央行全面降准0.5个百分点，释放长期资金约1.2万亿元
+  [FW L1 ON] 敏感度先验基于 12 个历史事件（<2021-12-06），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2021-12-06 过滤，可见文档=13/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[14/168] 2021-12-06 | 801790 | 央行全面降准0.5个百分点，释放长期资金约1.2万亿元
+  [FW L1 ON] 敏感度先验基于 12 个历史事件（<2021-12-06），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2021-12-06 过滤，可见文档=13/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[15/168] 2021-12-06 | 801180 | 央行全面降准0.5个百分点，释放长期资金约1.2万亿元
+  [FW L1 ON] 敏感度先验基于 12 个历史事件（<2021-12-06），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2021-12-06 过滤，可见文档=13/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[16/168] 2021-12-20 | 801780 | LPR下调：1年期降至3.80%(-5bp)，5年期维持4.65%不变
+  [FW L1 ON] 敏感度先验基于 15 个历史事件（<2021-12-20），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2021-12-20 过滤，可见文档=16/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[17/168] 2021-12-20 | 801790 | LPR下调：1年期降至3.80%(-5bp)，5年期维持4.65%不变
+  [FW L1 ON] 敏感度先验基于 15 个历史事件（<2021-12-20），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2021-12-20 过滤，可见文档=16/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[18/168] 2022-01-20 | 801780 | LPR双降：1年期降至3.70%(-10bp)，5年期降至4.60%(-5bp)
+  [FW L1 ON] 敏感度先验基于 17 个历史事件（<2022-01-20），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-01-20 过滤，可见文档=19/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[19/168] 2022-01-20 | 801790 | LPR双降：1年期降至3.70%(-10bp)，5年期降至4.60%(-5bp)
+  [FW L1 ON] 敏感度先验基于 17 个历史事件（<2022-01-20），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-01-20 过滤，可见文档=19/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[20/168] 2022-01-20 | 801180 | LPR双降：1年期降至3.70%(-10bp)，5年期降至4.60%(-5bp)
+  [FW L1 ON] 敏感度先验基于 17 个历史事件（<2022-01-20），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-01-20 过滤，可见文档=19/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[21/168] 2022-01-20 | 801710 | LPR双降：1年期降至3.70%(-10bp)，5年期降至4.60%(-5bp)
+  [FW L1 ON] 敏感度先验基于 17 个历史事件（<2022-01-20），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-01-20 过滤，可见文档=19/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[22/168] 2022-04-15 | 801780 | 央行降准0.25个百分点：释放长期资金约5300亿元
+  [FW L1 ON] 敏感度先验基于 21 个历史事件（<2022-04-15），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-04-15 过滤，可见文档=22/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[23/168] 2022-04-15 | 801790 | 央行降准0.25个百分点：释放长期资金约5300亿元
+  [FW L1 ON] 敏感度先验基于 21 个历史事件（<2022-04-15），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-04-15 过滤，可见文档=22/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[24/168] 2022-04-15 | 801180 | 央行降准0.25个百分点：释放长期资金约5300亿元
+  [FW L1 ON] 敏感度先验基于 21 个历史事件（<2022-04-15），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-04-15 过滤，可见文档=22/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[25/168] 2022-05-20 | 801180 | LPR非对称下调：1年期维持3.70%，5年期大降至4.45%(-15bp)
+  [FW L1 ON] 敏感度先验基于 24 个历史事件（<2022-05-20），2 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-05-20 过滤，可见文档=22/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[26/168] 2022-05-20 | 801710 | LPR非对称下调：1年期维持3.70%，5年期大降至4.45%(-15bp)
+  [FW L1 ON] 敏感度先验基于 24 个历史事件（<2022-05-20），2 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-05-20 过滤，可见文档=22/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[27/168] 2022-08-22 | 801780 | LPR双降：1年期降至3.65%(-5bp)，5年期降至4.30%(-15bp)
+  [FW L1 ON] 敏感度先验基于 26 个历史事件（<2022-08-22），2 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-08-22 过滤，可见文档=25/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[28/168] 2022-08-22 | 801790 | LPR双降：1年期降至3.65%(-5bp)，5年期降至4.30%(-15bp)
+  [FW L1 ON] 敏感度先验基于 26 个历史事件（<2022-08-22），2 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-08-22 过滤，可见文档=25/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[29/168] 2022-08-22 | 801180 | LPR双降：1年期降至3.65%(-5bp)，5年期降至4.30%(-15bp)
+  [FW L1 ON] 敏感度先验基于 26 个历史事件（<2022-08-22），2 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-08-22 过滤，可见文档=25/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[30/168] 2022-08-22 | 801710 | LPR双降：1年期降至3.65%(-5bp)，5年期降至4.30%(-15bp)
+  [FW L1 ON] 敏感度先验基于 26 个历史事件（<2022-08-22），2 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-08-22 过滤，可见文档=25/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[31/168] 2022-11-25 | 801780 | 央行降准0.25个百分点：释放长期资金约5000亿元
+  [FW L1 ON] 敏感度先验基于 30 个历史事件（<2022-11-25），2 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-11-25 过滤，可见文档=31/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[32/168] 2022-11-25 | 801790 | 央行降准0.25个百分点：释放长期资金约5000亿元
+  [FW L1 ON] 敏感度先验基于 30 个历史事件（<2022-11-25），2 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-11-25 过滤，可见文档=31/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[33/168] 2022-11-25 | 801180 | 央行降准0.25个百分点：释放长期资金约5000亿元
+  [FW L1 ON] 敏感度先验基于 30 个历史事件（<2022-11-25），2 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-11-25 过滤，可见文档=31/74
+  ✗ 失败: deepseek call failed after 5 attempt(s): 'latin-1' codec can't encode characters in position 10-11: ordinal not in range(256)
+
+[34/168] 2022-11-25 | 801710 | 央行降准0.25个百分点：释放长期资金约5000亿元
+  [FW L1 ON] 敏感度先验基于 30 个历史事件（<2022-11-25），2 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2022-11-25 过滤，可见文档=31/74

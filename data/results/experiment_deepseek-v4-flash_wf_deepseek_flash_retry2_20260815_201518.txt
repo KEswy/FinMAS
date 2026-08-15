@@ -1,0 +1,335 @@
+[walk-forward] log: data/results/experiment_deepseek-v4-flash_wf_deepseek_flash_retry2_20260815_201518.txt
+运行时间: 2026-08-15 20:15:18
+模型: deepseek-v4-flash  提供方: deepseek  并发: 4  SEED=42
+WALK_FORWARD=1  (L1 时间隔离先验 / L2 无标签 / L3-5 RAG pub_date<t)
+============================================================
+🎲 SEED = 42
+🤖 使用 DeepSeek API 模型（deepseek-v4-flash）运行
+[walk-forward] target benchmark: data/processed/car_results.csv
+
+共 168 个场景
+
+
+[1/168] 2020-02-20 | 801780 | LPR下调：1年期降至4.05%(-10bp)，5年期降至4.75%(-5bp)
+
+[2/168] 2020-02-20 | 801790 | LPR下调：1年期降至4.05%(-10bp)，5年期降至4.75%(-5bp)
+
+[3/168] 2020-02-20 | 801180 | LPR下调：1年期降至4.05%(-10bp)，5年期降至4.75%(-5bp)
+
+[4/168] 2020-04-20 | 801780 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [FW L1 ON] 敏感度先验基于 0 个历史事件（<2020-02-20），0 个非平凡 cell
+  [FW L1 ON] 敏感度先验基于 0 个历史事件（<2020-02-20），0 个非平凡 cell
+  [FW L1 ON] 敏感度先验基于 0 个历史事件（<2020-02-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1  [FIREWALL] L1=1 L2=1 RAG=1
+  [FIREWALL] L1=1 L2=1 RAG=1
+
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-04-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-20 过滤，可见文档=0/74
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-20 过滤，可见文档=0/74
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-20 过滤，可见文档=0/74
+  外生因子：{'LPR下调：1年期降至4.05%(-10': 0.05}
+  机理链置信度：0.080
+[DataAgent] epoch=1/100 train_loss=1.593186  val_loss=1.593186  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.878448  val_loss=0.878448  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.657340  val_loss=0.657340  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.592479  val_loss=0.592479  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.549551  val_loss=0.549551  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.520710  val_loss=0.520710  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.507490  val_loss=0.507490  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.484287  val_loss=0.484287  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.473767  val_loss=0.473767  lr=1.00e-04
+  外生因子：{'LPR下调：1年期降至4.05%(-10': 0.0}
+  机理链置信度：0.120
+[DataAgent] epoch=1/100 train_loss=1.604474  val_loss=1.604474  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.471567  val_loss=0.471567  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.905501  val_loss=0.905501  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.468702  val_loss=0.468702  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.467349, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.050 adj=0.050 correction=0.0010 修正后前5步=[ 0.0048 -0.0003  0.0117  0.0111  0.0041]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至4.05%(-10bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0199  RMSE=0.024
+  步内方向=54.17%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0048 actual=+0.0104)  T+3=[N](pred=+0.0162 actual=-0.0111)  T+5=[Y](pred=+0.0318 actual=+0.0108)  T+10=[Y](pred=+0.0162 actual=+0.0613)]
+  区间覆盖率 80%=58.33% / 95%=83.33%
+[解释质量]
+  链条一致性=0.080
+  证据覆盖率=0.00%
+[回测]
+  年化收益=-28.39%  Sharpe=-0.809
+  最大回撤=8.59%  胜率=54.17%
+  [风险] event_VaR=-0.0321 E[MDD]=0.0179 tail_prob=0.050 区间=[-0.0428,+0.1019]
+  → 预测=+(+0.00628)  真实=-(-0.0085)  MAE=0.01990  ❌
+
+[5/168] 2020-04-20 | 801790 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-04-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+[DataAgent] epoch=20/100 train_loss=0.646988  val_loss=0.646988  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.588703  val_loss=0.588703  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.540027  val_loss=0.540027  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.513549  val_loss=0.513549  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.495510  val_loss=0.495510  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.481949  val_loss=0.481949  lr=1.00e-04
+  外生因子：{'LPR下调：1年期降至4.05%(-10': 0.0}
+  机理链置信度：0.160
+[DataAgent] epoch=1/100 train_loss=1.595633  val_loss=1.595633  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.473831  val_loss=0.473831  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.866293  val_loss=0.866293  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.471398  val_loss=0.471398  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.656273  val_loss=0.656273  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.466466  val_loss=0.466466  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.465591, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.000 adj=0.000 correction=0.0000 修正后前5步=[0.0016 0.0059 0.005  0.0178 0.0001]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至4.05%(-10bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0219  RMSE=0.0256
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0016 actual=+0.0420)  T+3=[Y](pred=+0.0126 actual=+0.0262)  T+5=[Y](pred=+0.0306 actual=+0.0141)  T+10=[Y](pred=+0.0153 actual=+0.0260)]
+  区间覆盖率 80%=45.83% / 95%=66.67%
+[解释质量]
+  链条一致性=0.120
+  证据覆盖率=0.00%
+[回测]
+  年化收益=17.22%  Sharpe=0.546
+  最大回撤=10.63%  胜率=45.83%
+  [风险] event_VaR=-0.0247 E[MDD]=0.0151 tail_prob=0.050 区间=[-0.0337,+0.0925]
+  → 预测=+(+0.00607)  真实=+(+0.0052)  MAE=0.02190  ✅
+
+[6/168] 2020-04-20 | 801180 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-04-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+[DataAgent] epoch=30/100 train_loss=0.586358  val_loss=0.586358  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.546457  val_loss=0.546457  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.520455  val_loss=0.520455  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.494155  val_loss=0.494155  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.480816  val_loss=0.480816  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.471238  val_loss=0.471238  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.468587  val_loss=0.468587  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.462382  val_loss=0.462382  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.462382, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.000 adj=0.000 correction=0.0000 修正后前5步=[-0.0007 -0.0017  0.009   0.0122  0.0031]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至4.05%(-10bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0152  RMSE=0.0194
+  步内方向=58.33%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=-0.0007 actual=+0.0129)  T+3=[N](pred=+0.0066 actual=-0.0026)  T+5=[N](pred=+0.0220 actual=-0.0089)  T+10=[N](pred=+0.0110 actual=-0.0088)]
+  区间覆盖率 80%=45.83% / 95%=70.83%
+[解释质量]
+  链条一致性=0.160
+  证据覆盖率=0.00%
+[回测]
+  年化收益=-20.16%  Sharpe=-0.720
+  最大回撤=8.68%  胜率=54.17%
+  [风险] event_VaR=-0.0189 E[MDD]=0.0126 tail_prob=0.050 区间=[-0.0257,+0.0675]
+  → 预测=+(+0.00437)  真实=-(-0.0122)  MAE=0.01520  ❌
+
+[7/168] 2020-04-20 | 801710 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-04-20），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+  外生因子：{'LPR下调：1年期降至3.85%(-20': 0.675}
+  机理链置信度：0.660
+[DataAgent] epoch=1/100 train_loss=1.684308  val_loss=1.684308  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.955206  val_loss=0.955206  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.647673  val_loss=0.647673  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.577061  val_loss=0.577061  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.533119  val_loss=0.533119  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.500001  val_loss=0.500001  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.485506  val_loss=0.485506  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.471147  val_loss=0.471147  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.469163  val_loss=0.469163  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.463122  val_loss=0.463122  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.463096  val_loss=0.463096  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.461340, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.675 adj=0.675 correction=0.0135 修正后前5步=[0.0133 0.0163 0.0175 0.0221 0.0087]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至3.85%(-20bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0116  RMSE=0.0142
+  步内方向=45.83%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0133 actual=-0.0031)  T+3=[N](pred=+0.0478 actual=-0.0079)  T+5=[N](pred=+0.0802 actual=-0.0154)  T+10=[Y](pred=+0.1039 actual=+0.0218)]
+  区间覆盖率 80%=87.50% / 95%=100.00%
+[解释质量]
+  链条一致性=0.660
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-2.48%  Sharpe=-0.253
+  最大回撤=3.50%  胜率=41.67%
+  [风险] event_VaR=+0.0080 E[MDD]=0.0091 tail_prob=0.050 区间=[-0.0032,+0.1560]
+  → 预测=+(+0.01557)  真实=+(+0.0080)  MAE=0.01160  ✅
+
+[8/168] 2020-09-22 | 801730 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 7 个历史事件（<2020-09-22），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+  外生因子：{'LPR下调：1年期降至3.85%(-20': 0.0}
+  机理链置信度：0.630
+[DataAgent] epoch=1/100 train_loss=1.515772  val_loss=1.515772  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.855114  val_loss=0.855114  lr=1.00e-04
+  外生因子：{'双碳目标宣布：2030年碳达峰、2060': 0.648}
+  机理链置信度：0.808
+  外生因子：{'LPR下调：1年期降至3.85%(-20': 0.738}
+  机理链置信度：0.734
+[DataAgent] epoch=1/100 train_loss=1.571085  val_loss=2.200093  lr=1.00e-04
+[DataAgent] epoch=1/100 train_loss=1.836063  val_loss=1.836063  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.879932  val_loss=2.410138  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 12: 连续 10 epoch val_loss 无改善，最佳 val_loss=1.973480 @ epoch 2
+[DataAgent] 训练结束: epoch=12/100, 最佳 val_loss=1.973480, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.648 adj=0.648 correction=0.0130 修正后前5步=[0.0234 0.0219 0.0222 0.024  0.0215]
+
+==================================================
+评测报告 | 场景：双碳目标宣布：2030年碳达峰、2060年碳中和
+==================================================
+[预测效果]
+  MAE=0.021  RMSE=0.026
+  步内方向=62.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0234 actual=-0.0179)  T+3=[N](pred=+0.0691 actual=-0.0378)  T+5=[N](pred=+0.1183 actual=-0.0262)  T+10=[Y](pred=+0.2006 actual=+0.1074)]
+  区间覆盖率 80%=87.50% / 95%=91.67%
+[解释质量]
+  链条一致性=0.808
+  证据覆盖率=100.00%
+[回测]
+  年化收益=156.01%  Sharpe=2.724
+  最大回撤=7.64%  胜率=62.50%
+  [风险] event_VaR=+0.0104 E[MDD]=0.0135 tail_prob=0.050 区间=[-0.0075,+0.2291]
+  → 预测=+(+0.02261)  真实=+(+0.0092)  MAE=0.02100  ✅
+
+[9/168] 2020-09-22 | 801160 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 7 个历史事件（<2020-09-22），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+[DataAgent] epoch=20/100 train_loss=0.639310  val_loss=0.639310  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.922987  val_loss=0.922987  lr=1.00e-04
+  外生因子：{'LPR下调：1年期降至3.85%(-20': 0.375}
+  机理链置信度：0.590
+[DataAgent] epoch=1/100 train_loss=1.607185  val_loss=1.607185  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.554787  val_loss=0.554787  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.654978  val_loss=0.654978  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.883539  val_loss=0.883539  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.506364  val_loss=0.506364  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.570650  val_loss=0.570650  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.641652  val_loss=0.641652  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.486007  val_loss=0.486007  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.527960  val_loss=0.527960  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.572463  val_loss=0.572463  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.474218  val_loss=0.474218  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.494785  val_loss=0.494785  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.530216  val_loss=0.530216  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.466003  val_loss=0.466003  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.485176  val_loss=0.485176  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.493481  val_loss=0.493481  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.463075  val_loss=0.463075  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.472740  val_loss=0.472740  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.476085  val_loss=0.476085  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.464823  val_loss=0.464823  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.466627  val_loss=0.466627  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.467408  val_loss=0.467408  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.457836  val_loss=0.457836  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.457141, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.000 adj=0.000 correction=0.0000 修正后前5步=[-0.0018  0.0093  0.0082  0.0174 -0.0034]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至3.85%(-20bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0119  RMSE=0.0136
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=-0.0018 actual=+0.0080)  T+3=[N](pred=+0.0157 actual=-0.0075)  T+5=[N](pred=+0.0298 actual=-0.0302)  T+10=[Y](pred=+0.0011 actual=+0.0068)]
+  区间覆盖率 80%=91.67% / 95%=100.00%
+[解释质量]
+  链条一致性=0.630
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-49.17%  Sharpe=-4.245
+  最大回撤=6.25%  胜率=45.83%
+  [风险] event_VaR=-0.0474 E[MDD]=0.0244 tail_prob=0.050 区间=[-0.0609,+0.1160]
+  → 预测=+(+0.00592)  真实=-(-0.0220)  MAE=0.01190  ❌
+
+[10/168] 2020-09-22 | 801050 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 7 个历史事件（<2020-09-22），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+[DataAgent] epoch=90/100 train_loss=0.463649  val_loss=0.463649  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.464331  val_loss=0.464331  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.459913  val_loss=0.459913  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.459913, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.738 adj=0.738 correction=0.0148 修正后前5步=[0.0029 0.0289 0.0411 0.0082 0.0163]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至3.85%(-20bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.019  RMSE=0.0232
+  步内方向=54.17%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0029 actual=+0.0274)  T+3=[Y](pred=+0.0743 actual=+0.0333)  T+5=[Y](pred=+0.1008 actual=+0.0075)  T+10=[Y](pred=+0.1855 actual=+0.0306)]
+  区间覆盖率 80%=83.33% / 95%=100.00%
+[解释质量]
+  链条一致性=0.734
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-37.13%  Sharpe=-2.334
+  最大回撤=8.80%  胜率=50.00%
+  [风险] event_VaR=+0.0067 E[MDD]=0.0161 tail_prob=0.050 区间=[-0.0081,+0.1987]
+  → 预测=+(+0.01948)  真实=+(+0.0198)  MAE=0.01900  ✅
+
+[11/168] 2020-09-22 | 801770 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 7 个历史事件（<2020-09-22），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+[DataAgent] epoch=90/100 train_loss=0.463966  val_loss=0.463966  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.458623  val_loss=0.458623  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.458479, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.375 adj=0.375 correction=0.0075 修正后前5步=[0.0002 0.0118 0.0118 0.0206 0.0094]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至3.85%(-20bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0107  RMSE=0.0135
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0001 actual=-0.0012)  T+3=[N](pred=+0.0239 actual=-0.0073)  T+5=[N](pred=+0.0548 actual=-0.0194)  T+10=[Y](pred=+0.0777 actual=+0.0085)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.590
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-48.87%  Sharpe=-4.861
+  最大回撤=5.93%  胜率=45.83%
+  [风险] event_VaR=-0.0202 E[MDD]=0.0166 tail_prob=0.050 区间=[-0.0323,+0.1369]
+  → 预测=+(+0.01075)  真实=-(-0.0072)  MAE=0.01070  ❌
+
+[12/168] 2021-07-26 | 801760 | 教育双减政策：学科类培训机构不得上市融资
+  [FW L1 ON] 敏感度先验基于 11 个历史事件（<2021-07-26），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2021-07-26 过滤，可见文档=11/74

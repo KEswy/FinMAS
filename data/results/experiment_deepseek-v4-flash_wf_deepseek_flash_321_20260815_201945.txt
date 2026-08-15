@@ -1,0 +1,1765 @@
+[walk-forward] log: data/results/experiment_deepseek-v4-flash_wf_deepseek_flash_321_20260815_201945.txt
+运行时间: 2026-08-15 20:19:45
+模型: deepseek-v4-flash  提供方: deepseek  并发: 4  SEED=42
+WALK_FORWARD=1  (L1 时间隔离先验 / L2 无标签 / L3-5 RAG pub_date<t)
+============================================================
+🎲 SEED = 42
+🤖 使用 DeepSeek API 模型（deepseek-v4-flash）运行
+[walk-forward] target benchmark: data/processed/car_results_expanded.csv
+
+共 321 个场景
+
+
+[1/321] 2020-01-01 | 801780 | 央行宣布全面下调金融机构存款准备金率0.5个百分点（自1月6日起实施）
+
+[2/321] 2020-01-01 | 801790 | 央行宣布全面下调金融机构存款准备金率0.5个百分点（自1月6日起实施）
+
+[3/321] 2020-01-01 | 801180 | 央行宣布全面下调金融机构存款准备金率0.5个百分点（自1月6日起实施）
+
+[4/321] 2020-02-03 | 801780 | 央行开展1.2万亿元逆回购操作并下调7天、14天逆回购中标利率10个基点（至2.
+  [FW L1 ON] 敏感度先验基于 0 个历史事件（<2020-01-01），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [FW L1 ON] 敏感度先验基于 0 个历史事件（<2020-01-01），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [FW L1 ON] 敏感度先验基于 0 个历史事件（<2020-01-01），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-02-03），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-01-01 过滤，可见文档=0/74
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-01-01 过滤，可见文档=0/74
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-01-01 过滤，可见文档=0/74
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-03 过滤，可见文档=0/74
+  外生因子：{'宏观经济与流动性环境': 0.765, '银行业': 0.7200000000000001, '房地产行业': 0.35, '非银金融与资本市场服务业': 0.325, '招商银行、宁波银行等优质零售银行': 0.275, '保利发展、万科A等龙头房企': 0.25, '中信证券、东方财富等券商龙头': 0.275, 'A股权益市场（金融、地产、科技成长板块）': 0.675, '债券市场（利率债）': 0.35}
+  机理链置信度：0.700
+[DataAgent] epoch=1/100 train_loss=1.568007  val_loss=1.568007  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.902046  val_loss=0.902046  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.641435  val_loss=0.641435  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.570014  val_loss=0.570014  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.541026  val_loss=0.541026  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.508310  val_loss=0.508310  lr=1.00e-04
+  外生因子：{'央行开展1.2万亿元逆回购操作并下调7天': 0.05}
+  机理链置信度：0.100
+[DataAgent] epoch=1/100 train_loss=1.686554  val_loss=1.686554  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.492663  val_loss=0.492663  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.826254  val_loss=0.826254  lr=1.00e-04
+  外生因子：{'央行宣布全面下调金融机构存款准备金率0.': 0.05}
+  机理链置信度：0.160
+[DataAgent] epoch=70/100 train_loss=0.482207  val_loss=0.482207  lr=1.00e-04
+[DataAgent] epoch=1/100 train_loss=1.466826  val_loss=1.466826  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.651006  val_loss=0.651006  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.475753  val_loss=0.475753  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.849297  val_loss=0.849297  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.577747  val_loss=0.577747  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.470169  val_loss=0.470169  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.636729  val_loss=0.636729  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.538953  val_loss=0.538953  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.464248  val_loss=0.464248  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.464248, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=3.985 adj=3.985 correction=0.0797 修正后前5步=[0.0822 0.0783 0.0816 0.0793 0.0722]
+[DataAgent] epoch=30/100 train_loss=0.576931  val_loss=0.576931  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.518190  val_loss=0.518190  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.548413  val_loss=0.548413  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.490343  val_loss=0.490343  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.507137  val_loss=0.507137  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.478735  val_loss=0.478735  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.495985  val_loss=0.495985  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.474186  val_loss=0.474186  lr=1.00e-04
+  外生因子：{'央行宣布全面下调金融机构存款准备金率0.': 0.05}
+  机理链置信度：0.090
+[DataAgent] epoch=70/100 train_loss=0.484147  val_loss=0.484147  lr=1.00e-04
+[DataAgent] epoch=1/100 train_loss=1.457714  val_loss=1.457714  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.467196  val_loss=0.467196  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.868312  val_loss=0.868312  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.481892  val_loss=0.481892  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.466014  val_loss=0.466014  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.464962, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.050 adj=0.050 correction=0.0010 修正后前5步=[-0.0004  0.0002  0.0072  0.0111  0.0031]
+
+==================================================
+评测报告 | 场景：央行开展1.2万亿元逆回购操作并下调7天、14天逆回购中标利
+==================================================
+[预测效果]
+  MAE=0.012  RMSE=0.0176
+  步内方向=62.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0004 actual=-0.0657)  T+3=[N](pred=+0.0069 actual=-0.0471)  T+5=[N](pred=+0.0213 actual=-0.0448)  T+10=[N](pred=+0.0123 actual=-0.0366)]
+  区间覆盖率 80%=58.33% / 95%=79.17%
+[解释质量]
+  链条一致性=0.100
+  证据覆盖率=0.00%
+[回测]
+  年化收益=233.12%  Sharpe=4.558
+  最大回撤=4.95%  胜率=58.33%
+  [风险] event_VaR=-0.0144 E[MDD]=0.0101 tail_prob=0.050 区间=[-0.0194,+0.0609]
+  → 预测=+(+0.00423)  真实=-(-0.0268)  MAE=0.01200  ❌
+
+[5/321] 2020-02-03 | 801790 | 央行开展1.2万亿元逆回购操作并下调7天、14天逆回购中标利率10个基点（至2.
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-02-03），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-03 过滤，可见文档=0/74
+[DataAgent] epoch=90/100 train_loss=0.471108  val_loss=0.471108  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.645571  val_loss=0.645571  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.580369  val_loss=0.580369  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.467171  val_loss=0.467171  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.467171, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.050 adj=0.050 correction=0.0010 修正后前5步=[0.0013 0.0054 0.0041 0.0115 0.005 ]
+
+==================================================
+评测报告 | 场景：央行宣布全面下调金融机构存款准备金率0.5个百分点（自1月6
+==================================================
+[预测效果]
+  MAE=0.0148  RMSE=0.0233
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0013 actual=+0.0115)  T+3=[N](pred=+0.0108 actual=-0.0064)  T+5=[N](pred=+0.0276 actual=-0.0132)  T+10=[N](pred=+0.0359 actual=-0.0124)]
+  区间覆盖率 80%=75.00% / 95%=91.67%
+[解释质量]
+  链条一致性=0.160
+  证据覆盖率=0.00%
+[回测]
+  年化收益=51.83%  Sharpe=1.278
+  最大回撤=6.13%  胜率=50.00%
+  [风险] event_VaR=-0.0185 E[MDD]=0.0117 tail_prob=0.050 区间=[-0.0258,+0.0780]
+  → 预测=+(+0.00546)  真实=-(-0.0104)  MAE=0.01480  ❌
+
+[6/321] 2020-02-03 | 801180 | 央行开展1.2万亿元逆回购操作并下调7天、14天逆回购中标利率10个基点（至2.
+  [FW L1 ON] 敏感度先验基于 3 个历史事件（<2020-02-03），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-03 过滤，可见文档=0/74
+[DataAgent] epoch=40/100 train_loss=0.546223  val_loss=0.546223  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.519993  val_loss=0.519993  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.501225  val_loss=0.501225  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.485509  val_loss=0.485509  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.480515  val_loss=0.480515  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.469485  val_loss=0.469485  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.466243  val_loss=0.466243  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.466243, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.050 adj=0.050 correction=0.0010 修正后前5步=[-0.0021  0.0097  0.0035  0.0176 -0.0032]
+
+==================================================
+评测报告 | 场景：央行宣布全面下调金融机构存款准备金率0.5个百分点（自1月6
+==================================================
+[预测效果]
+  MAE=0.0136  RMSE=0.0214
+  步内方向=62.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=-0.0021 actual=+0.0083)  T+3=[Y](pred=+0.0111 actual=+0.0045)  T+5=[N](pred=+0.0256 actual=-0.0121)  T+10=[N](pred=+0.0128 actual=-0.0012)]
+  区间覆盖率 80%=75.00% / 95%=87.50%
+[解释质量]
+  链条一致性=0.090
+  证据覆盖率=0.00%
+[回测]
+  年化收益=337.92%  Sharpe=4.618
+  最大回撤=2.61%  胜率=58.33%
+  [风险] event_VaR=-0.0185 E[MDD]=0.0131 tail_prob=0.050 区间=[-0.0255,+0.0750]
+  → 预测=+(+0.00511)  真实=-(-0.0191)  MAE=0.01360  ❌
+
+[7/321] 2020-02-17 | 801780 | 央行开展中期借贷便利（MLF）操作，1年期中标利率下调10个基点至3.15%
+  [FW L1 ON] 敏感度先验基于 6 个历史事件（<2020-02-17），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-17 过滤，可见文档=0/74
+
+==================================================
+评测报告 | 场景：央行宣布全面下调金融机构存款准备金率0.5个百分点（自1月6
+==================================================
+[预测效果]
+  MAE=0.0593  RMSE=0.062
+  步内方向=45.83%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0822 actual=+0.0166)  T+3=[Y](pred=+0.2621 actual=+0.0123)  T+5=[Y](pred=+0.4606 actual=+0.0003)  T+10=[N](pred=+0.9493 actual=-0.0055)]
+  区间覆盖率 80%=87.50% / 95%=91.67%
+[解释质量]
+  链条一致性=0.672
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-58.94%  Sharpe=-3.425
+  最大回撤=12.40%  胜率=45.83%
+  [风险] event_VaR=+0.3507 E[MDD]=0.0000 tail_prob=0.050 区间=[+0.3432,+0.4418]
+  → 预测=+(+0.07872)  真实=-(-0.0107)  MAE=0.05930  ❌
+
+[8/321] 2020-02-17 | 801790 | 央行开展中期借贷便利（MLF）操作，1年期中标利率下调10个基点至3.15%
+  [FW L1 ON] 敏感度先验基于 6 个历史事件（<2020-02-17），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-17 过滤，可见文档=0/74
+  外生因子：{'央行开展中期借贷便利（MLF）操作，1年': 0.025}
+  机理链置信度：0.080
+[DataAgent] epoch=1/100 train_loss=1.610327  val_loss=1.610327  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.904495  val_loss=0.904495  lr=1.00e-04
+  外生因子：{'央行开展1.2万亿元逆回购操作并下调7天': 0.045000000000000005}
+  机理链置信度：0.050
+[DataAgent] epoch=1/100 train_loss=1.795713  val_loss=1.795713  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.661188  val_loss=0.661188  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.871776  val_loss=0.871776  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.581918  val_loss=0.581918  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.680586  val_loss=0.680586  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.545338  val_loss=0.545338  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.602909  val_loss=0.602909  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.517129  val_loss=0.517129  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.556897  val_loss=0.556897  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.502502  val_loss=0.502502  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.527282  val_loss=0.527282  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.483771  val_loss=0.483771  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.501853  val_loss=0.501853  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.477646  val_loss=0.477646  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.483747  val_loss=0.483747  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.472986  val_loss=0.472986  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.480377  val_loss=0.480377  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.467682  val_loss=0.467682  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.465645, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.025 adj=0.025 correction=0.0005 修正后前5步=[0.004  0.0042 0.0091 0.0113 0.0066]
+
+==================================================
+评测报告 | 场景：央行开展中期借贷便利（MLF）操作，1年期中标利率下调10个
+==================================================
+[预测效果]
+  MAE=0.0139  RMSE=0.018
+  步内方向=62.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0040 actual=+0.0178)  T+3=[Y](pred=+0.0174 actual=+0.0068)  T+5=[Y](pred=+0.0357 actual=+0.0160)  T+10=[N](pred=+0.0349 actual=-0.0238)]
+  区间覆盖率 80%=66.67% / 95%=87.50%
+[解释质量]
+  链条一致性=0.080
+  证据覆盖率=0.00%
+[回测]
+  年化收益=105.46%  Sharpe=2.989
+  最大回撤=4.65%  胜率=58.33%
+  [风险] event_VaR=-0.0193 E[MDD]=0.0132 tail_prob=0.050 区间=[-0.0296,+0.0974]
+  → 预测=+(+0.00703)  真实=-(-0.0322)  MAE=0.01390  ❌
+
+[9/321] 2020-02-17 | 801180 | 央行开展中期借贷便利（MLF）操作，1年期中标利率下调10个基点至3.15%
+  [FW L1 ON] 敏感度先验基于 6 个历史事件（<2020-02-17），0 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-17 过滤，可见文档=0/74
+[DataAgent] epoch=90/100 train_loss=0.471001  val_loss=0.471001  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.468808  val_loss=0.468808  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.467348, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.045 adj=0.045 correction=0.0009 修正后前5步=[0.0046 0.0033 0.0158 0.007  0.0023]
+
+==================================================
+评测报告 | 场景：央行开展1.2万亿元逆回购操作并下调7天、14天逆回购中标利
+==================================================
+[预测效果]
+  MAE=0.0155  RMSE=0.0248
+  步内方向=58.33%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0046 actual=-0.0927)  T+3=[N](pred=+0.0239 actual=-0.0787)  T+5=[N](pred=+0.0334 actual=-0.0707)  T+10=[N](pred=+0.0486 actual=-0.0009)]
+  区间覆盖率 80%=66.67% / 95%=79.17%
+[解释质量]
+  链条一致性=0.050
+  证据覆盖率=0.00%
+[回测]
+  年化收益=-14.15%  Sharpe=-0.223
+  最大回撤=3.69%  胜率=58.33%
+  [风险] event_VaR=-0.0102 E[MDD]=0.0094 tail_prob=0.050 区间=[-0.0167,+0.0814]
+  → 预测=+(+0.00661)  真实=-(-0.0266)  MAE=0.01550  ❌
+
+[10/321] 2020-02-20 | 801780 | LPR下调：1年期降至4.05%(-10bp)，5年期降至4.75%(-5bp)
+  [FW L1 ON] 敏感度先验基于 9 个历史事件（<2020-02-20），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-20 过滤，可见文档=0/74
+  外生因子：{'央行开展中期借贷便利（MLF）操作，1年': 0.025}
+  机理链置信度：0.080
+[DataAgent] epoch=1/100 train_loss=1.487729  val_loss=1.487729  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.823400  val_loss=0.823400  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.644741  val_loss=0.644741  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.583221  val_loss=0.583221  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.537278  val_loss=0.537278  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.513773  val_loss=0.513773  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.494845  val_loss=0.494845  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.489883  val_loss=0.489883  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.471469  val_loss=0.471469  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.467936  val_loss=0.467936  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.464600  val_loss=0.464600  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.464600, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.025 adj=0.025 correction=0.0005 修正后前5步=[0.0044 0.004  0.0018 0.014  0.0053]
+
+==================================================
+评测报告 | 场景：央行开展中期借贷便利（MLF）操作，1年期中标利率下调10个
+==================================================
+[预测效果]
+  MAE=0.0192  RMSE=0.0239
+  步内方向=58.33%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0044 actual=+0.0348)  T+3=[Y](pred=+0.0102 actual=+0.0296)  T+5=[Y](pred=+0.0298 actual=+0.0665)  T+10=[N](pred=+0.0283 actual=-0.0061)]
+  区间覆盖率 80%=58.33% / 95%=75.00%
+[解释质量]
+  链条一致性=0.080
+  证据覆盖率=0.00%
+[回测]
+  年化收益=305.08%  Sharpe=3.877
+  最大回撤=5.37%  胜率=54.17%
+  [风险] event_VaR=-0.0302 E[MDD]=0.0177 tail_prob=0.050 区间=[-0.0425,+0.0969]
+  → 预测=+(+0.00589)  真实=+(+0.0201)  MAE=0.01920  ✅
+
+[11/321] 2020-02-20 | 801790 | LPR下调：1年期降至4.05%(-10bp)，5年期降至4.75%(-5bp)
+  [FW L1 ON] 敏感度先验基于 9 个历史事件（<2020-02-20），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-20 过滤，可见文档=0/74
+  外生因子：{'央行开展1.2万亿元逆回购操作并下调7天': 0.05}
+  机理链置信度：0.160
+[DataAgent] epoch=1/100 train_loss=1.528917  val_loss=1.528917  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.813044  val_loss=0.813044  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.637247  val_loss=0.637247  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.585109  val_loss=0.585109  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.544715  val_loss=0.544715  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.517888  val_loss=0.517888  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.490779  val_loss=0.490779  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.484080  val_loss=0.484080  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.475682  val_loss=0.475682  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.476326  val_loss=0.476326  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.465009  val_loss=0.465009  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.465009, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.050 adj=0.050 correction=0.0010 修正后前5步=[0.0013 0.0067 0.0027 0.0141 0.0022]
+
+==================================================
+评测报告 | 场景：央行开展1.2万亿元逆回购操作并下调7天、14天逆回购中标利
+==================================================
+[预测效果]
+  MAE=0.0166  RMSE=0.0264
+  步内方向=62.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0013 actual=-0.0878)  T+3=[N](pred=+0.0106 actual=-0.0684)  T+5=[N](pred=+0.0271 actual=-0.0512)  T+10=[N](pred=+0.0202 actual=-0.0386)]
+  区间覆盖率 80%=70.83% / 95%=75.00%
+[解释质量]
+  链条一致性=0.160
+  证据覆盖率=0.00%
+[回测]
+  年化收益=-64.58%  Sharpe=-2.259
+  最大回撤=12.92%  胜率=54.17%
+  [风险] event_VaR=-0.0199 E[MDD]=0.0124 tail_prob=0.050 区间=[-0.0273,+0.0793]
+  → 预测=+(+0.00537)  真实=-(-0.0271)  MAE=0.01660  ❌
+
+[12/321] 2020-02-20 | 801180 | LPR下调：1年期降至4.05%(-10bp)，5年期降至4.75%(-5bp)
+  [FW L1 ON] 敏感度先验基于 9 个历史事件（<2020-02-20），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-02-20 过滤，可见文档=0/74
+  外生因子：{'未知': -0.0}
+  机理链置信度：0.100
+[DataAgent] epoch=1/100 train_loss=1.629295  val_loss=1.629295  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.939544  val_loss=0.939544  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.674993  val_loss=0.674993  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.584438  val_loss=0.584438  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.544217  val_loss=0.544217  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.511139  val_loss=0.511139  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.493130  val_loss=0.493130  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.481371  val_loss=0.481371  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.475488  val_loss=0.475488  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.470416  val_loss=0.470416  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.466610  val_loss=0.466610  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.466610, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801780) sensitivity=-1.17
+  外生修正: SCALE=0.020 net_signal=0.000 adj=-0.000 correction=-0.0000 修正后前5步=[0.0018 0.0025 0.0122 0.0113 0.0044]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至4.05%(-10bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0154  RMSE=0.0195
+  步内方向=54.17%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0018 actual=+0.0129)  T+3=[N](pred=+0.0165 actual=-0.0026)  T+5=[N](pred=+0.0325 actual=-0.0089)  T+10=[N](pred=+0.0236 actual=-0.0088)]
+  区间覆盖率 80%=58.33% / 95%=70.83%
+[解释质量]
+  链条一致性=0.100
+  证据覆盖率=0.00%
+[回测]
+  年化收益=-17.42%  Sharpe=-0.618
+  最大回撤=10.34%  胜率=50.00%
+  [风险] event_VaR=-0.0110 E[MDD]=0.0099 tail_prob=0.050 区间=[-0.0180,+0.0806]
+  → 预测=+(+0.00643)  真实=-(-0.0122)  MAE=0.01540  ❌
+
+[13/321] 2020-03-13 | 801780 | 央行宣布定向降准：对达到普惠金融考核标准的银行下调存款准备金率0.5-1个百分点
+  [FW L1 ON] 敏感度先验基于 12 个历史事件（<2020-03-13），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-03-13 过滤，可见文档=4/74
+  外生因子：{'货币政策环境': 0.04000000000000001, '资金敏感型行业': 0.0, '个股标的': 0.0, '风险资产价格': 0.020000000000000004, '市场预期与不确定性': 0.0}
+  机理链置信度：0.100
+[DataAgent] epoch=1/100 train_loss=1.725613  val_loss=1.725613  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.908080  val_loss=0.908080  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.671341  val_loss=0.671341  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.605488  val_loss=0.605488  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.555909  val_loss=0.555909  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.518572  val_loss=0.518572  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.499851  val_loss=0.499851  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.485381  val_loss=0.485381  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.476418  val_loss=0.476418  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.473979  val_loss=0.473979  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.472339  val_loss=0.472339  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.466915, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.060 adj=0.060 correction=0.0012 修正后前5步=[ 0.0025 -0.0001  0.0002  0.0118  0.0041]
+
+==================================================
+评测报告 | 场景：央行开展中期借贷便利（MLF）操作，1年期中标利率下调10个
+==================================================
+[预测效果]
+  MAE=0.0187  RMSE=0.0229
+  步内方向=41.67%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0025 actual=+0.0079)  T+3=[Y](pred=+0.0026 actual=+0.0007)  T+5=[Y](pred=+0.0185 actual=+0.0022)  T+10=[N](pred=+0.0381 actual=-0.0185)]
+  区间覆盖率 80%=75.00% / 95%=87.50%
+[解释质量]
+  链条一致性=0.120
+  证据覆盖率=0.00%
+[回测]
+  年化收益=-84.54%  Sharpe=-6.269
+  最大回撤=18.13%  胜率=37.50%
+  [风险] event_VaR=-0.0461 E[MDD]=0.0231 tail_prob=0.050 区间=[-0.0566,+0.0908]
+  → 预测=+(+0.00369)  真实=-(-0.0469)  MAE=0.01870  ❌
+
+[14/321] 2020-03-13 | 801790 | 央行宣布定向降准：对达到普惠金融考核标准的银行下调存款准备金率0.5-1个百分点
+  [FW L1 ON] 敏感度先验基于 12 个历史事件（<2020-03-13），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-03-13 过滤，可见文档=4/74
+  外生因子：{'LPR下调：1年期降至4.05%(-10': 0.0}
+  机理链置信度：0.170
+[DataAgent] epoch=1/100 train_loss=1.455916  val_loss=1.455916  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.840319  val_loss=0.840319  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.632063  val_loss=0.632063  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.593697  val_loss=0.593697  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.548322  val_loss=0.548322  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.519713  val_loss=0.519713  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.495423  val_loss=0.495423  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.484483  val_loss=0.484483  lr=1.00e-04
+  外生因子：{'LPR下调：1年期降至4.05%(-10': 0.05}
+  机理链置信度：0.140
+[DataAgent] epoch=80/100 train_loss=0.480069  val_loss=0.480069  lr=1.00e-04
+[DataAgent] epoch=1/100 train_loss=1.609365  val_loss=1.609365  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.890594  val_loss=0.890594  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.470533  val_loss=0.470533  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.689325  val_loss=0.689325  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.470764  val_loss=0.470764  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.467767, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801790) sensitivity=-0.80
+  外生修正: SCALE=0.020 net_signal=0.000 adj=-0.000 correction=-0.0000 修正后前5步=[-0.0022  0.0077  0.0008  0.0181 -0.0022]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至4.05%(-10bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0217  RMSE=0.0254
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=-0.0022 actual=+0.0420)  T+3=[Y](pred=+0.0064 actual=+0.0262)  T+5=[Y](pred=+0.0224 actual=+0.0141)  T+10=[Y](pred=+0.0029 actual=+0.0260)]
+  区间覆盖率 80%=45.83% / 95%=70.83%
+[解释质量]
+  链条一致性=0.170
+  证据覆盖率=0.00%
+[回测]
+  年化收益=34.31%  Sharpe=0.883
+  最大回撤=9.46%  胜率=50.00%
+  [风险] event_VaR=-0.0311 E[MDD]=0.0174 tail_prob=0.050 区间=[-0.0401,+0.0830]
+  → 预测=+(+0.00447)  真实=+(+0.0052)  MAE=0.02170  ✅
+
+[15/321] 2020-03-13 | 801180 | 央行宣布定向降准：对达到普惠金融考核标准的银行下调存款准备金率0.5-1个百分点
+  [FW L1 ON] 敏感度先验基于 12 个历史事件（<2020-03-13），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-03-13 过滤，可见文档=4/74
+[DataAgent] epoch=30/100 train_loss=0.604628  val_loss=0.604628  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.557051  val_loss=0.557051  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.530612  val_loss=0.530612  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.505590  val_loss=0.505590  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.488497  val_loss=0.488497  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.476566  val_loss=0.476566  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.471595  val_loss=0.471595  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.472222  val_loss=0.472222  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.469526, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801180) sensitivity=-1.17
+  外生修正: SCALE=0.020 net_signal=0.050 adj=-0.058 correction=-0.0012 修正后前5步=[0.0054 0.0013 0.0096 0.0133 0.0039]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至4.05%(-10bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0198  RMSE=0.0231
+  步内方向=58.33%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0054 actual=+0.0104)  T+3=[N](pred=+0.0163 actual=-0.0111)  T+5=[Y](pred=+0.0339 actual=+0.0108)  T+10=[Y](pred=+0.0464 actual=+0.0613)]
+  区间覆盖率 80%=50.00% / 95%=79.17%
+[解释质量]
+  链条一致性=0.140
+  证据覆盖率=0.00%
+[回测]
+  年化收益=-13.82%  Sharpe=-0.283
+  最大回撤=12.58%  胜率=54.17%
+  [风险] event_VaR=-0.0316 E[MDD]=0.0181 tail_prob=0.050 区间=[-0.0437,+0.1072]
+  → 预测=+(+0.00669)  真实=-(-0.0085)  MAE=0.01980  ❌
+
+[16/321] 2020-03-30 | 801780 | 央行开展500亿元7天逆回购操作，中标利率下调20个基点至2.2%
+  [FW L1 ON] 敏感度先验基于 15 个历史事件（<2020-03-30），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-03-30 过滤，可见文档=4/74
+  外生因子：{'央行宣布定向降准：对达到普惠金融考核标准': 0.0}
+  机理链置信度：0.750
+[DataAgent] epoch=1/100 train_loss=1.457619  val_loss=1.457619  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.831183  val_loss=0.831183  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.667390  val_loss=0.667390  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.583662  val_loss=0.583662  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.546458  val_loss=0.546458  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.514565  val_loss=0.514565  lr=1.00e-04
+  外生因子：{'央行宣布定向降准：对达到普惠金融考核标准': 0.0}
+  机理链置信度：0.680
+[DataAgent] epoch=60/100 train_loss=0.492285  val_loss=0.492285  lr=1.00e-04
+[DataAgent] epoch=1/100 train_loss=1.571463  val_loss=1.571463  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.481154  val_loss=0.481154  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.912489  val_loss=0.912489  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.484252  val_loss=0.484252  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.657598  val_loss=0.657598  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.468691  val_loss=0.468691  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.585515  val_loss=0.585515  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.465766  val_loss=0.465766  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.464885, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801790) sensitivity=-0.08
+  外生修正: SCALE=0.020 net_signal=0.000 adj=-0.000 correction=-0.0000 修正后前5步=[-0.004   0.0094  0.0043  0.021   0.0029]
+
+==================================================
+评测报告 | 场景：央行宣布定向降准：对达到普惠金融考核标准的银行下调存款准备金
+==================================================
+[预测效果]
+  MAE=0.0163  RMSE=0.0217
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0040 actual=-0.0136)  T+3=[N](pred=+0.0097 actual=-0.0600)  T+5=[N](pred=+0.0338 actual=-0.0950)  T+10=[N](pred=+0.0193 actual=-0.0846)]
+  区间覆盖率 80%=70.83% / 95%=91.67%
+[解释质量]
+  链条一致性=0.750
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-38.43%  Sharpe=-1.614
+  最大回撤=8.55%  胜率=45.83%
+  [风险] event_VaR=-0.0375 E[MDD]=0.0214 tail_prob=0.050 区间=[-0.0489,+0.1137]
+  → 预测=+(+0.00671)  真实=-(-0.0086)  MAE=0.01630  ❌
+
+[17/321] 2020-03-30 | 801790 | 央行开展500亿元7天逆回购操作，中标利率下调20个基点至2.2%
+  [FW L1 ON] 敏感度先验基于 15 个历史事件（<2020-03-30），3 个非平凡 cell
+[DataAgent] epoch=40/100 train_loss=0.540153  val_loss=0.540153  lr=1.00e-04
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-03-30 过滤，可见文档=4/74
+[DataAgent] epoch=50/100 train_loss=0.528555  val_loss=0.528555  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.493749  val_loss=0.493749  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.482073  val_loss=0.482073  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.474510  val_loss=0.474510  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.470567  val_loss=0.470567  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.467970  val_loss=0.467970  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.465247, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801780) sensitivity=-1.16
+  外生修正: SCALE=0.020 net_signal=0.000 adj=-0.000 correction=-0.0000 修正后前5步=[-0.0038  0.0039  0.0039  0.0113  0.0013]
+
+==================================================
+评测报告 | 场景：央行宣布定向降准：对达到普惠金融考核标准的银行下调存款准备金
+==================================================
+[预测效果]
+  MAE=0.0143  RMSE=0.0184
+  步内方向=37.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0038 actual=-0.0092)  T+3=[N](pred=+0.0039 actual=-0.0409)  T+5=[N](pred=+0.0166 actual=-0.0897)  T+10=[Y](pred=-0.0248 actual=-0.0444)]
+  区间覆盖率 80%=62.50% / 95%=75.00%
+[解释质量]
+  链条一致性=0.680
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-79.19%  Sharpe=-7.114
+  最大回撤=15.30%  胜率=33.33%
+  [风险] event_VaR=-0.0281 E[MDD]=0.0149 tail_prob=0.050 区间=[-0.0356,+0.0670]
+  → 预测=+(+0.00331)  真实=+(+0.0069)  MAE=0.01430  ✅
+
+[18/321] 2020-03-30 | 801180 | 央行开展500亿元7天逆回购操作，中标利率下调20个基点至2.2%
+  [FW L1 ON] 敏感度先验基于 15 个历史事件（<2020-03-30），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-03-30 过滤，可见文档=4/74
+  外生因子：{'央行开展500亿元7天逆回购操作，中标利': 0.375}
+  机理链置信度：0.738
+[DataAgent] epoch=1/100 train_loss=1.658163  val_loss=1.658163  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.906045  val_loss=0.906045  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.645363  val_loss=0.645363  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.552510  val_loss=0.552510  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.512436  val_loss=0.512436  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.491120  val_loss=0.491120  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.476334  val_loss=0.476334  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.468317  val_loss=0.468317  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.464289  val_loss=0.464289  lr=5.00e-05
+[DataAgent] epoch=90/100 train_loss=0.463515  val_loss=0.463515  lr=5.00e-05
+[DataAgent] epoch=100/100 train_loss=0.459477  val_loss=0.459477  lr=2.50e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.459477, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801780) sensitivity=-1.20
+  外生修正: SCALE=0.020 net_signal=0.375 adj=-0.450 correction=-0.0090 修正后前5步=[-0.0072 -0.0115 -0.0022 -0.0099 -0.0063]
+
+==================================================
+评测报告 | 场景：央行开展500亿元7天逆回购操作，中标利率下调20个基点至2
+==================================================
+[预测效果]
+  MAE=0.0106  RMSE=0.0141
+  步内方向=62.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0072 actual=-0.0042)  T+3=[Y](pred=-0.0207 actual=-0.0154)  T+5=[Y](pred=-0.0365 actual=-0.0155)  T+10=[Y](pred=-0.0981 actual=-0.0178)]
+  区间覆盖率 80%=91.67% / 95%=95.83%
+[解释质量]
+  链条一致性=0.738
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-9.94%  Sharpe=-0.810
+  最大回撤=3.00%  胜率=58.33%
+  [风险] event_VaR=-0.1066 E[MDD]=0.0518 tail_prob=0.050 区间=[-0.1180,+0.0423]
+  → 预测=-(-0.00740)  真实=-(-0.0277)  MAE=0.01060  ✅
+
+[19/321] 2020-04-03 | 801780 | 央行宣布对中小银行定向降准1个百分点（分4月15日、5月15日两次实施），并将金
+  [FW L1 ON] 敏感度先验基于 18 个历史事件（<2020-04-03），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-03 过滤，可见文档=4/74
+  外生因子：{'央行宣布定向降准：对达到普惠金融考核标准': 0.675}
+  机理链置信度：0.734
+[DataAgent] epoch=1/100 train_loss=1.714311  val_loss=1.714311  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.898515  val_loss=0.898515  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.665410  val_loss=0.665410  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.604160  val_loss=0.604160  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.555116  val_loss=0.555116  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.520192  val_loss=0.520192  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.508872  val_loss=0.508872  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.493708  val_loss=0.493708  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.476525  val_loss=0.476525  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.474633  val_loss=0.474633  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.469711  val_loss=0.469711  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.469401, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801180) sensitivity=-1.16
+  外生修正: SCALE=0.020 net_signal=0.675 adj=-0.783 correction=-0.0157 修正后前5步=[-0.018 -0.009 -0.004 -0.003 -0.011]
+
+==================================================
+评测报告 | 场景：央行宣布定向降准：对达到普惠金融考核标准的银行下调存款准备金
+==================================================
+[预测效果]
+  MAE=0.0184  RMSE=0.0231
+  步内方向=62.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0180 actual=-0.0117)  T+3=[Y](pred=-0.0307 actual=-0.0522)  T+5=[Y](pred=-0.0442 actual=-0.1055)  T+10=[Y](pred=-0.1094 actual=-0.0731)]
+  区间覆盖率 80%=79.17% / 95%=91.67%
+[解释质量]
+  链条一致性=0.734
+  证据覆盖率=100.00%
+[回测]
+  年化收益=136.01%  Sharpe=2.970
+  最大回撤=7.11%  胜率=62.50%
+  [风险] event_VaR=-0.1228 E[MDD]=0.0610 tail_prob=0.050 区间=[-0.1366,+0.0424]
+  → 预测=-(-0.00899)  真实=-(-0.0090)  MAE=0.01840  ✅
+
+[20/321] 2020-04-03 | 801790 | 央行宣布对中小银行定向降准1个百分点（分4月15日、5月15日两次实施），并将金
+  [FW L1 ON] 敏感度先验基于 18 个历史事件（<2020-04-03），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-03 过滤，可见文档=4/74
+  外生因子：{'央行开展500亿元7天逆回购操作，中标利': 0.4}
+  机理链置信度：0.752
+[DataAgent] epoch=1/100 train_loss=1.473194  val_loss=1.473194  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.865526  val_loss=0.865526  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.684824  val_loss=0.684824  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.598155  val_loss=0.598155  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.534314  val_loss=0.534314  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.503222  val_loss=0.503222  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.481656  val_loss=0.481656  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.472529  val_loss=0.472529  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.467497  val_loss=0.467497  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.462371  val_loss=0.462371  lr=5.00e-05
+[DataAgent] epoch=100/100 train_loss=0.460719  val_loss=0.460719  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.460719, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801790) sensitivity=-0.50
+  外生修正: SCALE=0.020 net_signal=0.400 adj=-0.200 correction=-0.0040 修正后前5步=[-0.0106  0.0071 -0.0021 -0.0076 -0.012 ]
+
+==================================================
+评测报告 | 场景：央行开展500亿元7天逆回购操作，中标利率下调20个基点至2
+==================================================
+[预测效果]
+  MAE=0.0101  RMSE=0.0136
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0106 actual=-0.0098)  T+3=[Y](pred=-0.0056 actual=-0.0149)  T+5=[Y](pred=-0.0250 actual=-0.0147)  T+10=[Y](pred=-0.0650 actual=-0.0074)]
+  区间覆盖率 80%=91.67% / 95%=100.00%
+[解释质量]
+  链条一致性=0.752
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-23.32%  Sharpe=-1.566
+  最大回撤=4.91%  胜率=45.83%
+  [风险] event_VaR=-0.1070 E[MDD]=0.0504 tail_prob=0.050 区间=[-0.1225,+0.0683]
+  → 预测=-(-0.00502)  真实=-(-0.0182)  MAE=0.01010  ✅
+
+[21/321] 2020-04-03 | 801180 | 央行宣布对中小银行定向降准1个百分点（分4月15日、5月15日两次实施），并将金
+  [FW L1 ON] 敏感度先验基于 18 个历史事件（<2020-04-03），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-03 过滤，可见文档=4/74
+  外生因子：{'央行开展500亿元7天逆回购操作，中标利': 0.0}
+  机理链置信度：0.696
+[DataAgent] epoch=1/100 train_loss=1.730014  val_loss=1.730014  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.819802  val_loss=0.819802  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.624408  val_loss=0.624408  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.563416  val_loss=0.563416  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.523835  val_loss=0.523835  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.501390  val_loss=0.501390  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.483278  val_loss=0.483278  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.474746  val_loss=0.474746  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.471503  val_loss=0.471503  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.463569  val_loss=0.463569  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.462276  val_loss=0.462276  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.461512, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801180) sensitivity=-1.20
+  外生修正: SCALE=0.020 net_signal=0.000 adj=-0.000 correction=-0.0000 修正后前5步=[-0.0066  0.0028 -0.0025  0.0046 -0.0023]
+
+==================================================
+评测报告 | 场景：央行开展500亿元7天逆回购操作，中标利率下调20个基点至2
+==================================================
+[预测效果]
+  MAE=0.0097  RMSE=0.0112
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0066 actual=-0.0130)  T+3=[Y](pred=-0.0063 actual=-0.0158)  T+5=[Y](pred=-0.0040 actual=-0.0069)  T+10=[Y](pred=-0.0287 actual=-0.0055)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.696
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-32.53%  Sharpe=-2.889
+  最大回撤=6.75%  胜率=41.67%
+  [风险] event_VaR=-0.0756 E[MDD]=0.0346 tail_prob=0.050 区间=[-0.0875,+0.0764]
+  → 预测=-(-0.00080)  真实=-(-0.0162)  MAE=0.00970  ✅
+
+[22/321] 2020-04-15 | 801780 | 央行开展中期借贷便利（MLF）操作，1年期中标利率下调20个基点至2.95%
+  [FW L1 ON] 敏感度先验基于 21 个历史事件（<2020-04-15），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-15 过滤，可见文档=4/74
+  外生因子：{'央行宣布对中小银行定向降准1个百分点（分': 0.63}
+  机理链置信度：0.774
+[DataAgent] epoch=1/100 train_loss=1.628224  val_loss=1.628224  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.918989  val_loss=0.918989  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.633262  val_loss=0.633262  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.555147  val_loss=0.555147  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.511378  val_loss=0.511378  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.487069  val_loss=0.487069  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.477778  val_loss=0.477778  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.472387  val_loss=0.472387  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.465297  val_loss=0.465297  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.463944  val_loss=0.463944  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.457941  val_loss=0.457941  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.457941, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801780) sensitivity=-1.20
+  外生修正: SCALE=0.020 net_signal=0.630 adj=-0.756 correction=-0.0151 修正后前5步=[-0.0131 -0.0145 -0.0082 -0.0197 -0.0125]
+
+==================================================
+评测报告 | 场景：央行宣布对中小银行定向降准1个百分点（分4月15日、5月15
+==================================================
+[预测效果]
+  MAE=0.0149  RMSE=0.017
+  步内方向=54.17%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0131 actual=-0.0065)  T+3=[Y](pred=-0.0354 actual=-0.0008)  T+5=[Y](pred=-0.0663 actual=-0.0017)  T+10=[N](pred=-0.1473 actual=+0.0031)]
+  区间覆盖率 80%=75.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.774
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-46.43%  Sharpe=-4.570
+  最大回撤=6.74%  胜率=54.17%
+  [风险] event_VaR=-0.1314 E[MDD]=0.0741 tail_prob=0.050 区间=[-0.1422,+0.0033]
+  → 预测=-(-0.01361)  真实=-(-0.0138)  MAE=0.01490  ✅
+
+[23/321] 2020-04-15 | 801790 | 央行开展中期借贷便利（MLF）操作，1年期中标利率下调20个基点至2.95%
+  [FW L1 ON] 敏感度先验基于 21 个历史事件（<2020-04-15），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-15 过滤，可见文档=4/74
+  外生因子：{'央行宣布对中小银行定向降准1个百分点（分': 0.4}
+  机理链置信度：0.650
+[DataAgent] epoch=1/100 train_loss=1.416513  val_loss=1.416513  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.809915  val_loss=0.809915  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.620953  val_loss=0.620953  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.552307  val_loss=0.552307  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.514232  val_loss=0.514232  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.487952  val_loss=0.487952  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.475501  val_loss=0.475501  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.476540  val_loss=0.476540  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.466719  val_loss=0.466719  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.464456  val_loss=0.464456  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.458984  val_loss=0.458984  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.458984, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801790) sensitivity=-0.73
+  外生修正: SCALE=0.020 net_signal=0.400 adj=-0.293 correction=-0.0059 修正后前5步=[-0.0002 -0.0032  0.0006  0.0079  0.0021]
+
+==================================================
+评测报告 | 场景：央行宣布对中小银行定向降准1个百分点（分4月15日、5月15
+==================================================
+[预测效果]
+  MAE=0.0122  RMSE=0.0156
+  步内方向=37.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0002 actual=-0.0136)  T+3=[N](pred=-0.0028 actual=+0.0004)  T+5=[Y](pred=+0.0072 actual=+0.0041)  T+10=[N](pred=-0.0354 actual=+0.0206)]
+  区间覆盖率 80%=91.67% / 95%=100.00%
+[解释质量]
+  链条一致性=0.650
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-51.24%  Sharpe=-4.407
+  最大回撤=7.73%  胜率=33.33%
+  [风险] event_VaR=-0.0749 E[MDD]=0.0357 tail_prob=0.050 区间=[-0.0908,+0.0996]
+  → 预测=+(+0.00144)  真实=-(-0.0113)  MAE=0.01220  ❌
+
+[24/321] 2020-04-15 | 801180 | 央行开展中期借贷便利（MLF）操作，1年期中标利率下调20个基点至2.95%
+  [FW L1 ON] 敏感度先验基于 21 个历史事件（<2020-04-15），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-15 过滤，可见文档=4/74
+  外生因子：{'央行宣布对中小银行定向降准1个百分点（分': 0.25}
+  机理链置信度：0.680
+[DataAgent] epoch=1/100 train_loss=1.693442  val_loss=1.693442  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.831004  val_loss=0.831004  lr=1.00e-04
+  外生因子：{'央行开展中期借贷便利（MLF）操作，1年': 0.0}
+  机理链置信度：0.714
+[DataAgent] epoch=1/100 train_loss=1.639164  val_loss=1.639164  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.642040  val_loss=0.642040  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.824024  val_loss=0.824024  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.575327  val_loss=0.575327  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.648817  val_loss=0.648817  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.531835  val_loss=0.531835  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.577440  val_loss=0.577440  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.496822  val_loss=0.496822  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.525863  val_loss=0.525863  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.482562  val_loss=0.482562  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.491040  val_loss=0.491040  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.471273  val_loss=0.471273  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.478277  val_loss=0.478277  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.464849  val_loss=0.464849  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.473696  val_loss=0.473696  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.463370  val_loss=0.463370  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.468100  val_loss=0.468100  lr=5.00e-05
+[DataAgent] epoch=100/100 train_loss=0.459829  val_loss=0.459829  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.459460, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801180) sensitivity=-1.20
+  外生修正: SCALE=0.020 net_signal=0.250 adj=-0.300 correction=-0.0060 修正后前5步=[-0.0098 -0.0005  0.0084 -0.0036 -0.0033]
+
+==================================================
+评测报告 | 场景：央行宣布对中小银行定向降准1个百分点（分4月15日、5月15
+==================================================
+[预测效果]
+  MAE=0.0092  RMSE=0.0109
+  步内方向=58.33%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0098 actual=-0.0010)  T+3=[N](pred=-0.0019 actual=+0.0088)  T+5=[N](pred=-0.0087 actual=+0.0021)  T+10=[N](pred=-0.0413 actual=+0.0120)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.680
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-27.27%  Sharpe=-2.373
+  最大回撤=5.56%  胜率=45.83%
+  [风险] event_VaR=-0.0828 E[MDD]=0.0380 tail_prob=0.050 区间=[-0.0948,+0.0746]
+  → 预测=-(-0.00174)  真实=-(-0.0046)  MAE=0.00920  ✅
+
+[25/321] 2020-04-20 | 801780 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [FW L1 ON] 敏感度先验基于 24 个历史事件（<2020-04-20），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+[DataAgent] epoch=90/100 train_loss=0.462677  val_loss=0.462677  lr=2.50e-05
+[DataAgent] epoch=100/100 train_loss=0.461087  val_loss=0.461087  lr=2.50e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.460182, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801780) sensitivity=-1.20
+  外生修正: SCALE=0.020 net_signal=0.000 adj=-0.000 correction=-0.0000 修正后前5步=[-0.0032 -0.0031  0.0021  0.0048 -0.0032]
+
+==================================================
+评测报告 | 场景：央行开展中期借贷便利（MLF）操作，1年期中标利率下调20个
+==================================================
+[预测效果]
+  MAE=0.0086  RMSE=0.0119
+  步内方向=62.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0032 actual=-0.0056)  T+3=[Y](pred=-0.0041 actual=-0.0000)  T+5=[Y](pred=-0.0025 actual=-0.0071)  T+10=[N](pred=-0.0286 actual=+0.0058)]
+  区间覆盖率 80%=87.50% / 95%=95.83%
+[解释质量]
+  链条一致性=0.714
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-35.71%  Sharpe=-3.650
+  最大回撤=6.26%  胜率=54.17%
+  [风险] event_VaR=-0.0578 E[MDD]=0.0268 tail_prob=0.050 区间=[-0.0675,+0.0593]
+  → 预测=-(-0.00049)  真实=-(-0.0116)  MAE=0.00860  ✅
+
+[26/321] 2020-04-20 | 801790 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [FW L1 ON] 敏感度先验基于 24 个历史事件（<2020-04-20），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+  外生因子：{'央行开展中期借贷便利（MLF）操作，1年': 0.738}
+  机理链置信度：0.744
+[DataAgent] epoch=1/100 train_loss=1.574182  val_loss=1.574182  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.859573  val_loss=0.859573  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.641827  val_loss=0.641827  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.556297  val_loss=0.556297  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.511302  val_loss=0.511302  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.485285  val_loss=0.485285  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.476891  val_loss=0.476891  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.469359  val_loss=0.469359  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.465353  val_loss=0.465353  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.463651  val_loss=0.463651  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.462340  val_loss=0.462340  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.458944, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801790) sensitivity=-0.90
+  外生修正: SCALE=0.020 net_signal=0.738 adj=-0.664 correction=-0.0133 修正后前5步=[-0.0091 -0.0107 -0.001   0.0058 -0.0149]
+
+==================================================
+评测报告 | 场景：央行开展中期借贷便利（MLF）操作，1年期中标利率下调20个
+==================================================
+[预测效果]
+  MAE=0.0118  RMSE=0.0158
+  步内方向=58.33%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0091 actual=-0.0080)  T+3=[N](pred=-0.0207 actual=+0.0064)  T+5=[Y](pred=-0.0297 actual=-0.0018)  T+10=[Y](pred=-0.0826 actual=-0.0090)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.744
+  证据覆盖率=100.00%
+[回测]
+  年化收益=19.52%  Sharpe=1.239
+  最大回撤=4.04%  胜率=58.33%
+  [风险] event_VaR=-0.1211 E[MDD]=0.0571 tail_prob=0.050 区间=[-0.1375,+0.0710]
+  → 预测=-(-0.00598)  真实=-(-0.0047)  MAE=0.01180  ✅
+
+[27/321] 2020-04-20 | 801180 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [FW L1 ON] 敏感度先验基于 24 个历史事件（<2020-04-20），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+  外生因子：{'央行开展中期借贷便利（MLF）操作，1年': 0.675}
+  机理链置信度：0.686
+[DataAgent] epoch=1/100 train_loss=1.701702  val_loss=1.701702  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.859993  val_loss=0.859993  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.638840  val_loss=0.638840  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.563734  val_loss=0.563734  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.518465  val_loss=0.518465  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.497864  val_loss=0.497864  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.479653  val_loss=0.479653  lr=1.00e-04
+  外生因子：{'LPR下调：1年期降至3.85%(-20': 0.0}
+  机理链置信度：0.720
+[DataAgent] epoch=1/100 train_loss=1.700547  val_loss=1.700547  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.470844  val_loss=0.470844  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.953246  val_loss=0.953246  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.465910  val_loss=0.465910  lr=5.00e-05
+[DataAgent] epoch=20/100 train_loss=0.650343  val_loss=0.650343  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.462621  val_loss=0.462621  lr=5.00e-05
+[DataAgent] epoch=30/100 train_loss=0.570493  val_loss=0.570493  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.460920  val_loss=0.460920  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.460920, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801180) sensitivity=-1.20
+  外生修正: SCALE=0.020 net_signal=0.675 adj=-0.810 correction=-0.0162 修正后前5步=[-0.0151 -0.0168 -0.0076 -0.01   -0.0167]
+
+==================================================
+评测报告 | 场景：央行开展中期借贷便利（MLF）操作，1年期中标利率下调20个
+==================================================
+[预测效果]
+  MAE=0.0103  RMSE=0.0137
+  步内方向=58.33%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0151 actual=-0.0141)  T+3=[Y](pred=-0.0390 actual=-0.0069)  T+5=[Y](pred=-0.0644 actual=-0.0200)  T+10=[Y](pred=-0.1286 actual=-0.0158)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.686
+  证据覆盖率=100.00%
+[回测]
+  年化收益=26.85%  Sharpe=1.898
+  最大回撤=3.26%  胜率=50.00%
+  [风险] event_VaR=-0.1444 E[MDD]=0.0772 tail_prob=0.050 区间=[-0.1587,+0.0217]
+  → 预测=-(-0.01322)  真实=-(-0.0177)  MAE=0.01030  ✅
+
+[28/321] 2020-04-20 | 801710 | LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp
+  [FW L1 ON] 敏感度先验基于 24 个历史事件（<2020-04-20），3 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-04-20 过滤，可见文档=4/74
+[DataAgent] epoch=40/100 train_loss=0.522387  val_loss=0.522387  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.489589  val_loss=0.489589  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.476302  val_loss=0.476302  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.469049  val_loss=0.469049  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.464281  val_loss=0.464281  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.460927  val_loss=0.460927  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.461270  val_loss=0.461270  lr=1.00e-04
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.460331, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801780) sensitivity=-1.20
+  外生修正: SCALE=0.020 net_signal=0.000 adj=-0.000 correction=-0.0000 修正后前5步=[-0.0033  0.0029  0.0049  0.0043 -0.0032]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至3.85%(-20bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0083  RMSE=0.0117
+  步内方向=54.17%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0033 actual=-0.0031)  T+3=[N](pred=+0.0044 actual=-0.0079)  T+5=[N](pred=+0.0055 actual=-0.0154)  T+10=[N](pred=-0.0174 actual=+0.0218)]
+  区间覆盖率 80%=87.50% / 95%=87.50%
+[解释质量]
+  链条一致性=0.720
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-55.41%  Sharpe=-5.866
+  最大回撤=7.55%  胜率=37.50%
+  [风险] event_VaR=-0.0472 E[MDD]=0.0218 tail_prob=0.050 区间=[-0.0577,+0.0659]
+  → 预测=+(+0.00111)  真实=+(+0.0080)  MAE=0.00830  ✅
+
+[29/321] 2020-06-12 | 801790 | 证监会发布创业板改革并试点注册制相关制度规则（首发注册管理办法等，试行）
+  [FW L1 ON] 敏感度先验基于 28 个历史事件（<2020-06-12），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-06-12 过滤，可见文档=7/74
+  外生因子：{'LPR下调：1年期降至3.85%(-20': 0.738}
+  机理链置信度：0.714
+[DataAgent] epoch=1/100 train_loss=1.517308  val_loss=1.517308  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.832412  val_loss=0.832412  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.640265  val_loss=0.640265  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.559730  val_loss=0.559730  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.521368  val_loss=0.521368  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.494833  val_loss=0.494833  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.482357  val_loss=0.482357  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.474890  val_loss=0.474890  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.464773  val_loss=0.464773  lr=5.00e-05
+[DataAgent] epoch=90/100 train_loss=0.466493  val_loss=0.466493  lr=5.00e-05
+[DataAgent] epoch=100/100 train_loss=0.460140  val_loss=0.460140  lr=2.50e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.460140, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801790) sensitivity=-1.02
+  外生修正: SCALE=0.020 net_signal=0.738 adj=-0.756 correction=-0.0151 修正后前5步=[-0.0126 -0.006  -0.0078  0.0006 -0.01  ]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至3.85%(-20bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0147  RMSE=0.017
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=-0.0126 actual=+0.0080)  T+3=[Y](pred=-0.0262 actual=-0.0075)  T+5=[Y](pred=-0.0353 actual=-0.0302)  T+10=[N](pred=-0.1034 actual=+0.0068)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.714
+  证据覆盖率=100.00%
+[回测]
+  年化收益=22.34%  Sharpe=1.212
+  最大回撤=4.13%  胜率=50.00%
+  [风险] event_VaR=-0.1130 E[MDD]=0.0550 tail_prob=0.050 区间=[-0.1263,+0.0519]
+  → 预测=-(-0.00715)  真实=-(-0.0220)  MAE=0.01470  ✅
+
+[30/321] 2020-06-12 | 801780 | 证监会发布创业板改革并试点注册制相关制度规则（首发注册管理办法等，试行）
+  [FW L1 ON] 敏感度先验基于 28 个历史事件（<2020-06-12），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-06-12 过滤，可见文档=7/74
+  外生因子：{'LPR下调：1年期降至3.85%(-20': 0.7200000000000001}
+  机理链置信度：0.690
+[DataAgent] epoch=1/100 train_loss=1.638894  val_loss=1.638894  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.818020  val_loss=0.818020  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.647620  val_loss=0.647620  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.557400  val_loss=0.557400  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.520236  val_loss=0.520236  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.487538  val_loss=0.487538  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.475319  val_loss=0.475319  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.470571  val_loss=0.470571  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.468322  val_loss=0.468322  lr=1.00e-04
+[DataAgent] epoch=90/100 train_loss=0.465017  val_loss=0.465017  lr=1.00e-04
+[DataAgent] epoch=100/100 train_loss=0.459813  val_loss=0.459813  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.459813, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  板块异质性: (monetary_policy, 801180) sensitivity=-1.20
+  外生修正: SCALE=0.020 net_signal=0.720 adj=-0.864 correction=-0.0173 修正后前5步=[-0.0179 -0.0133 -0.0092 -0.005  -0.0138]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至3.85%(-20bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.0122  RMSE=0.0149
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0179 actual=-0.0012)  T+3=[Y](pred=-0.0399 actual=-0.0073)  T+5=[Y](pred=-0.0579 actual=-0.0194)  T+10=[N](pred=-0.1081 actual=+0.0085)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.690
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-31.89%  Sharpe=-2.647
+  最大回撤=5.29%  胜率=41.67%
+  [风险] event_VaR=-0.1409 E[MDD]=0.0729 tail_prob=0.050 区间=[-0.1555,+0.0332]
+  → 预测=-(-0.01184)  真实=-(-0.0072)  MAE=0.01220  ✅
+
+[31/321] 2020-06-12 | 801750 | 证监会发布创业板改革并试点注册制相关制度规则（首发注册管理办法等，试行）
+  [FW L1 ON] 敏感度先验基于 28 个历史事件（<2020-06-12），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-06-12 过滤，可见文档=7/74
+  外生因子：{'LPR下调：1年期降至3.85%(-20': 0.7200000000000001}
+  机理链置信度：0.790
+[DataAgent] epoch=1/100 train_loss=1.788772  val_loss=1.788772  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.881774  val_loss=0.881774  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.627259  val_loss=0.627259  lr=1.00e-04
+[DataAgent] epoch=30/100 train_loss=0.553221  val_loss=0.553221  lr=1.00e-04
+[DataAgent] epoch=40/100 train_loss=0.517170  val_loss=0.517170  lr=1.00e-04
+[DataAgent] epoch=50/100 train_loss=0.495556  val_loss=0.495556  lr=1.00e-04
+[DataAgent] epoch=60/100 train_loss=0.480572  val_loss=0.480572  lr=1.00e-04
+[DataAgent] epoch=70/100 train_loss=0.471786  val_loss=0.471786  lr=1.00e-04
+[DataAgent] epoch=80/100 train_loss=0.467498  val_loss=0.467498  lr=5.00e-05
+[DataAgent] epoch=90/100 train_loss=0.466762  val_loss=0.466762  lr=5.00e-05
+[DataAgent] epoch=100/100 train_loss=0.463798  val_loss=0.463798  lr=5.00e-05
+[DataAgent] 训练结束: epoch=100/100, 最佳 val_loss=0.461857, 跑满 epochs
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.720 adj=0.720 correction=0.0144 修正后前5步=[0.0054 0.0224 0.0361 0.0044 0.0094]
+
+==================================================
+评测报告 | 场景：LPR下调：1年期降至3.85%(-20bp)，5年期降至4
+==================================================
+[预测效果]
+  MAE=0.018  RMSE=0.0218
+  步内方向=54.17%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0054 actual=+0.0274)  T+3=[Y](pred=+0.0651 actual=+0.0333)  T+5=[Y](pred=+0.0798 actual=+0.0075)  T+10=[Y](pred=+0.1414 actual=+0.0306)]
+  区间覆盖率 80%=83.33% / 95%=100.00%
+[解释质量]
+  链条一致性=0.790
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-37.13%  Sharpe=-2.334
+  最大回撤=8.80%  胜率=50.00%
+  [风险] event_VaR=-0.0174 E[MDD]=0.0201 tail_prob=0.050 区间=[-0.0348,+0.1859]
+  → 预测=+(+0.01555)  真实=+(+0.0198)  MAE=0.01800  ✅
+
+[32/321] 2020-08-04 | 801080 | 国务院印发《新时期促进集成电路产业和软件产业高质量发展的若干政策》（国发〔202
+  [FW L1 ON] 敏感度先验基于 31 个历史事件（<2020-08-04），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-08-04 过滤，可见文档=7/74
+  外生因子：{'证监会发布创业板改革并试点注册制相关制度': -0.7200000000000001}
+  机理链置信度：0.850
+[DataAgent] epoch=1/100 train_loss=1.471820  val_loss=2.735913  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.947569  val_loss=3.062041  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 12: 连续 10 epoch val_loss 无改善，最佳 val_loss=2.726946 @ epoch 2
+[DataAgent] 训练结束: epoch=12/100, 最佳 val_loss=2.726946, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.720 adj=-0.720 correction=-0.0144 修正后前5步=[-0.0134 -0.0138 -0.0143 -0.0145 -0.0158]
+
+==================================================
+评测报告 | 场景：证监会发布创业板改革并试点注册制相关制度规则（首发注册管理办
+==================================================
+[预测效果]
+  MAE=0.0281  RMSE=0.0371
+  步内方向=45.83%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0134 actual=-0.0030)  T+3=[Y](pred=-0.0409 actual=-0.0012)  T+5=[N](pred=-0.0697 actual=+0.0014)  T+10=[N](pred=-0.1582 actual=+0.0034)]
+  区间覆盖率 80%=83.33% / 95%=91.67%
+[解释质量]
+  链条一致性=0.850
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-86.13%  Sharpe=-3.872
+  最大回撤=26.83%  胜率=45.83%
+  [风险] event_VaR=-0.1892 E[MDD]=0.0959 tail_prob=0.050 区间=[-0.2105,+0.0617]
+  → 预测=-(-0.01435)  真实=-(-0.0067)  MAE=0.02810  ✅
+
+[33/321] 2020-08-04 | 801750 | 国务院印发《新时期促进集成电路产业和软件产业高质量发展的若干政策》（国发〔202
+  [FW L1 ON] 敏感度先验基于 31 个历史事件（<2020-08-04），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-08-04 过滤，可见文档=7/74
+  外生因子：{'证监会发布创业板改革并试点注册制相关制度': 0.648}
+  机理链置信度：0.684
+[DataAgent] epoch=1/100 train_loss=1.412804  val_loss=3.421422  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.872484  val_loss=3.337246  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 13: 连续 10 epoch val_loss 无改善，最佳 val_loss=3.161963 @ epoch 3
+[DataAgent] 训练结束: epoch=13/100, 最佳 val_loss=3.161963, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.648 adj=0.648 correction=0.0130 修正后前5步=[0.0112 0.0135 0.0094 0.0088 0.0086]
+
+==================================================
+评测报告 | 场景：证监会发布创业板改革并试点注册制相关制度规则（首发注册管理办
+==================================================
+[预测效果]
+  MAE=0.0182  RMSE=0.0264
+  步内方向=37.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0112 actual=+0.0008)  T+3=[N](pred=+0.0345 actual=-0.0047)  T+5=[N](pred=+0.0525 actual=-0.0085)  T+10=[N](pred=+0.0648 actual=-0.0106)]
+  区间覆盖率 80%=79.17% / 95%=91.67%
+[解释质量]
+  链条一致性=0.684
+  证据覆盖率=100.00%
+[回测]
+  年化收益=2.33%  Sharpe=0.193
+  最大回撤=10.99%  胜率=33.33%
+  [风险] event_VaR=-0.0325 E[MDD]=0.0199 tail_prob=0.050 区间=[-0.0463,+0.1456]
+  → 预测=+(+0.01030)  真实=-(-0.0327)  MAE=0.01820  ❌
+
+[34/321] 2020-08-04 | 801770 | 国务院印发《新时期促进集成电路产业和软件产业高质量发展的若干政策》（国发〔202
+  [FW L1 ON] 敏感度先验基于 31 个历史事件（<2020-08-04），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-08-04 过滤，可见文档=7/74
+  外生因子：{'国务院印发《新时期促进集成电路产业和软件': 0.39}
+  机理链置信度：0.838
+[DataAgent] epoch=1/100 train_loss=1.752727  val_loss=4.397601  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.959494  val_loss=4.668884  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 11: 连续 10 epoch val_loss 无改善，最佳 val_loss=4.397601 @ epoch 1
+[DataAgent] 训练结束: epoch=11/100, 最佳 val_loss=4.397601, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.390 adj=0.390 correction=0.0078 修正后前5步=[0.0113 0.01   0.0124 0.0125 0.0131]
+
+==================================================
+评测报告 | 场景：国务院印发《新时期促进集成电路产业和软件产业高质量发展的若干
+==================================================
+[预测效果]
+  MAE=0.0144  RMSE=0.0184
+  步内方向=37.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0113 actual=-0.0179)  T+3=[N](pred=+0.0340 actual=-0.0086)  T+5=[N](pred=+0.0607 actual=-0.0405)  T+10=[N](pred=+0.0717 actual=-0.0158)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.838
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-70.45%  Sharpe=-5.186
+  最大回撤=12.76%  胜率=37.50%
+  [风险] event_VaR=-0.0811 E[MDD]=0.0408 tail_prob=0.050 区间=[-0.1054,+0.2176]
+  → 预测=+(+0.01185)  真实=-(-0.0361)  MAE=0.01440  ❌
+
+[35/321] 2020-08-17 | 801080 | 美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并新增38家华为关联实
+  [FW L1 ON] 敏感度先验基于 34 个历史事件（<2020-08-17），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-08-17 过滤，可见文档=7/74
+  外生因子：{'证监会发布创业板改革并试点注册制相关制度': -0.45}
+  机理链置信度：0.720
+[DataAgent] epoch=1/100 train_loss=2.328969  val_loss=3.100481  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=1.121663  val_loss=3.264291  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 11: 连续 10 epoch val_loss 无改善，最佳 val_loss=3.100481 @ epoch 1
+[DataAgent] 训练结束: epoch=11/100, 最佳 val_loss=3.100481, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.450 adj=-0.450 correction=-0.0090 修正后前5步=[-0.0111 -0.0108 -0.0078 -0.0021 -0.0107]
+
+==================================================
+评测报告 | 场景：证监会发布创业板改革并试点注册制相关制度规则（首发注册管理办
+==================================================
+[预测效果]
+  MAE=0.0231  RMSE=0.0271
+  步内方向=29.17%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0111 actual=-0.0015)  T+3=[N](pred=-0.0294 actual=+0.0141)  T+5=[N](pred=-0.0418 actual=+0.0207)  T+10=[N](pred=-0.0945 actual=+0.0432)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.720
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-83.66%  Sharpe=-5.279
+  最大回撤=19.46%  胜率=29.17%
+  [风险] event_VaR=-0.2102 E[MDD]=0.0973 tail_prob=0.050 区间=[-0.2355,+0.1441]
+  → 预测=-(-0.00850)  真实=-(-0.0005)  MAE=0.02310  ✅
+
+[36/321] 2020-08-17 | 801880 | 美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并新增38家华为关联实
+  [FW L1 ON] 敏感度先验基于 34 个历史事件（<2020-08-17），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-08-17 过滤，可见文档=7/74
+  外生因子：{'国务院印发《新时期促进集成电路产业和软件': 0.45}
+  机理链置信度：0.714
+[DataAgent] epoch=1/100 train_loss=1.788628  val_loss=3.550195  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.940151  val_loss=3.657614  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 12: 连续 10 epoch val_loss 无改善，最佳 val_loss=3.540861 @ epoch 2
+[DataAgent] 训练结束: epoch=12/100, 最佳 val_loss=3.540861, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.450 adj=0.450 correction=0.0090 修正后前5步=[0.0069 0.0054 0.0053 0.005  0.0022]
+
+==================================================
+评测报告 | 场景：国务院印发《新时期促进集成电路产业和软件产业高质量发展的若干
+==================================================
+[预测效果]
+  MAE=0.0121  RMSE=0.0158
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0069 actual=-0.0099)  T+3=[Y](pred=+0.0176 actual=+0.0063)  T+5=[N](pred=+0.0250 actual=-0.0139)  T+10=[N](pred=+0.0400 actual=-0.0233)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.714
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-63.08%  Sharpe=-4.168
+  最大回撤=9.49%  胜率=45.83%
+  [风险] event_VaR=-0.0971 E[MDD]=0.0448 tail_prob=0.050 区间=[-0.1178,+0.1620]
+  → 预测=+(+0.00495)  真实=-(-0.0263)  MAE=0.01210  ❌
+
+[37/321] 2020-08-17 | 801110 | 美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并新增38家华为关联实
+  [FW L1 ON] 敏感度先验基于 34 个历史事件（<2020-08-17），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-08-17 过滤，可见文档=7/74
+  外生因子：{'国务院印发《新时期促进集成电路产业和软件': -0.738}
+  机理链置信度：0.846
+[DataAgent] epoch=1/100 train_loss=1.631063  val_loss=4.456741  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.898112  val_loss=4.199051  lr=5.00e-05
+[DataAgent] epoch=20/100 train_loss=0.771801  val_loss=3.925377  lr=5.00e-05
+[DataAgent] epoch=30/100 train_loss=0.705414  val_loss=3.976324  lr=2.50e-05
+[DataAgent] 🛑 早停触发 @ epoch 31: 连续 10 epoch val_loss 无改善，最佳 val_loss=3.915246 @ epoch 21
+[DataAgent] 训练结束: epoch=31/100, 最佳 val_loss=3.915246, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.738 adj=-0.738 correction=-0.0148 修正后前5步=[-0.0206 -0.0087 -0.0243  0.0011 -0.0215]
+
+==================================================
+评测报告 | 场景：国务院印发《新时期促进集成电路产业和软件产业高质量发展的若干
+==================================================
+[预测效果]
+  MAE=0.0147  RMSE=0.0169
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0206 actual=-0.0100)  T+3=[Y](pred=-0.0527 actual=-0.0061)  T+5=[Y](pred=-0.0720 actual=-0.0247)  T+10=[Y](pred=-0.1543 actual=-0.0092)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.846
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-11.71%  Sharpe=-0.679
+  最大回撤=4.43%  胜率=45.83%
+  [风险] event_VaR=-0.2266 E[MDD]=0.1103 tail_prob=0.050 区间=[-0.2497,+0.0971]
+  → 预测=-(-0.01478)  真实=-(-0.0233)  MAE=0.01470  ✅
+
+[38/321] 2020-08-17 | 801890 | 美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并新增38家华为关联实
+  [FW L1 ON] 敏感度先验基于 34 个历史事件（<2020-08-17），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-08-17 过滤，可见文档=7/74
+  外生因子：{'美国商务部BIS扩大对华为的外国直接产品': -0.7020000000000001}
+  机理链置信度：0.760
+[DataAgent] epoch=1/100 train_loss=1.923292  val_loss=4.281023  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.984172  val_loss=4.606474  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 11: 连续 10 epoch val_loss 无改善，最佳 val_loss=4.281023 @ epoch 1
+[DataAgent] 训练结束: epoch=11/100, 最佳 val_loss=4.281023, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.702 adj=-0.702 correction=-0.0140 修正后前5步=[-0.0043 -0.0051 -0.0036 -0.001  -0.0007]
+
+==================================================
+评测报告 | 场景：美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并
+==================================================
+[预测效果]
+  MAE=0.0153  RMSE=0.0185
+  步内方向=54.17%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=-0.0043 actual=+0.0217)  T+3=[Y](pred=-0.0129 actual=-0.0183)  T+5=[Y](pred=-0.0146 actual=-0.0137)  T+10=[Y](pred=-0.0690 actual=-0.0025)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.760
+  证据覆盖率=100.00%
+[回测]
+  年化收益=43.82%  Sharpe=1.339
+  最大回撤=4.53%  胜率=54.17%
+  [风险] event_VaR=-0.1711 E[MDD]=0.0786 tail_prob=0.050 区间=[-0.1963,+0.1615]
+  → 预测=-(-0.00293)  真实=+(+0.0013)  MAE=0.01530  ❌
+
+[39/321] 2020-08-17 | 801750 | 美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并新增38家华为关联实
+  [FW L1 ON] 敏感度先验基于 34 个历史事件（<2020-08-17），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-08-17 过滤，可见文档=7/74
+  外生因子：{'美国商务部BIS扩大对华为的外国直接产品': -0.648}
+  机理链置信度：0.850
+[DataAgent] epoch=1/100 train_loss=1.518316  val_loss=4.057024  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.845708  val_loss=4.157779  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 13: 连续 10 epoch val_loss 无改善，最佳 val_loss=3.993582 @ epoch 3
+[DataAgent] 训练结束: epoch=13/100, 最佳 val_loss=3.993582, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.648 adj=-0.648 correction=-0.0130 修正后前5步=[-0.0098 -0.0088 -0.0078 -0.0042 -0.0037]
+
+==================================================
+评测报告 | 场景：美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并
+==================================================
+[预测效果]
+  MAE=0.0153  RMSE=0.0189
+  步内方向=41.67%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=-0.0098 actual=+0.0244)  T+3=[N](pred=-0.0261 actual=+0.0132)  T+5=[N](pred=-0.0338 actual=+0.0012)  T+10=[N](pred=-0.0749 actual=+0.0076)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.850
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-57.50%  Sharpe=-3.303
+  最大回撤=9.05%  胜率=41.67%
+  [风险] event_VaR=-0.1338 E[MDD]=0.0640 tail_prob=0.050 区间=[-0.1480,+0.0759]
+  → 预测=-(-0.00685)  真实=-(-0.0024)  MAE=0.01530  ✅
+
+[40/321] 2020-08-17 | 801770 | 美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并新增38家华为关联实
+  [FW L1 ON] 敏感度先验基于 34 个历史事件（<2020-08-17），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-08-17 过滤，可见文档=7/74
+  外生因子：{'美国商务部BIS扩大对华为的外国直接产品': -0.0}
+  机理链置信度：0.774
+[DataAgent] epoch=1/100 train_loss=1.574105  val_loss=3.351654  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.865254  val_loss=3.370306  lr=1.00e-04
+[DataAgent] 🛑 早停触发 @ epoch 19: 连续 10 epoch val_loss 无改善，最佳 val_loss=3.218002 @ epoch 9
+[DataAgent] 训练结束: epoch=19/100, 最佳 val_loss=3.218002, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.000 adj=0.000 correction=0.0000 修正后前5步=[0.0068 0.0048 0.004  0.0221 0.0046]
+
+==================================================
+评测报告 | 场景：美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并
+==================================================
+[预测效果]
+  MAE=0.0111  RMSE=0.0144
+  步内方向=58.33%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0068 actual=+0.0126)  T+3=[N](pred=+0.0157 actual=-0.0104)  T+5=[N](pred=+0.0429 actual=-0.0195)  T+10=[N](pred=+0.0456 actual=-0.0056)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.774
+  证据覆盖率=100.00%
+[回测]
+  年化收益=99.76%  Sharpe=3.418
+  最大回撤=6.48%  胜率=54.17%
+  [风险] event_VaR=-0.0442 E[MDD]=0.0234 tail_prob=0.050 区间=[-0.0614,+0.1421]
+  → 预测=+(+0.00847)  真实=-(-0.0231)  MAE=0.01110  ❌
+
+[41/321] 2020-09-22 | 801730 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 40 个历史事件（<2020-09-22），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+  外生因子：{'美国商务部BIS扩大对华为的外国直接产品': -0.0}
+  机理链置信度：0.766
+[DataAgent] epoch=1/100 train_loss=1.574732  val_loss=3.246888  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.882590  val_loss=3.026751  lr=1.00e-04
+[DataAgent] epoch=20/100 train_loss=0.684479  val_loss=3.337935  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 20: 连续 10 epoch val_loss 无改善，最佳 val_loss=3.026751 @ epoch 10
+[DataAgent] 训练结束: epoch=20/100, 最佳 val_loss=3.026751, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.000 adj=0.000 correction=0.0000 修正后前5步=[ 0.0034 -0.0031  0.004   0.0092 -0.0038]
+
+==================================================
+评测报告 | 场景：美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并
+==================================================
+[预测效果]
+  MAE=0.0127  RMSE=0.0147
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0034 actual=+0.0215)  T+3=[Y](pred=+0.0043 actual=+0.0151)  T+5=[Y](pred=+0.0097 actual=+0.0041)  T+10=[Y](pred=+0.0241 actual=+0.0332)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.766
+  证据覆盖率=100.00%
+[回测]
+  年化收益=13.94%  Sharpe=0.578
+  最大回撤=7.94%  胜率=41.67%
+  [风险] event_VaR=-0.0636 E[MDD]=0.0298 tail_prob=0.050 区间=[-0.0755,+0.0923]
+  → 预测=+(+0.00195)  真实=+(+0.0091)  MAE=0.01270  ✅
+
+[42/321] 2020-09-22 | 801160 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 40 个历史事件（<2020-09-22），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+  外生因子：{'美国商务部BIS扩大对华为的外国直接产品': -0.675}
+  机理链置信度：0.780
+[DataAgent] epoch=1/100 train_loss=1.949698  val_loss=3.182735  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=1.008035  val_loss=3.919532  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 11: 连续 10 epoch val_loss 无改善，最佳 val_loss=3.182735 @ epoch 1
+[DataAgent] 训练结束: epoch=11/100, 最佳 val_loss=3.182735, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.675 adj=-0.675 correction=-0.0135 修正后前5步=[-0.0131 -0.0102 -0.0098 -0.0089 -0.0073]
+
+==================================================
+评测报告 | 场景：美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并
+==================================================
+[预测效果]
+  MAE=0.0177  RMSE=0.02
+  步内方向=41.67%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=-0.0131 actual=+0.0195)  T+3=[Y](pred=-0.0327 actual=-0.0082)  T+5=[Y](pred=-0.0484 actual=-0.0103)  T+10=[N](pred=-0.1145 actual=+0.0121)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.780
+  证据覆盖率=100.00%
+[回测]
+  年化收益=57.63%  Sharpe=1.787
+  最大回撤=3.83%  胜率=41.67%
+  [风险] event_VaR=-0.1608 E[MDD]=0.0788 tail_prob=0.050 区间=[-0.1804,+0.0770]
+  → 预测=-(-0.00987)  真实=-(-0.0051)  MAE=0.01770  ✅
+
+[43/321] 2020-09-22 | 801050 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 40 个历史事件（<2020-09-22），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+  外生因子：{'美国商务部BIS扩大对华为的外国直接产品': -0.0}
+  机理链置信度：0.772
+[DataAgent] epoch=1/100 train_loss=1.917643  val_loss=3.643279  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=1.025183  val_loss=3.596789  lr=5.00e-05
+[DataAgent] epoch=20/100 train_loss=0.766029  val_loss=3.642561  lr=2.50e-05
+[DataAgent] 🛑 早停触发 @ epoch 24: 连续 10 epoch val_loss 无改善，最佳 val_loss=3.532459 @ epoch 14
+[DataAgent] 训练结束: epoch=24/100, 最佳 val_loss=3.532459, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.000 adj=0.000 correction=0.0000 修正后前5步=[0.0095 0.0175 0.0022 0.0224 0.006 ]
+
+==================================================
+评测报告 | 场景：美国商务部BIS扩大对华为的外国直接产品规则(FDPR)，并
+==================================================
+[预测效果]
+  MAE=0.014  RMSE=0.0167
+  步内方向=45.83%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=+0.0095 actual=+0.0216)  T+3=[N](pred=+0.0294 actual=-0.0048)  T+5=[N](pred=+0.0587 actual=-0.0084)  T+10=[N](pred=+0.0483 actual=-0.0054)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.772
+  证据覆盖率=100.00%
+[回测]
+  年化收益=35.52%  Sharpe=1.219
+  最大回撤=4.26%  胜率=37.50%
+  [风险] event_VaR=-0.0547 E[MDD]=0.0307 tail_prob=0.050 区间=[-0.0795,+0.1891]
+  → 预测=+(+0.01151)  真实=-(-0.0107)  MAE=0.01400  ❌
+
+[44/321] 2020-09-22 | 801770 | 双碳目标宣布：2030年碳达峰、2060年碳中和
+  [FW L1 ON] 敏感度先验基于 40 个历史事件（<2020-09-22），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-09-22 过滤，可见文档=7/74
+  外生因子：{'双碳目标宣布：2030年碳达峰、2060': -0.675}
+  机理链置信度：0.830
+[DataAgent] epoch=1/100 train_loss=1.587380  val_loss=2.165961  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.897317  val_loss=2.628942  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 12: 连续 10 epoch val_loss 无改善，最佳 val_loss=1.955005 @ epoch 2
+[DataAgent] 训练结束: epoch=12/100, 最佳 val_loss=1.955005, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.675 adj=-0.675 correction=-0.0135 修正后前5步=[-0.0035 -0.0033 -0.0041 -0.0017 -0.0038]
+
+==================================================
+评测报告 | 场景：双碳目标宣布：2030年碳达峰、2060年碳中和
+==================================================
+[预测效果]
+  MAE=0.0194  RMSE=0.025
+  步内方向=45.83%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0035 actual=-0.0179)  T+3=[Y](pred=-0.0109 actual=-0.0378)  T+5=[Y](pred=-0.0164 actual=-0.0262)  T+10=[N](pred=-0.0509 actual=+0.1074)]
+  区间覆盖率 80%=91.67% / 95%=100.00%
+[解释质量]
+  链条一致性=0.830
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-50.94%  Sharpe=-1.829
+  最大回撤=11.69%  胜率=45.83%
+  [风险] event_VaR=-0.1467 E[MDD]=0.0678 tail_prob=0.050 区间=[-0.1683,+0.1307]
+  → 预测=-(-0.00330)  真实=+(+0.0092)  MAE=0.01940  ❌
+
+[45/321] 2020-11-05 | 801150 | 国家组织冠脉支架集中带量采购在天津开标并产生拟中选结果（首次高值医用耗材国家集采
+  [FW L1 ON] 敏感度先验基于 44 个历史事件（<2020-11-05），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-11-05 过滤，可见文档=10/74
+  外生因子：{'双碳目标宣布：2030年碳达峰、2060': -0.0}
+  机理链置信度：0.724
+[DataAgent] epoch=1/100 train_loss=1.681910  val_loss=1.477629  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.932761  val_loss=1.409513  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 13: 连续 10 epoch val_loss 无改善，最佳 val_loss=1.380521 @ epoch 3
+[DataAgent] 训练结束: epoch=13/100, 最佳 val_loss=1.380521, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.000 adj=0.000 correction=0.0000 修正后前5步=[0.0049 0.0037 0.0061 0.0079 0.0069]
+
+==================================================
+评测报告 | 场景：双碳目标宣布：2030年碳达峰、2060年碳中和
+==================================================
+[预测效果]
+  MAE=0.0089  RMSE=0.0117
+  步内方向=50.00%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0049 actual=-0.0134)  T+3=[N](pred=+0.0148 actual=-0.0359)  T+5=[N](pred=+0.0298 actual=-0.0464)  T+10=[N](pred=+0.0429 actual=-0.0100)]
+  区间覆盖率 80%=91.67% / 95%=95.83%
+[解释质量]
+  链条一致性=0.724
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-21.46%  Sharpe=-1.558
+  最大回撤=3.64%  胜率=50.00%
+  [风险] event_VaR=-0.0347 E[MDD]=0.0184 tail_prob=0.050 区间=[-0.0461,+0.1012]
+  → 预测=+(+0.00590)  真实=-(-0.0219)  MAE=0.00890  ❌
+
+[46/321] 2020-11-10 | 801760 | 市场监管总局发布《关于平台经济领域的反垄断指南（征求意见稿）》公开征求意见
+  [FW L1 ON] 敏感度先验基于 45 个历史事件（<2020-11-10），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-11-10 过滤，可见文档=10/74
+  外生因子：{'双碳目标宣布：2030年碳达峰、2060': -0.63}
+  机理链置信度：0.700
+[DataAgent] epoch=1/100 train_loss=1.726724  val_loss=2.178495  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.990012  val_loss=2.235575  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 13: 连续 10 epoch val_loss 无改善，最佳 val_loss=1.907285 @ epoch 3
+[DataAgent] 训练结束: epoch=13/100, 最佳 val_loss=1.907285, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.630 adj=-0.630 correction=-0.0126 修正后前5步=[-0.0092 -0.0065 -0.0017 -0.0015 -0.0006]
+
+==================================================
+评测报告 | 场景：双碳目标宣布：2030年碳达峰、2060年碳中和
+==================================================
+[预测效果]
+  MAE=0.0121  RMSE=0.0165
+  步内方向=62.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0092 actual=-0.0286)  T+3=[Y](pred=-0.0173 actual=-0.0681)  T+5=[Y](pred=-0.0194 actual=-0.0738)  T+10=[Y](pred=-0.0565 actual=-0.0181)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.700
+  证据覆盖率=100.00%
+[回测]
+  年化收益=46.88%  Sharpe=1.651
+  最大回撤=5.85%  胜率=62.50%
+  [风险] event_VaR=-0.1461 E[MDD]=0.0678 tail_prob=0.050 区间=[-0.1674,+0.1230]
+  → 预测=-(-0.00391)  真实=-(-0.0440)  MAE=0.01210  ✅
+
+[47/321] 2020-11-10 | 801750 | 市场监管总局发布《关于平台经济领域的反垄断指南（征求意见稿）》公开征求意见
+  [FW L1 ON] 敏感度先验基于 45 个历史事件（<2020-11-10），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-11-10 过滤，可见文档=10/74
+  外生因子：{'双碳目标宣布：2030年碳达峰、2060': 0.63}
+  机理链置信度：0.828
+[DataAgent] epoch=1/100 train_loss=2.012609  val_loss=2.129340  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.972738  val_loss=2.273460  lr=1.00e-04
+[DataAgent] 🛑 早停触发 @ epoch 16: 连续 10 epoch val_loss 无改善，最佳 val_loss=2.099498 @ epoch 6
+[DataAgent] 训练结束: epoch=16/100, 最佳 val_loss=2.099498, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.630 adj=0.630 correction=0.0126 修正后前5步=[0.0203 0.0214 0.0133 0.0232 0.0198]
+
+==================================================
+评测报告 | 场景：双碳目标宣布：2030年碳达峰、2060年碳中和
+==================================================
+[预测效果]
+  MAE=0.017  RMSE=0.0212
+  步内方向=41.67%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0203 actual=-0.0130)  T+3=[N](pred=+0.0560 actual=-0.0392)  T+5=[N](pred=+0.1020 actual=-0.0604)  T+10=[Y](pred=+0.1400 actual=+0.0142)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.828
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-74.75%  Sharpe=-6.336
+  最大回撤=11.09%  胜率=37.50%
+  [风险] event_VaR=-0.0270 E[MDD]=0.0237 tail_prob=0.050 区间=[-0.0450,+0.2353]
+  → 预测=+(+0.01961)  真实=-(-0.0266)  MAE=0.01700  ❌
+
+[48/321] 2020-12-18 | 801080 | 美国商务部BIS将中芯国际(SMIC)等逾60家中国实体列入出口管制实体清单(合
+  [FW L1 ON] 敏感度先验基于 47 个历史事件（<2020-12-18），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-12-18 过滤，可见文档=10/74
+  外生因子：{'国家组织冠脉支架集中带量采购在天津开标并': -0.45}
+  机理链置信度：0.706
+[DataAgent] epoch=1/100 train_loss=1.667721  val_loss=1.980844  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.898648  val_loss=2.422073  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 13: 连续 10 epoch val_loss 无改善，最佳 val_loss=1.959601 @ epoch 3
+[DataAgent] 训练结束: epoch=13/100, 最佳 val_loss=1.959601, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.450 adj=-0.450 correction=-0.0090 修正后前5步=[-0.0025 -0.0029 -0.0056 -0.0025 -0.0046]
+
+==================================================
+评测报告 | 场景：国家组织冠脉支架集中带量采购在天津开标并产生拟中选结果（首次
+==================================================
+[预测效果]
+  MAE=0.0121  RMSE=0.0144
+  步内方向=58.33%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=-0.0025 actual=+0.0037)  T+3=[N](pred=-0.0109 actual=+0.0001)  T+5=[Y](pred=-0.0179 actual=-0.0360)  T+10=[Y](pred=-0.0578 actual=-0.0567)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.706
+  证据覆盖率=100.00%
+[回测]
+  年化收益=100.04%  Sharpe=3.356
+  最大回撤=3.07%  胜率=54.17%
+  [风险] event_VaR=-0.1292 E[MDD]=0.0602 tail_prob=0.050 区间=[-0.1476,+0.1080]
+  → 预测=-(-0.00360)  真实=-(-0.0484)  MAE=0.01210  ✅
+
+[49/321] 2020-12-18 | 801880 | 美国商务部BIS将中芯国际(SMIC)等逾60家中国实体列入出口管制实体清单(合
+  [FW L1 ON] 敏感度先验基于 47 个历史事件（<2020-12-18），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-12-18 过滤，可见文档=10/74
+  外生因子：{'市场监管总局发布《关于平台经济领域的反垄': -0.27}
+  机理链置信度：0.774
+[DataAgent] epoch=1/100 train_loss=1.766794  val_loss=1.517112  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=1.029927  val_loss=1.602592  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 11: 连续 10 epoch val_loss 无改善，最佳 val_loss=1.517112 @ epoch 1
+[DataAgent] 训练结束: epoch=11/100, 最佳 val_loss=1.517112, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.270 adj=-0.270 correction=-0.0054 修正后前5步=[0.0037 0.0055 0.0025 0.0062 0.0029]
+
+==================================================
+评测报告 | 场景：市场监管总局发布《关于平台经济领域的反垄断指南（征求意见稿）
+==================================================
+[预测效果]
+  MAE=0.0093  RMSE=0.0127
+  步内方向=66.67%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0037 actual=-0.0126)  T+3=[N](pred=+0.0117 actual=-0.0390)  T+5=[N](pred=+0.0209 actual=-0.0348)  T+10=[Y](pred=-0.0091 actual=-0.0486)]
+  区间覆盖率 80%=95.83% / 95%=100.00%
+[解释质量]
+  链条一致性=0.774
+  证据覆盖率=100.00%
+[回测]
+  年化收益=17.84%  Sharpe=0.912
+  最大回撤=3.06%  胜率=66.67%
+  [风险] event_VaR=-0.0976 E[MDD]=0.0447 tail_prob=0.050 区间=[-0.1160,+0.1532]
+  → 预测=+(+0.00415)  真实=-(-0.0332)  MAE=0.00930  ❌
+
+[50/321] 2020-12-18 | 801110 | 美国商务部BIS将中芯国际(SMIC)等逾60家中国实体列入出口管制实体清单(合
+  [FW L1 ON] 敏感度先验基于 47 个历史事件（<2020-12-18），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-12-18 过滤，可见文档=10/74
+  外生因子：{'市场监管总局发布《关于平台经济领域的反垄': -0.0}
+  机理链置信度：0.730
+[DataAgent] epoch=1/100 train_loss=1.801550  val_loss=2.010595  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.971570  val_loss=1.875901  lr=1.00e-04
+[DataAgent] 🛑 早停触发 @ epoch 16: 连续 10 epoch val_loss 无改善，最佳 val_loss=1.787811 @ epoch 6
+[DataAgent] 训练结束: epoch=16/100, 最佳 val_loss=1.787811, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=0.000 adj=0.000 correction=0.0000 修正后前5步=[0.0112 0.0053 0.003  0.0113 0.001 ]
+
+==================================================
+评测报告 | 场景：市场监管总局发布《关于平台经济领域的反垄断指南（征求意见稿）
+==================================================
+[预测效果]
+  MAE=0.0111  RMSE=0.0146
+  步内方向=37.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[N](pred=+0.0112 actual=-0.0103)  T+3=[N](pred=+0.0195 actual=-0.0329)  T+5=[N](pred=+0.0321 actual=-0.0332)  T+10=[N](pred=+0.0277 actual=-0.0456)]
+  区间覆盖率 80%=100.00% / 95%=100.00%
+[解释质量]
+  链条一致性=0.730
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-63.19%  Sharpe=-5.327
+  最大回撤=7.99%  胜率=29.17%
+  [风险] event_VaR=-0.0713 E[MDD]=0.0345 tail_prob=0.050 区间=[-0.0886,+0.1486]
+  → 预测=+(+0.00634)  真实=-(-0.0264)  MAE=0.01110  ❌
+
+[51/321] 2020-12-18 | 801890 | 美国商务部BIS将中芯国际(SMIC)等逾60家中国实体列入出口管制实体清单(合
+  [FW L1 ON] 敏感度先验基于 47 个历史事件（<2020-12-18），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-12-18 过滤，可见文档=10/74
+  外生因子：{'美国商务部BIS将中芯国际(SMIC)等': -0.405}
+  机理链置信度：0.640
+[DataAgent] epoch=1/100 train_loss=1.823931  val_loss=2.557033  lr=1.00e-04
+[DataAgent] epoch=10/100 train_loss=0.964098  val_loss=2.990815  lr=5.00e-05
+[DataAgent] 🛑 早停触发 @ epoch 11: 连续 10 epoch val_loss 无改善，最佳 val_loss=2.557033 @ epoch 1
+[DataAgent] 训练结束: epoch=11/100, 最佳 val_loss=2.557033, 早停触发
+  [区间校准] ⚠️  [DataAgent] 校准集样本不足（n_scores=0），跳过校准，区间因子保持1.0
+  [区间校准] q80=1.000 q95=1.000 n_scores=0
+  外生修正: SCALE=0.020 net_signal=-0.405 adj=-0.405 correction=-0.0081 修正后前5步=[-0.0009 -0.0014 -0.0036 -0.0038 -0.0045]
+
+==================================================
+评测报告 | 场景：美国商务部BIS将中芯国际(SMIC)等逾60家中国实体列入
+==================================================
+[预测效果]
+  MAE=0.0158  RMSE=0.0195
+  步内方向=37.50%（24 步逐日，接近随机为理论上限）
+  关键时点方向 [T+1=[Y](pred=-0.0009 actual=-0.0062)  T+3=[Y](pred=-0.0059 actual=-0.0112)  T+5=[N](pred=-0.0141 actual=+0.0076)  T+10=[N](pred=-0.0471 actual=+0.0253)]
+  区间覆盖率 80%=91.67% / 95%=95.83%
+[解释质量]
+  链条一致性=0.640
+  证据覆盖率=100.00%
+[回测]
+  年化收益=-71.14%  Sharpe=-4.774
+  最大回撤=13.59%  胜率=37.50%
+  [风险] event_VaR=-0.0978 E[MDD]=0.0456 tail_prob=0.050 区间=[-0.1113,+0.0797]
+  → 预测=-(-0.00284)  真实=+(+0.0045)  MAE=0.01580  ❌
+
+[52/321] 2020-12-18 | 801750 | 美国商务部BIS将中芯国际(SMIC)等逾60家中国实体列入出口管制实体清单(合
+  [FW L1 ON] 敏感度先验基于 47 个历史事件（<2020-12-18），4 个非平凡 cell
+  [FIREWALL] L1=1 L2=1 RAG=1
+  [WALK-FORWARD ON] 检索器已按 event_date<2020-12-18 过滤，可见文档=10/74
