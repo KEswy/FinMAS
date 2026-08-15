@@ -10,5 +10,6 @@ venv/
 env/
 .env
 *.log
+*.pid
 workspace/
 .DS_Store

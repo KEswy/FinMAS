@@ -142,8 +142,11 @@ class WalkForwardEvaluator:
         }
         return np.asarray([values[name] for name in FEATURE_ORDER], dtype=float)
 
-    def run(self, limit: Optional[int] = None, min_train: int = 30) -> pd.DataFrame:
+    def run(self, limit: Optional[int] = None, min_train: int = 30,
+            start: int = 0, log_every: int = 10) -> pd.DataFrame:
         rows = self.rows()
+        if start:
+            rows = rows.iloc[int(start):]
         if limit:
             rows = rows.head(int(limit))
 
@@ -152,7 +155,7 @@ class WalkForwardEvaluator:
         history_types: List[str] = []
         results: List[Dict[str, object]] = []
 
-        for _, row in rows.iterrows():
+        for row_no, (_, row) in enumerate(rows.iterrows()):
             vec = self.build_vector(
                 row["event_date"],
                 row["event_type"],
@@ -193,6 +196,13 @@ class WalkForwardEvaluator:
             history_x.append(vec)
             history_y.append(label)
             history_types.append(str(row["event_type"]))
+            if (row_no + 1) % int(max(log_every, 1)) == 0:
+                print(
+                    f"[v5 eval] processed={row_no + 1}/{len(rows)} "
+                    f"full_acc={np.mean([r['dir_correct'] for r in results]):.4f} "
+                    f"committed={sum(1 for r in results if not r['abstain'])}",
+                    flush=True,
+                )
         return pd.DataFrame(results)
 
     @staticmethod

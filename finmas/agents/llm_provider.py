@@ -9,7 +9,7 @@ import re
 import time
 import urllib.error
 import urllib.request
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Dict, Optional
 
@@ -33,7 +33,8 @@ class LLMProvider:
 
     def __init__(self, provider: Optional[str] = None, model: Optional[str] = None,
                  api_key: Optional[str] = None, timeout: int = 180,
-                 max_tokens: int = 2048, retries: int = 5) -> None:
+                 max_tokens: int = 2048, retries: int = 5,
+                 cache_path: str = "data/cache/llm_cache.json") -> None:
         self.provider = (provider or self._detect_provider(api_key)).lower()
         self.model = model or (
             DEFAULT_DEEPSEEK_MODEL if self.provider == "deepseek" else DEFAULT_OLLAMA_MODEL
@@ -45,6 +46,8 @@ class LLMProvider:
         self.retries = int(retries)
         self._cache: Dict[str, LLMResult] = {}
         self._cost_usd = 0.0
+        self.cache_path = Path(cache_path)
+        self._load_disk_cache()
 
     @staticmethod
     def _clean(value: str) -> str:
@@ -69,6 +72,32 @@ class LLMProvider:
                     break
             return base + "/chat/completions"
         return os.environ.get("OLLAMA_URL", DEFAULT_OLLAMA_CHAT_URL)
+
+    def _load_disk_cache(self) -> None:
+        if not self.cache_path.exists():
+            return
+        try:
+            raw = json.loads(self.cache_path.read_text(encoding="utf-8"))
+            for key, value in raw.items():
+                self._cache[key] = LLMResult(
+                    content=value["content"],
+                    model=value["model"],
+                    provider=value["provider"],
+                    elapsed=float(value.get("elapsed", 0.0)),
+                )
+        except Exception:
+            return
+
+    def _save_disk_cache(self) -> None:
+        self.cache_path.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            key: asdict(value)
+            for key, value in self._cache.items()
+        }
+        self.cache_path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
 
     def chat(self, system: str, user: str, temperature: float = 0.2,
              json_mode: bool = False, use_cache: bool = True) -> LLMResult:
@@ -126,6 +155,8 @@ class LLMProvider:
                     elapsed=time.time() - start,
                 )
                 self._cache[key] = result
+                if use_cache:
+                    self._save_disk_cache()
                 self._cost_usd += self._estimate_cost(system, user, result.content)
                 return result
             except Exception as exc:  # noqa: BLE001
@@ -188,4 +219,3 @@ class LLMProvider:
             "cache_size": len(self._cache),
             "estimated_cost_usd": round(self._cost_usd, 8),
         }
-

@@ -1,0 +1,258 @@
+{
+  "summary": {
+    "full": {
+      "n": 321,
+      "accuracy": 0.5389408099688473
+    },
+    "selective": {
+      "n": 165,
+      "coverage": 0.514018691588785,
+      "accuracy": 0.5454545454545454
+    },
+    "by_event_type": [
+      {
+        "event_type": "market_event",
+        "n": 13.0,
+        "full_accuracy": 0.3076923076923077,
+        "committed_n": 5.0,
+        "committed_accuracy": 0.2
+      },
+      {
+        "event_type": "geopolitical",
+        "n": 81.0,
+        "full_accuracy": 0.48148148148148145,
+        "committed_n": 52.0,
+        "committed_accuracy": 0.5192307692307693
+      },
+      {
+        "event_type": "monetary_policy",
+        "n": 118.0,
+        "full_accuracy": 0.5508474576271186,
+        "committed_n": 70.0,
+        "committed_accuracy": 0.5714285714285714
+      },
+      {
+        "event_type": "industry_policy",
+        "n": 62.0,
+        "full_accuracy": 0.5806451612903226,
+        "committed_n": 24.0,
+        "committed_accuracy": 0.5416666666666666
+      },
+      {
+        "event_type": "capital_market_policy",
+        "n": 47.0,
+        "full_accuracy": 0.6170212765957447,
+        "committed_n": 14.0,
+        "committed_accuracy": 0.6428571428571429
+      }
+    ],
+    "by_industry": [
+      {
+        "industry_code": "801040",
+        "n": 2.0,
+        "full_accuracy": 0.0,
+        "committed_n": 1.0,
+        "committed_accuracy": 0.0
+      },
+      {
+        "industry_code": "801890",
+        "n": 10.0,
+        "full_accuracy": 0.2,
+        "committed_n": 7.0,
+        "committed_accuracy": 0.2857142857142857
+      },
+      {
+        "industry_code": "801150",
+        "n": 4.0,
+        "full_accuracy": 0.25,
+        "committed_n": 1.0,
+        "committed_accuracy": 0.0
+      },
+      {
+        "industry_code": "801030",
+        "n": 11.0,
+        "full_accuracy": 0.2727272727272727,
+        "committed_n": 6.0,
+        "committed_accuracy": 0.3333333333333333
+      },
+      {
+        "industry_code": "801710",
+        "n": 21.0,
+        "full_accuracy": 0.42857142857142855,
+        "committed_n": 9.0,
+        "committed_accuracy": 0.1111111111111111
+      },
+      {
+        "industry_code": "801110",
+        "n": 9.0,
+        "full_accuracy": 0.4444444444444444,
+        "committed_n": 8.0,
+        "committed_accuracy": 0.375
+      },
+      {
+        "industry_code": "801050",
+        "n": 8.0,
+        "full_accuracy": 0.5,
+        "committed_n": 3.0,
+        "committed_accuracy": 0.6666666666666666
+      },
+      {
+        "industry_code": "801790",
+        "n": 56.0,
+        "full_accuracy": 0.5,
+        "committed_n": 28.0,
+        "committed_accuracy": 0.5357142857142857
+      },
+      {
+        "industry_code": "801160",
+        "n": 2.0,
+        "full_accuracy": 0.5,
+        "committed_n": 1.0,
+        "committed_accuracy": 0.0
+      },
+      {
+        "industry_code": "801770",
+        "n": 14.0,
+        "full_accuracy": 0.5,
+        "committed_n": 7.0,
+        "committed_accuracy": 0.7142857142857143
+      },
+      {
+        "industry_code": "801880",
+        "n": 15.0,
+        "full_accuracy": 0.5333333333333333,
+        "committed_n": 9.0,
+        "committed_accuracy": 0.5555555555555556
+      },
+      {
+        "industry_code": "801180",
+        "n": 44.0,
+        "full_accuracy": 0.5909090909090909,
+        "committed_n": 30.0,
+        "committed_accuracy": 0.6
+      },
+      {
+        "industry_code": "801780",
+        "n": 59.0,
+        "full_accuracy": 0.5932203389830508,
+        "committed_n": 29.0,
+        "committed_accuracy": 0.6206896551724138
+      },
+      {
+        "industry_code": "801730",
+        "n": 5.0,
+        "full_accuracy": 0.6,
+        "committed_n": 2.0,
+        "committed_accuracy": 0.5
+      },
+      {
+        "industry_code": "801080",
+        "n": 23.0,
+        "full_accuracy": 0.6521739130434783,
+        "committed_n": 7.0,
+        "committed_accuracy": 0.7142857142857143
+      },
+      {
+        "industry_code": "801750",
+        "n": 30.0,
+        "full_accuracy": 0.7,
+        "committed_n": 15.0,
+        "committed_accuracy": 0.7333333333333333
+      },
+      {
+        "industry_code": "801760",
+        "n": 7.0,
+        "full_accuracy": 0.7142857142857143,
+        "committed_n": 1.0,
+        "committed_accuracy": 1.0
+      },
+      {
+        "industry_code": "801010",
+        "n": 1.0,
+        "full_accuracy": 1.0,
+        "committed_n": 1.0,
+        "committed_accuracy": 1.0
+      }
+    ]
+  },
+  "selective_curve": [
+    {
+      "cumulative_rows": 32,
+      "coverage": 0.09968847352024922,
+      "accuracy": 0.6875,
+      "min_confidence": 0.5490214222025391
+    },
+    {
+      "cumulative_rows": 64,
+      "coverage": 0.19937694704049844,
+      "accuracy": 0.59375,
+      "min_confidence": 0.4044479041678346
+    },
+    {
+      "cumulative_rows": 96,
+      "coverage": 0.29906542056074764,
+      "accuracy": 0.5416666666666666,
+      "min_confidence": 0.2972569121685771
+    },
+    {
+      "cumulative_rows": 128,
+      "coverage": 0.3987538940809969,
+      "accuracy": 0.515625,
+      "min_confidence": 0.2349164797254455
+    },
+    {
+      "cumulative_rows": 160,
+      "coverage": 0.4984423676012461,
+      "accuracy": 0.4875,
+      "min_confidence": 0.1815214425241009
+    },
+    {
+      "cumulative_rows": 192,
+      "coverage": 0.5981308411214953,
+      "accuracy": 0.4322916666666667,
+      "min_confidence": 0.1476975480033164
+    },
+    {
+      "cumulative_rows": 224,
+      "coverage": 0.6978193146417445,
+      "accuracy": 0.4017857142857143,
+      "min_confidence": 0.0977976985144462
+    },
+    {
+      "cumulative_rows": 256,
+      "coverage": 0.7975077881619937,
+      "accuracy": 0.3515625,
+      "min_confidence": 0.0596537075097167
+    },
+    {
+      "cumulative_rows": 288,
+      "coverage": 0.897196261682243,
+      "accuracy": 0.3125,
+      "min_confidence": 0.0266267740066014
+    },
+    {
+      "cumulative_rows": 321,
+      "coverage": 1.0,
+      "accuracy": 0.2803738317757009,
+      "min_confidence": 0.000130952586554
+    }
+  ],
+  "paired_bootstrap_full": {
+    "n": 321,
+    "candidate_accuracy": 0.5389408099688473,
+    "legacy_accuracy": 0.5109034267912772,
+    "delta": 0.028037383177570097,
+    "p_value": 0.57,
+    "ci_low": -0.043691588785046725,
+    "ci_high": 0.10280373831775697
+  },
+  "paired_bootstrap_committed": {
+    "n": 165,
+    "candidate_accuracy": 0.5454545454545454,
+    "legacy_accuracy": 0.5393939393939394,
+    "delta": 0.006060606060605989,
+    "p_value": 0.9515,
+    "ci_low": -0.09090909090909094,
+    "ci_high": 0.10303030303030303
+  }
+}

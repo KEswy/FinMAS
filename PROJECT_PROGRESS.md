@@ -56,6 +56,17 @@
   - committed coverage: 17/20
   - output: `data/processed/all_experiment_results_finmas_v5_llm_20_walk_forward.csv`
 - Tests: 30 passed after adding text-factor extractor coverage.
+- Added persistent LLM cache and progress logging so full LLM runs can resume
+  without duplicate API calls.
+- Full 321-scenario real-LLM factor evaluation:
+  - full accuracy: 53.89%
+  - committed accuracy: 54.55%
+  - committed coverage: 165/321
+  - output: `data/processed/all_experiment_results_finmas_v5_llm_full_v2_walk_forward.csv`
+- Paired bootstrap vs legacy:
+  - full delta: +2.80pp, p=0.570
+  - committed same-row delta: +0.61pp, p=0.952
+  - real-LLM improves full-sample mean but is not yet significant at n=321.
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%

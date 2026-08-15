@@ -16,13 +16,16 @@ from finmas.evaluation import WalkForwardEvaluator
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=0, help="limit events for a smoke run")
+    parser.add_argument("--start", type=int, default=0, help="zero-based row offset")
+    parser.add_argument("--log-every", type=int, default=10)
     parser.add_argument("--output-dir", default="data/processed")
     parser.add_argument("--tag", default="v5")
     parser.add_argument("--llm-mode", default="none", choices=["none", "heuristic", "llm"])
     args = parser.parse_args()
 
     evaluator = WalkForwardEvaluator(llm_mode=args.llm_mode)
-    df = evaluator.run(limit=args.limit or None)
+    df = evaluator.run(limit=args.limit or None, start=args.start,
+                       log_every=args.log_every)
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     out = out_dir / f"all_experiment_results_finmas_{args.tag}_walk_forward.csv"
