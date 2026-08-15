@@ -1,0 +1,26 @@
+{
+  "horizons": [1, 5, 20],
+  "alphas": [0.05, 0.01],
+  "risk_methods": ["historical", "bootstrap", "parametric", "ewma", "evt", "model_interval"],
+  "beta_window": 60,
+  "n_bootstrap": 1000,
+  "seed": 42,
+  "limits": {
+    "single_industry_weight": 0.20,
+    "hhi_warning": 0.10,
+    "breach_warning_multiple": 2.0,
+    "portfolio_var_budget": 0.10
+  },
+  "stress_scenarios": {
+    "historical": [
+      {"name": "2020_covid", "start_date": "2020-02-03", "end_date": "2020-03-23"},
+      {"name": "2024_sep_policy", "start_date": "2024-09-24", "end_date": "2024-10-08"},
+      {"name": "2025_tariff", "start_date": "2025-04-02", "end_date": "2025-04-09"}
+    ],
+    "synthetic": [
+      {"name": "market_minus_5pct", "market_shock": -0.05},
+      {"name": "market_minus_10pct", "market_shock": -0.10},
+      {"name": "vol_up", "market_shock": -0.03, "vol_multiplier": 2.0}
+    ]
+  }
+}

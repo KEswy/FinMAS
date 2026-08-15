@@ -11,4 +11,6 @@ env/
 .env
 *.log
 workspace/
+data/risk_center/
+data/risk_reports/
 .DS_Store
