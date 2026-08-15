@@ -30,6 +30,7 @@
 - Updated `.gitignore` to include risk-center/report results while keeping `.env` excluded.
 - Performed secret audit; no real API keys found in tracked files, `.env` remains untracked.
 - Created local `FinMAS` branch and pushed it to `git@github.com:KEswy/FinMAS.git`.
+- Verified `python -m finmas --help` and FastAPI app import.
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
