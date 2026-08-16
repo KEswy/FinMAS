@@ -1,0 +1,29 @@
+{
+  "module": "fusion",
+  "metrics": [
+    {
+      "name": "full_accuracy",
+      "value": 0.563863,
+      "passed": true,
+      "threshold": 0.5,
+      "operator": ">="
+    },
+    {
+      "name": "selective_accuracy",
+      "value": 0.573248,
+      "passed": true,
+      "threshold": 0.57,
+      "operator": ">="
+    },
+    {
+      "name": "coverage",
+      "value": 0.489097,
+      "passed": true,
+      "threshold": 0.4,
+      "operator": ">="
+    }
+  ],
+  "passed": true,
+  "n_samples": 321,
+  "notes": []
+}

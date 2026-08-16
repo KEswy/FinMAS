@@ -1,0 +1,36 @@
+{
+  "module": "rag",
+  "metrics": [
+    {
+      "name": "recall_at_5",
+      "value": 0.6,
+      "passed": false,
+      "threshold": 0.7,
+      "operator": ">="
+    },
+    {
+      "name": "mrr",
+      "value": 0.841333,
+      "passed": true,
+      "threshold": 0.55,
+      "operator": ">="
+    },
+    {
+      "name": "firewall_pass_rate",
+      "value": 1.0,
+      "passed": true,
+      "threshold": 1.0,
+      "operator": ">="
+    },
+    {
+      "name": "citation_coverage",
+      "value": 0.64,
+      "passed": false,
+      "threshold": 0.8,
+      "operator": ">="
+    }
+  ],
+  "passed": false,
+  "n_samples": 25,
+  "notes": []
+}

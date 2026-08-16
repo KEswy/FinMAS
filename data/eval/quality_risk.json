@@ -1,0 +1,15 @@
+{
+  "module": "risk",
+  "metrics": [
+    {
+      "name": "kupiec_pass_rate",
+      "value": 1.0,
+      "passed": true,
+      "threshold": 0.66,
+      "operator": ">="
+    }
+  ],
+  "passed": true,
+  "n_samples": 3,
+  "notes": []
+}

@@ -1,0 +1,274 @@
+[
+  {
+    "query": "LPR下调：1年期降至4.05%(-10bp)，5年期降至4.75%(-5bp) 新冠疫情冲击下首次降息，货币宽松正式开启，银行、非银、房地产直接受益",
+    "event_date": "2020-02-20",
+    "retrieval_as_of_date": "2020-02-21",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e01_A",
+      "e01_B",
+      "e01_C"
+    ]
+  },
+  {
+    "query": "LPR下调：1年期降至3.85%(-20bp)，5年期降至4.65%(-10bp) 2020年幅度最大的一次降息，疫情应对宽松力度空前",
+    "event_date": "2020-04-20",
+    "retrieval_as_of_date": "2020-04-21",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e02_A",
+      "e02_B",
+      "e02_C"
+    ]
+  },
+  {
+    "query": "双碳目标宣布：2030年碳达峰、2060年碳中和 习近平在第75届联合国大会一般性辩论上宣布双碳目标，新能源、电力、有色金属直接受益",
+    "event_date": "2020-09-22",
+    "retrieval_as_of_date": "2020-09-23",
+    "event_type": "industry_policy",
+    "relevant_chunk_ids": [
+      "e03_A",
+      "e03_B",
+      "e03_C"
+    ]
+  },
+  {
+    "query": "教育双减政策：学科类培训机构不得上市融资 中办、国办印发双减意见，K12学科类培训监管骤紧，传媒（教育）板块重大利空",
+    "event_date": "2021-07-26",
+    "retrieval_as_of_date": "2021-07-27",
+    "event_type": "industry_policy",
+    "relevant_chunk_ids": [
+      "e04_A",
+      "e04_B",
+      "e04_C"
+    ]
+  },
+  {
+    "query": "央行全面降准0.5个百分点，释放长期资金约1.2万亿元 央行宣布自2021年12月15日起下调金融机构存款准备金率0.5个百分点",
+    "event_date": "2021-12-06",
+    "retrieval_as_of_date": "2021-12-07",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e05_A",
+      "e05_B",
+      "e05_C"
+    ]
+  },
+  {
+    "query": "LPR下调：1年期降至3.80%(-5bp)，5年期维持4.65%不变 时隔20个月1年期LPR再次下调，向市场释放宽信用信号",
+    "event_date": "2021-12-20",
+    "retrieval_as_of_date": "2021-12-21",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e06_A",
+      "e06_B",
+      "e06_C"
+    ]
+  },
+  {
+    "query": "LPR双降：1年期降至3.70%(-10bp)，5年期降至4.60%(-5bp) 5年期LPR时隔21个月首次下调，货币政策明显转向宽松，稳增长意图明确",
+    "event_date": "2022-01-20",
+    "retrieval_as_of_date": "2022-01-21",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e07_A",
+      "e07_B",
+      "e07_C"
+    ]
+  },
+  {
+    "query": "LPR非对称下调：1年期维持3.70%，5年期大降至4.45%(-15bp) 5年期单独大幅下调15bp为历史最大单次降幅，明确托底房地产市场信号",
+    "event_date": "2022-05-20",
+    "retrieval_as_of_date": "2022-05-21",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e08_A",
+      "e08_B",
+      "e08_C"
+    ]
+  },
+  {
+    "query": "LPR双降：1年期降至3.65%(-5bp)，5年期降至4.30%(-15bp) 楼市持续低迷背景下再度双降，2022年全年降息幅度创LPR改革以来新高",
+    "event_date": "2022-08-22",
+    "retrieval_as_of_date": "2022-08-23",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e09_A",
+      "e09_B",
+      "e09_C"
+    ]
+  },
+  {
+    "query": "房地产金融16条：支持房企合理融资需求 央行、银保监会发布16条金融支持房地产措施，标志房地产融资政策全面转向",
+    "event_date": "2022-11-28",
+    "retrieval_as_of_date": "2022-11-29",
+    "event_type": "industry_policy",
+    "relevant_chunk_ids": [
+      "e10_A",
+      "e10_B",
+      "e10_C"
+    ]
+  },
+  {
+    "query": "LPR双降：1年期降至3.55%(-10bp)，5年期降至4.20%(-10bp) 时隔10个月后重启降息，配合经济复苏预期不及预期的政策应对",
+    "event_date": "2023-06-20",
+    "retrieval_as_of_date": "2023-06-21",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e11_A",
+      "e11_B",
+      "e11_C"
+    ]
+  },
+  {
+    "query": "政治局会议：活跃资本市场，提振投资者信心 7月政治局会议首次提出活跃资本市场，证监会随后密集出台降印花税等系列举措",
+    "event_date": "2023-07-24",
+    "retrieval_as_of_date": "2023-07-25",
+    "event_type": "capital_market_policy",
+    "relevant_chunk_ids": [
+      "e12_A",
+      "e12_B",
+      "e12_C"
+    ]
+  },
+  {
+    "query": "LPR非对称下调：1年期降至3.45%(-10bp)，5年期维持4.20% 1年期单降，5年期暂不调整为后续存量房贷利率下调保留空间",
+    "event_date": "2023-08-21",
+    "retrieval_as_of_date": "2023-08-22",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e13_A",
+      "e13_B"
+    ]
+  },
+  {
+    "query": "证监会：印花税减半、阶段性收紧IPO、规范减持 证监会一次性推出三项重磅举措，股票交易印花税由0.1%降至0.05%",
+    "event_date": "2023-08-27",
+    "retrieval_as_of_date": "2023-08-28",
+    "event_type": "capital_market_policy",
+    "relevant_chunk_ids": [
+      "e14_A",
+      "e14_B",
+      "e14_C"
+    ]
+  },
+  {
+    "query": "LPR非对称下调：1年期维持3.45%，5年期大降至3.95%(-25bp) 5年期单次降幅25bp创历史新高，力度超预期，重点支持房地产需求端",
+    "event_date": "2024-02-20",
+    "retrieval_as_of_date": "2024-02-21",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e15_A",
+      "e15_B",
+      "e15_C"
+    ]
+  },
+  {
+    "query": "LPR双降：1年期降至3.35%(-10bp)，5年期降至3.85%(-10bp) 配合7天逆回购利率下调，完整降息链条启动",
+    "event_date": "2024-07-22",
+    "retrieval_as_of_date": "2024-07-23",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e16_A",
+      "e16_B"
+    ]
+  },
+  {
+    "query": "央行、金监总局、证监会联合发布一揽子金融政策 央行宣布降准0.5bp、降存量房贷利率等，证监会推互换便利与股票回购再贷款，史上力度最强组合拳",
+    "event_date": "2024-09-24",
+    "retrieval_as_of_date": "2024-09-25",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e17_A",
+      "e17_B",
+      "e17_C"
+    ]
+  },
+  {
+    "query": "政治局会议：促进房地产市场止跌回稳 9月政治局会议首提房地产止跌回稳，政策定调明确，房地产板块强烈反弹",
+    "event_date": "2024-09-26",
+    "retrieval_as_of_date": "2024-09-27",
+    "event_type": "capital_market_policy",
+    "relevant_chunk_ids": [
+      "e18_A",
+      "e18_B"
+    ]
+  },
+  {
+    "query": "LPR双降：1年期降至3.10%(-25bp)，5年期降至3.60%(-25bp) 9·24一揽子政策落地后首次LPR调整，幅度25bp为本轮最大单次降息",
+    "event_date": "2024-10-21",
+    "retrieval_as_of_date": "2024-10-22",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e19_A",
+      "e19_B",
+      "e19_C"
+    ]
+  },
+  {
+    "query": "DeepSeek-R1登顶全球应用榜：中国AI里程碑 DeepSeek-R1以极低成本比肩GPT-o1登顶美区AppStore英伟达单日蒸发5890亿美元A股AI概念股春节后平均涨幅超17%",
+    "event_date": "2025-01-27",
+    "retrieval_as_of_date": "2025-01-28",
+    "event_type": "industry_policy",
+    "relevant_chunk_ids": [
+      "e20_A",
+      "e20_B",
+      "e20_C"
+    ]
+  },
+  {
+    "query": "特朗普宣布对等关税：对华累计加征54%关税 美国宣布对华额外加征34%对等关税叠加此前20%共计54%电子家电汽车化工等出口链重挫",
+    "event_date": "2025-04-02",
+    "retrieval_as_of_date": "2025-04-03",
+    "event_type": "geopolitical",
+    "relevant_chunk_ids": [
+      "e21_A",
+      "e21_B",
+      "e21_C"
+    ]
+  },
+  {
+    "query": "中国反制：对美所有商品加征34%关税 国务院关税税则委员会宣布自4月10日起对原产于美国的所有商品加征34%进口关税",
+    "event_date": "2025-04-04",
+    "retrieval_as_of_date": "2025-04-05",
+    "event_type": "geopolitical",
+    "relevant_chunk_ids": [
+      "e22_A",
+      "e22_B",
+      "e22_C"
+    ]
+  },
+  {
+    "query": "A股黑色星期一：沪指跌7.34%创业板跌12.5% 关税冲击下全球股市暴跌A股三大指数集体重挫中央汇金公司宣布增持ETF托底",
+    "event_date": "2025-04-07",
+    "retrieval_as_of_date": "2025-04-08",
+    "event_type": "market_event",
+    "relevant_chunk_ids": [
+      "e23_A",
+      "e23_B",
+      "e23_C"
+    ]
+  },
+  {
+    "query": "央行一揽子宽松：降准0.5个百分点+降息10bp 央行宣布三类十项措施降准释放1万亿流动性加7天逆回购利率降至1.4%加结构性工具利率下调25bp",
+    "event_date": "2025-05-07",
+    "retrieval_as_of_date": "2025-05-08",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e24_A",
+      "e24_B",
+      "e24_C"
+    ]
+  },
+  {
+    "query": "LPR双降：1年期降至3.00%(-10bp)5年期降至3.50%(-10bp) 2025年首次LPR下调预计带动房贷利率逼近3%存量房贷利率降至3.2%",
+    "event_date": "2025-05-20",
+    "retrieval_as_of_date": "2025-05-21",
+    "event_type": "monetary_policy",
+    "relevant_chunk_ids": [
+      "e25_A",
+      "e25_B",
+      "e25_C"
+    ]
+  }
+]

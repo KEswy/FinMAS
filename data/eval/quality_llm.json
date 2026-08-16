@@ -1,0 +1,29 @@
+{
+  "module": "llm",
+  "metrics": [
+    {
+      "name": "json_parse_rate",
+      "value": 1.0,
+      "passed": true,
+      "threshold": 0.9,
+      "operator": ">="
+    },
+    {
+      "name": "schema_valid_rate",
+      "value": 1.0,
+      "passed": true,
+      "threshold": 0.85,
+      "operator": ">="
+    },
+    {
+      "name": "factor_coverage",
+      "value": 1.0,
+      "passed": true,
+      "threshold": 0.8,
+      "operator": ">="
+    }
+  ],
+  "passed": true,
+  "n_samples": 963,
+  "notes": []
+}

@@ -107,30 +107,156 @@ class TfidfVectorIndex:
         return [self._chunks[int(i)] for i in top]
 
 
+class SemanticVectorIndex:
+    """Optional BGE + FAISS index with TF-IDF fallback."""
+
+    def __init__(self, model_name: str = "BAAI/bge-large-zh-v1.5") -> None:
+        self.model_name = model_name
+        self._chunks: List[EvidenceChunk] = []
+        self._model = None
+        self._index = None
+        self._available = False
+
+    @property
+    def available(self) -> bool:
+        return self._available
+
+    def index(self, chunks: Sequence[EvidenceChunk]) -> None:
+        self._chunks = list(chunks)
+        self._index = None
+        if not self._chunks:
+            return
+        try:
+            from sentence_transformers import SentenceTransformer
+            import faiss
+            import numpy as np
+
+            self._model = SentenceTransformer(self.model_name)
+            texts = [c.text for c in self._chunks]
+            embs = self._model.encode(
+                texts,
+                normalize_embeddings=True,
+                batch_size=32,
+                show_progress_bar=False,
+            ).astype("float32")
+            dim = embs.shape[1]
+            index = faiss.IndexFlatIP(dim)
+            faiss.normalize_L2(embs)
+            index.add(embs)
+            self._index = index
+            self._available = True
+        except Exception:
+            self._available = False
+            self._index = None
+
+    def search(self, query: str, top_k: int) -> List[EvidenceChunk]:
+        if not self.available or self._index is None or not self._chunks:
+            return []
+        import faiss
+        import numpy as np
+
+        q = self._model.encode(
+            [query],
+            normalize_embeddings=True,
+            show_progress_bar=False,
+        ).astype("float32")
+        faiss.normalize_L2(q)
+        top_k = min(top_k, len(self._chunks))
+        _, idx = self._index.search(q, top_k)
+        return [self._chunks[int(i)] for i in idx[0]]
+
+
+class CrossEncoderReranker:
+    """Optional lightweight cross-encoder reranker."""
+
+    def __init__(self, model_name: str = "cross-encoder/ms-marco-MiniLM-L-6-v2") -> None:
+        self.model_name = model_name
+        self._model = None
+        self._available = False
+
+    @property
+    def available(self) -> bool:
+        return self._available
+
+    def load(self) -> None:
+        if self._model is not None:
+            return
+        try:
+            from sentence_transformers import CrossEncoder
+
+            self._model = CrossEncoder(self.model_name)
+            self._available = True
+        except Exception:
+            self._available = False
+
+    def rerank(self, query: str, chunks: Sequence[EvidenceChunk],
+               top_k: int) -> List[EvidenceChunk]:
+        if not chunks:
+            return []
+        self.load()
+        if not self.available or self._model is None:
+            return list(chunks[:top_k])
+        pairs = [(query, c.text) for c in chunks]
+        scores = self._model.predict(pairs)
+        ranked = sorted(
+            zip(chunks, scores), key=lambda x: -float(x[1])
+        )
+        return [c for c, _ in ranked[:top_k]]
+
+
 @dataclass(slots=True)
 class HybridRetriever:
     bm25: BM25Index = field(default_factory=BM25Index)
     dense: TfidfVectorIndex = field(default_factory=TfidfVectorIndex)
+    semantic: SemanticVectorIndex = field(default_factory=SemanticVectorIndex)
+    reranker: CrossEncoderReranker = field(default_factory=CrossEncoderReranker)
 
     def index(self, chunks: Sequence[EvidenceChunk]) -> None:
         self.bm25.index(chunks)
         self.dense.index(chunks)
+        self.semantic.index(chunks)
 
     @staticmethod
-    def _rrf(lists: Sequence[List[EvidenceChunk]], k: int = 60) -> List[EvidenceChunk]:
+    def _rrf(
+        lists: Sequence[List[EvidenceChunk]],
+        k: int = 60,
+        weights: Optional[Sequence[float]] = None,
+    ) -> List[EvidenceChunk]:
         scores: Dict[str, float] = {}
         mapping: Dict[str, EvidenceChunk] = {}
-        for ranked in lists:
+        weights = list(weights or [1.0] * len(lists))
+        for list_idx, ranked in enumerate(lists):
             for rank, chunk in enumerate(ranked, start=1):
-                scores[chunk.chunk_id] = scores.get(chunk.chunk_id, 0.0) + 1.0 / (k + rank)
+                weight = float(weights[min(list_idx, len(weights) - 1)])
+                scores[chunk.chunk_id] = scores.get(chunk.chunk_id, 0.0) + weight / (k + rank)
                 mapping[chunk.chunk_id] = chunk
         return [mapping[cid] for cid in sorted(scores, key=lambda x: -scores[x])]
 
+
     def retrieve(self, query: str, top_k: int = 8,
                  as_of_date: Optional[str] = None) -> EvidencePackage:
-        chunks = self._rrf(
-            [self.bm25.search(query, top_k * 2), self.dense.search(query, top_k * 2)]
-        )[:top_k]
+        dense_results = self.semantic.search(query, top_k * 2)
+        if not dense_results:
+            dense_results = self.dense.search(query, top_k * 2)
+        if self.semantic.available:
+            candidates = self._rrf(
+                [
+                    self.semantic.search(query, top_k * 4),
+                    self.bm25.search(query, top_k * 4),
+                ],
+                weights=[0.85, 0.15],
+            )
+            chunks = candidates[:top_k]
+            package = EvidencePackage(query=query, chunks=chunks)
+            if as_of_date:
+                package = TimeFirewall(as_of_date).filter_evidence(package)
+            package.total_tokens_est = int(sum(len(c.text.split()) * 1.3 for c in package.chunks))
+            return package
+        else:
+            candidates = self._rrf(
+                [self.bm25.search(query, top_k * 2), dense_results]
+            )
+        chunks = self.reranker.rerank(query, candidates, top_k)
         package = EvidencePackage(query=query, chunks=chunks)
         if as_of_date:
             package = TimeFirewall(as_of_date).filter_evidence(package)

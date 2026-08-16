@@ -11,6 +11,17 @@
   - Llama3.1 seed123: 51.71% direction accuracy
 - Current goal: direction accuracy priority, full-link refactor, LLM as evidence/path extractor
 
+## v6 Progress
+
+- Added `finmas/quality/` with module-level QualityReport, thresholds, RAG evaluation.
+- Added `finmas/graph/` with LangGraph-style orchestration shell and fallback.
+- Upgraded RAG with optional BGE+FAISS semantic index and CrossEncoder rerank.
+- Added RAG ground-truth builder and `finmas quality rag` command.
+- Added `finmas quality all` for LLM/fusion/risk quality reports.
+- Added `finmas graph run` command.
+- Requirements updated with langgraph, langchain-core, sentence-transformers, faiss-cpu.
+- Test suite: 40 passing.
+
 ## Done
 
 - Confirmed current repository structure and 321-scenario baseline metrics.
