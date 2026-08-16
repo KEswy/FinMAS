@@ -168,6 +168,17 @@
   - committed same-row bootstrap CI: [0.006, 0.204]
   - output: `data/processed/all_experiment_results_finmas_v5_final_ensemble.csv`
   - analysis: `data/processed/finmas_v5_final_ensemble_analysis.json`
+- Final ensemble risk backtest:
+  - T+1 breach 4.36% / Kupiec p=0.592
+  - T+5 breach 7.48% / Kupiec p=0.057
+  - T+20 breach 5.92% / Kupiec p=0.462
+  - output: `data/processed/finmas_v5_final_risk_backtest.json`
+- Final portfolio risk:
+  - T+1 breach 3.18% / Kupiec p=0.265
+  - T+5 breach 5.73% / Kupiec p=0.680
+  - T+20 breach 4.46% / Kupiec p=0.751
+  - output: `data/processed/finmas_v5_final_portfolio_risk.json`
+- Added `COMPLETION_AUDIT.md` with requirement-by-requirement status.
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
