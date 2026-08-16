@@ -124,6 +124,12 @@
   - legacy Kupiec p: ~0.000
   - v5 pinball: 0.00322 vs legacy 0.01341
   - output: `data/processed/finmas_v5_risk_backtest.json`
+- Extended VaR backtest to T+1/T+5/T+20.
+- Multi-horizon v5 vs legacy:
+  - T+1: v5 breach 4.36% / p=0.592; legacy breach 11.84%
+  - T+5: v5 breach 6.85% / p=0.148; legacy breach 13.71%
+  - T+20: v5 breach 5.61% / p=0.624; legacy breach 18.38%
+  - output: `data/processed/finmas_v5_risk_backtest_multihorizon.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
