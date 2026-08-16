@@ -276,3 +276,6 @@
 - Installed `akshare` and added optional live data path.
 - Verified live HS300 fetch from akshare works when `FINMAS_SIM_USE_LIVE=1`.
 - Live industry/capital-flow paths are wired with local fallback.
+- Added SimulationState/TimelineEntry `from_dict` for loading saved states.
+- Improved `/sim/timeline`, `/sim/causal-graph`, and `/sim/report` endpoints.
+- Added sim timeline API test; test suite now 44 passing.

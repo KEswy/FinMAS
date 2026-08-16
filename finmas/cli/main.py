@@ -162,20 +162,19 @@ def main() -> None:
             print(f"dates={len(dates)} output={args.output_json}")
             return
         if args.sim_command == "report":
-            state = __import__("finmas.sim.schemas", fromlist=["SimulationState"]).SimulationState()
-            # Load a minimal reconstruction for reporting purposes.
             import json as _json
+            from ..sim.schemas import SimulationState
 
             raw = _json.loads(Path(args.state_json).read_text(encoding="utf-8"))
-            Path(args.output_html).write_text(
-                "<pre>" + _json.dumps(raw, ensure_ascii=False, indent=2) + "</pre>",
-                encoding="utf-8",
-            )
+            state = SimulationState.from_dict(raw)
+            Path(args.output_html).write_text(to_html(state), encoding="utf-8")
             print(f"report={args.output_html}")
             return
         if args.sim_command == "graph":
             import json as _json
+            from ..sim.schemas import SimulationState
 
             raw = _json.loads(Path(args.state_json).read_text(encoding="utf-8"))
-            print(_json.dumps(raw.get("trace", []), ensure_ascii=False, indent=2))
+            state = SimulationState.from_dict(raw)
+            print(_json.dumps(state.trace, ensure_ascii=False, indent=2))
             return

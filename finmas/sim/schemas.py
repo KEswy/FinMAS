@@ -59,6 +59,19 @@ class TimelineEntry:
             "narrative": self.narrative,
         }
 
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "TimelineEntry":
+        tick = MarketTick(**data["tick"])
+        opinions = [AgentOpinion(**o) for o in data.get("opinions", [])]
+        paths = [CausalPath(**p) for p in data.get("causal_paths", [])]
+        return cls(
+            date=data["date"],
+            tick=tick,
+            opinions=opinions,
+            causal_paths=paths,
+            narrative=data.get("narrative", ""),
+        )
+
 
 @dataclass(slots=True)
 class CounterfactualResult:
@@ -89,3 +102,20 @@ class SimulationState:
             "trace": self.trace,
         }
 
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "SimulationState":
+        timeline = [TimelineEntry.from_dict(e) for e in data.get("timeline", [])]
+        counterfactuals = [
+            CounterfactualResult(
+                perturbation=c.get("perturbation", {}),
+                original_narrative=c.get("original_narrative", ""),
+                counterfactual_narrative=c.get("counterfactual_narrative", ""),
+                changed_paths=[CausalPath(**p) for p in c.get("changed_paths", [])],
+            )
+            for c in data.get("counterfactuals", [])
+        ]
+        return cls(
+            timeline=timeline,
+            counterfactuals=counterfactuals,
+            trace=data.get("trace", []),
+        )

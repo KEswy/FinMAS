@@ -28,3 +28,8 @@ def test_predict_no_llm_path():
     assert "prob_up" in payload
     assert "final_direction" in payload
 
+
+def test_sim_timeline_endpoint():
+    response = client.get("/sim/timeline")
+    assert response.status_code == 200
+    assert "timeline" in response.json()

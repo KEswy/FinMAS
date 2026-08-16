@@ -6,6 +6,8 @@ from typing import Any, Dict, Optional
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
+from pathlib import Path
+import json as _json
 
 from ..pipeline import FinMASPipeline
 from ..schemas import EventInput
@@ -60,4 +62,32 @@ def sim_run(request: dict) -> dict:
 
 @app.get("/sim/timeline")
 def sim_timeline() -> dict:
-    return {"message": "use /sim/run to generate a timeline"}
+    path = Path("data/eval/sim_state.json")
+    if not path.exists():
+        return {"timeline": []}
+    state = _json.loads(path.read_text(encoding="utf-8"))
+    return {"timeline": state.get("timeline", [])}
+
+
+@app.get("/sim/causal-graph")
+def sim_causal_graph() -> dict:
+    path = Path("data/eval/sim_state.json")
+    if not path.exists():
+        return {"nodes": [], "edges": []}
+    state = _json.loads(path.read_text(encoding="utf-8"))
+    edges = []
+    nodes = set()
+    for entry in state.get("timeline", []):
+        for p in entry.get("causal_paths", []):
+            nodes.add(p["source"])
+            nodes.add(p["target"])
+            edges.append(p)
+    return {"nodes": sorted(nodes), "edges": edges}
+
+
+@app.get("/sim/report")
+def sim_report() -> dict:
+    path = Path("data/eval/sim_state.json")
+    if not path.exists():
+        return {}
+    return _json.loads(path.read_text(encoding="utf-8"))
