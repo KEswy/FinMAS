@@ -133,6 +133,12 @@
 - Added FastAPI `use_llm` switch and integration tests for `/health` and
   no-LLM `/predict`.
 - Test suite now 32 passing.
+- Added portfolio/industry risk aggregation for committed v5 ensemble rows.
+- Portfolio backtest:
+  - T+1 breach 3.01% / Kupiec p=0.206
+  - T+5 breach 5.42% / Kupiec p=0.806
+  - T+20 breach 4.82% / Kupiec p=0.914
+  - output: `data/processed/finmas_v5_portfolio_risk.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
