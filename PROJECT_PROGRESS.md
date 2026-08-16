@@ -187,6 +187,8 @@
 - Test suite now 36 passing.
 - Added `n_hist` to macro snapshot and a macro pre-event history test.
 - Test suite now 37 passing.
+- Updated `COMPLETION_AUDIT.md` to reflect completed model-pool benchmark,
+  stress/attribution, report command, multi-seed summary, and feature leakage tests.
 - Added 3-seed variance summary:
   - full mean 52.44% ± 1.28pp
   - committed mean 54.27% ± 1.84pp

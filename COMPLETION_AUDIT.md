@@ -16,7 +16,8 @@ This document audits the original implementation plan against the current reposi
 - `DONE` Primary horizon T+5; secondary T+1/T+20.
 - `PARTIAL` Event expansion is present via `event_library_expanded.csv`, but no additional post-v4 events were added in this run.
 - `DONE` Unified feature store includes market, valuation, sentiment, macro, and text features.
-- `PARTIAL` Leakage tests cover time firewall and retrieval; not every feature path has an explicit truncation-invariance test.
+- `DONE` Leakage tests cover time firewall, retrieval, market, valuation,
+  sentiment, and macro pre-event history.
 
 ## Phase 2 — RAG and dynamic event KG
 
@@ -36,7 +37,7 @@ This document audits the original implementation plan against the current reposi
 
 - `DONE` Momentum, linear, MLP, and XGBoost candidates implemented behind a common interface.
 - `DONE` Temporal validation selection implemented.
-- `PARTIAL` Full candidate-pool benchmark across all 321 events not yet executed as a separate experiment; the evaluator uses a lighter feature-based path.
+- `DONE` Full candidate-pool benchmark across all 321 events executed.
 
 ## Phase 5 — Fusion, calibration, and selective prediction
 
@@ -53,7 +54,7 @@ This document audits the original implementation plan against the current reposi
 - `DONE` T+1/T+5/T+20 risk backtests implemented and compared against legacy.
 - `DONE` Portfolio and industry risk aggregation implemented for committed v5 rows.
 - `DONE` Basic v5 synthetic/historical stress tests implemented in `finmas/risk/stress.py`.
-- `PARTIAL` Attribution is still primarily served by legacy `risk_center`; the new v5 module does not yet have a native attribution module.
+- `DONE` Native v5 return-attribution module added and run.
 
 ## Phase 7 — CLI, API, and reports
 
@@ -61,15 +62,15 @@ This document audits the original implementation plan against the current reposi
 - `DONE` CLI `python -m finmas` implemented.
 - `DONE` FastAPI endpoints implemented for health and prediction.
 - `DONE` API integration tests added.
-- `PARTIAL` Full report orchestration for new v5 results is split across scripts; no single `report` command yet.
+- `DONE` Consolidated `finmas report` command added.
 
 ## Test plan
 
-- `DONE` 34 tests passing.
+- `DONE` 37 tests passing.
 - `DONE` Legacy tests still pass in full suite.
 - `DONE` Leakage tests added.
 - `DONE` API integration tests added.
-- `PARTIAL` 3-seed LLM run completed, but full multi-seed variance report across all components is still being assembled.
+- `DONE` 3-seed LLM run and variance summary completed.
 - `PARTIAL` Paired bootstrap implemented and run for key models, but not yet for every final sub-configuration.
 
 ## Acceptance gate
