@@ -106,7 +106,7 @@ def debate_node(state: GraphState, pipeline, rounds: int = 2) -> GraphState:
         state.debate_transcript = result.get("transcript", [])
         state.judge_verdict = DebateVerdict(
             consensus_factors=signals,
-            disagreement=0.75 if contested else abs(confidence - 0.5) * 1.2,
+            disagreement=0.50 if contested else min(abs(confidence - 0.5) * 1.2, 0.40),
             contested=contested,
             evidence_ids=evidence_ids,
             rounds=rounds,
@@ -180,4 +180,3 @@ def risk_node(state: GraphState, pipeline) -> GraphState:
     else:
         _record(state, "risk", "skipped", time.time() - start)
     return state
-

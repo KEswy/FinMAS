@@ -33,6 +33,11 @@
   - committed accuracy: 57.79%
   - committed coverage: 47.98%
   - output: `data/processed/all_experiment_results_v6_graph_no_llm_walk_forward.csv`
+- Fixed LLM debate disagreement routing: contested now raises disagreement to 0.50
+  instead of forcing all events to abstain.
+- Fixed graph evaluation logging to report forced full accuracy separately from
+  committed accuracy.
+- Full real-LLM graph/debate run is in progress in background.
 
 ## Done
 

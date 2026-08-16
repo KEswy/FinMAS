@@ -60,9 +60,7 @@ def main() -> None:
                     "final_dir": final_dir,
                     "prob_up": decision.prob_up if decision else float("nan"),
                     "abstain": decision.abstain if decision else True,
-                    "dir_correct": bool(
-                        decision and not decision.abstain and final_dir == real_dir
-                    ),
+                    "dir_correct": bool(final_dir == real_dir),
                     "committed_dir_correct": bool(
                         decision and not decision.abstain and final_dir == real_dir
                     ),
@@ -108,4 +106,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
