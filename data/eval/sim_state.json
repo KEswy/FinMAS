@@ -88,6 +88,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801120",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益-0.0130。强势行业: [('801160', 0.01595556189625902), ('801040', 0.007913292043830511), ('801170', 0.005162079265481179)]; 弱势行业: [('801120', -0.023099846007854752), ('801180', -0.019336227190463906), ('801750', -0.018773781149455715)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -180,6 +207,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         }
       ],
@@ -274,6 +328,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801120",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801730",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益-0.0092。强势行业: [('801110', 0.0052718941765150795), ('801780', 0.002282852320208084), ('801020', 0.0)]; 弱势行业: [('801120', -0.017310993181424594), ('801730', -0.016339401734236314), ('801180', -0.013713444237362316)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -366,6 +447,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801150",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         }
       ],
@@ -460,6 +568,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801010",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益-0.0129。强势行业: [('801020', 0.0), ('801780', -0.007034077716314924), ('801760', -0.01061116379451299)]; 弱势行业: [('801080', -0.02779309773305927), ('801010', -0.025594149908592323), ('801750', -0.025496201323540135)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -552,6 +687,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801890",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801170",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         }
       ],
@@ -646,6 +808,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益-0.0047。强势行业: [('801730', 0.008337170471425015), ('801120', 0.007867830069729909), ('801020', 0.0)]; 弱势行业: [('801760', -0.027677477059661504), ('801750', -0.0212509573386378), ('801770', -0.017044444652328905)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -738,6 +927,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801730",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         }
       ],
@@ -832,6 +1048,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益-0.0035。强势行业: [('801160', 0.011387913407846728), ('801010', 0.007813923653884114), ('801710', 0.00749632022508484)]; 弱势行业: [('801760', -0.020673370651078993), ('801750', -0.018764585047319038), ('801080', -0.016886407205493392)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -925,6 +1168,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801010",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801170",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801730",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益-0.0010。强势行业: [('801170', 0.011459251542591531), ('801110', 0.009211073561878669), ('801780', 0.005912052228836728)]; 弱势行业: [('801010', -0.012942725096374397), ('801730', -0.0114160839938936), ('801050', -0.009310706949197334)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -1017,6 +1287,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801730",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801780",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801790",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         }
       ],
@@ -1112,6 +1409,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801050",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801120",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801730",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         },
         {
@@ -1215,6 +1539,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801730",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801120",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益+0.0141。强势行业: [('801770', 0.02873131091124681), ('801730', 0.018235828038617008), ('801120', 0.016051971091332495)]; 弱势行业: [('801040', -0.012325825300903981), ('801160', -0.00840950301594956), ('801010', -0.004301291879772795)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -1307,6 +1658,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801730",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801710",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         }
       ],
@@ -1402,6 +1780,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801030",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         },
         {
@@ -1505,6 +1910,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益+0.0040。强势行业: [('801760', 0.035908915759922166), ('801750', 0.020570720618056537), ('801770', 0.019031817294554054)]; 弱势行业: [('801120', -0.006811543404603326), ('801780', -0.0008738416517639624), ('801020', 0.0)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -1599,6 +2031,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801790",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801170",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         },
         {
@@ -1706,6 +2165,33 @@
           ]
         },
         {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801040",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
           "source": "triggered_event",
           "target": "market",
           "relation": "causes",
@@ -1806,6 +2292,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801150",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益-0.0027。强势行业: [('801180', 0.031013068866437843), ('801780', 0.015626643525823214), ('801710', 0.01103615908660105)]; 弱势行业: [('801080', -0.02632445288150609), ('801150', -0.01951117336719599), ('801730', -0.018531322394047423)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -1900,6 +2413,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801730",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         },
         {
@@ -2003,6 +2543,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益-0.0178。强势行业: [('801020', 0.0), ('801780', -0.009905215399128475), ('801160', -0.010621101562571456)]; 弱势行业: [('801080', -0.03685485264252486), ('801760', -0.03510368361186467), ('801180', -0.035057834436904134)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -2097,6 +2664,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801150",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         },
         {
@@ -2200,6 +2794,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801160",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801170",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益+0.0007。强势行业: [('801770', 0.009267618420985446), ('801080', 0.007949868732273657), ('801110', 0.004272221919120245)]; 弱势行业: [('801180', -0.024000513063383022), ('801160', -0.015389833973802114), ('801170', -0.010273654677297905)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -2294,6 +2915,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801730",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         },
         {
@@ -2401,6 +3049,33 @@
           ]
         },
         {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
           "source": "triggered_event",
           "target": "market",
           "relation": "causes",
@@ -2505,6 +3180,33 @@
           ]
         },
         {
+          "source": "event",
+          "target": "801150",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801730",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
           "source": "triggered_event",
           "target": "market",
           "relation": "causes",
@@ -2605,6 +3307,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801050",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801040",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801150",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益+0.0096。强势行业: [('801050', 0.031513408369216345), ('801040', 0.031509919310177104), ('801150', 0.03067893441929992)]; 弱势行业: [('801780', -0.006843673577123455), ('801180', -0.0008339359136085855), ('801020', 0.0)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -2699,6 +3428,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801890",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         },
         {
@@ -2806,6 +3562,33 @@
           ]
         },
         {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
           "source": "triggered_event",
           "target": "market",
           "relation": "causes",
@@ -2906,6 +3689,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801110",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801010",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益+0.0021。强势行业: [('801110', 0.017769803122048566), ('801010', 0.014011854965009896), ('801760', 0.013052885468024078)]; 弱势行业: [('801120', -0.008056603438467369), ('801730', -0.005052519611753792), ('801880', -0.004654484508100465)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -2998,6 +3808,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801120",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801780",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801180",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         }
       ],
@@ -3092,6 +3929,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益+0.0086。强势行业: [('801750', 0.036901945511721435), ('801770', 0.03179080547426638), ('801760', 0.02136714713557608)]; 弱势行业: [('801020', 0.0), ('801780', 0.0009524768978559361), ('801180', 0.0012440954065666698)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -3185,6 +4049,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801760",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801880",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益+0.0009。强势行业: [('801760', 0.03138021503163757), ('801750', 0.024573185600847536), ('801880', 0.023032552379152582)]; 弱势行业: [('801110', -0.005009445083585362), ('801020', 0.0), ('801170', 0.0006063332485770623)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -3277,6 +4168,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801890",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801780",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801880",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         }
       ],
@@ -3372,6 +4290,33 @@
           "weight": 0.6,
           "evidence_ids": [
             "margin_change"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
           ]
         },
         {
@@ -3479,6 +4424,33 @@
           ]
         },
         {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
           "source": "triggered_event",
           "target": "market",
           "relation": "causes",
@@ -3583,6 +4555,33 @@
           ]
         },
         {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
           "source": "triggered_event",
           "target": "market",
           "relation": "causes",
@@ -3683,6 +4682,33 @@
           "evidence_ids": [
             "margin_change"
           ]
+        },
+        {
+          "source": "event",
+          "target": "801750",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801080",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
+        },
+        {
+          "source": "event",
+          "target": "801770",
+          "relation": "affects",
+          "weight": 0.7,
+          "evidence_ids": [
+            "industry_move"
+          ]
         }
       ],
       "narrative": "今日无明显事件。市场收益+0.0062。强势行业: [('801750', 0.03561388301193813), ('801080', 0.025953447380811623), ('801770', 0.024635566024853173)]; 弱势行业: [('801010', -0.01115492571010157), ('801170', -0.007795844181362699), ('801180', -0.005021295889869104)] 从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -3696,266 +4722,266 @@
       "market_return": -0.01304475811034922,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-03",
       "market_return": -0.002378665891791476,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-04",
       "market_return": -0.009248742783716124,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-05",
       "market_return": -0.0053602393987306485,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-08",
       "market_return": -0.012932882081732933,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-09",
       "market_return": 0.001960709129728677,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-10",
       "market_return": -0.004668186687376341,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-11",
       "market_return": 0.005658306401731483,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-12",
       "market_return": -0.0034909420597680763,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-15",
       "market_return": -0.0009886829750130888,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-16",
       "market_return": 0.006082440291137914,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-17",
       "market_return": -0.021749983943656237,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-01-18",
       "market_return": 0.014136215803748575,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-19",
       "market_return": -0.0015124915680045925,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-22",
       "market_return": -0.015558863971109838,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-01-23",
       "market_return": 0.004048274846516042,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-24",
       "market_return": 0.013978012539245022,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-01-25",
       "market_return": 0.020081724471172624,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-01-26",
       "market_return": -0.0027215735708822075,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-29",
       "market_return": -0.008956989592422637,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-01-30",
       "market_return": -0.017833448346832204,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-01-31",
       "market_return": -0.009148426259283915,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-02-01",
       "market_return": 0.0007336677290696869,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-02-02",
       "market_return": -0.011835432081998554,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-02-05",
       "market_return": 0.006539758739072532,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-02-06",
       "market_return": 0.03476729006362289,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-02-07",
       "market_return": 0.00964401278862903,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-02-08",
       "market_return": 0.006370322075109902,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-02-19",
       "market_return": 0.011553880764235913,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-02-20",
       "market_return": 0.002070034502533513,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-02-21",
       "market_return": 0.013491342637357073,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-02-22",
       "market_return": 0.008621669712291835,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-02-23",
       "market_return": 0.0008796346089039453,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-02-26",
       "market_return": -0.01042569909179536,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     },
     {
       "date": "2024-02-27",
       "market_return": 0.0119964359338256,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-02-28",
       "market_return": -0.01274097677483621,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-02-29",
       "market_return": 0.019077692695622872,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 3
+      "n_causal_paths": 6
     },
     {
       "date": "2024-03-01",
       "market_return": 0.006177612985813985,
       "n_opinions": 4,
       "disagreement": 0.0,
-      "n_causal_paths": 2
+      "n_causal_paths": 5
     }
   ]
 }

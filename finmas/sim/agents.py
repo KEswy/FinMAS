@@ -102,6 +102,13 @@ class SimulationAgents:
             CausalPath("market", "all_industries", "affects", 0.8, ["market_tick"]),
             CausalPath("capital_flow", "market", "causes", 0.6, ["margin_change"]),
         ]
+        top_industries = sorted(
+            tick.industry_returns.items(), key=lambda x: -abs(x[1])
+        )[:3]
+        for industry, _ in top_industries:
+            paths.append(
+                CausalPath("event", industry, "affects", 0.7, ["industry_move"])
+            )
         if tick.triggered_event:
             paths.append(
                 CausalPath("triggered_event", "market", "causes", 0.75, [tick.triggered_event])

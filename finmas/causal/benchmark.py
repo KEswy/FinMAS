@@ -96,7 +96,16 @@ def run_benchmark(
     for edge in edges_from_sim(state):
         graph.add_edge(edge)
     reference = edges_from_sim(state)
-    events = events or []
+    if not events:
+        events = []
+        for entry in state.timeline:
+            events.append(
+                {
+                    "event_date": entry.date,
+                    "event_text": entry.tick.triggered_event or entry.narrative,
+                    "industries": list(entry.tick.industry_returns.keys()),
+                }
+            )
     rule = rule_kg_edges(events)
     llm_rule = llm_or_rule_edges(events, use_llm=False)
     return {
@@ -113,4 +122,3 @@ def run_benchmark(
             "temporal": graph.temporal_pagerank(),
         },
     }
-
