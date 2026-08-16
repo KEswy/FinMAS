@@ -1,0 +1,6 @@
+﻿event_date,industry_code,event_type,real_dir,final_dir,prob_up,confidence,abstain,dir_correct,committed_dir_correct
+2020-01-01,801780,monetary_policy,-,+,0.531858961611417,0.06371792322283398,True,0,0
+2020-01-01,801790,monetary_policy,-,+,0.7134993110414125,0.426998622082825,False,0,0
+2020-01-01,801180,monetary_policy,-,+,0.6074292792427815,0.2148585584855629,False,0,0
+2020-02-03,801780,monetary_policy,-,-,0.1228051696075284,0.7543896607849432,False,1,1
+2020-02-03,801790,monetary_policy,-,-,0.4219059818403615,0.15618803631927702,False,1,1

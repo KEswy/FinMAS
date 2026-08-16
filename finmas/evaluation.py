@@ -57,11 +57,13 @@ class WalkForwardEvaluator:
         data_dir: str = "data",
         car_csv: str = "data/processed/car_results_expanded.csv",
         llm_mode: str = "none",
+        llm_seed: int = 0,
     ) -> None:
         self.data_dir = Path(data_dir)
         self.store = FeatureStore(data_dir=str(self.data_dir))
         self.irf = load_irf(data_dir)
         self.llm_mode = llm_mode.lower()
+        self.llm_seed = int(llm_seed)
         self.llm_provider = LLMProvider() if self.llm_mode == "llm" else None
         self.llm_extractor = MechanismExtractor(self.llm_provider) if self.llm_provider else None
         self.text_extractor = TextFactorExtractor() if self.llm_mode == "heuristic" else None
@@ -104,7 +106,11 @@ class WalkForwardEvaluator:
             return []
         event = EventInput(
             event_date=event_date,
-            event_text=event_text,
+            event_text=(
+                f"{event_text}\n[采样扰动标签: seed={self.llm_seed}]"
+                if self.llm_mode == "llm" and self.llm_seed
+                else event_text
+            ),
             event_type=event_type,
             industry_code=industry_code,
         )

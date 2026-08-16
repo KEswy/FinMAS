@@ -1,0 +1,119 @@
+{
+  "summary": {
+    "full": {
+      "n": 5,
+      "accuracy": 0.4
+    },
+    "selective": {
+      "n": 4,
+      "coverage": 0.8,
+      "accuracy": 0.5
+    },
+    "by_event_type": [
+      {
+        "event_type": "monetary_policy",
+        "n": 5.0,
+        "full_accuracy": 0.4,
+        "committed_n": 4.0,
+        "committed_accuracy": 0.5
+      }
+    ],
+    "by_industry": [
+      {
+        "industry_code": "801180",
+        "n": 1.0,
+        "full_accuracy": 0.0,
+        "committed_n": 1.0,
+        "committed_accuracy": 0.0
+      },
+      {
+        "industry_code": "801780",
+        "n": 2.0,
+        "full_accuracy": 0.5,
+        "committed_n": 1.0,
+        "committed_accuracy": 1.0
+      },
+      {
+        "industry_code": "801790",
+        "n": 2.0,
+        "full_accuracy": 0.5,
+        "committed_n": 2.0,
+        "committed_accuracy": 0.5
+      }
+    ]
+  },
+  "selective_curve": [
+    {
+      "cumulative_rows": 1,
+      "coverage": 0.2,
+      "accuracy": 1.0,
+      "min_confidence": 0.7543896607849432
+    },
+    {
+      "cumulative_rows": 1,
+      "coverage": 0.2,
+      "accuracy": 1.0,
+      "min_confidence": 0.7543896607849432
+    },
+    {
+      "cumulative_rows": 2,
+      "coverage": 0.4,
+      "accuracy": 0.5,
+      "min_confidence": 0.426998622082825
+    },
+    {
+      "cumulative_rows": 2,
+      "coverage": 0.4,
+      "accuracy": 0.5,
+      "min_confidence": 0.426998622082825
+    },
+    {
+      "cumulative_rows": 3,
+      "coverage": 0.6,
+      "accuracy": 0.3333333333333333,
+      "min_confidence": 0.2148585584855629
+    },
+    {
+      "cumulative_rows": 3,
+      "coverage": 0.6,
+      "accuracy": 0.3333333333333333,
+      "min_confidence": 0.2148585584855629
+    },
+    {
+      "cumulative_rows": 4,
+      "coverage": 0.8,
+      "accuracy": 0.5,
+      "min_confidence": 0.15618803631927702
+    },
+    {
+      "cumulative_rows": 4,
+      "coverage": 0.8,
+      "accuracy": 0.5,
+      "min_confidence": 0.15618803631927702
+    },
+    {
+      "cumulative_rows": 5,
+      "coverage": 1.0,
+      "accuracy": 0.4,
+      "min_confidence": 0.06371792322283398
+    }
+  ],
+  "paired_bootstrap_full": {
+    "n": 5,
+    "candidate_accuracy": 0.4,
+    "legacy_accuracy": 0.0,
+    "delta": 0.4,
+    "p_value": 0.64,
+    "ci_low": 0.0,
+    "ci_high": 0.8
+  },
+  "paired_bootstrap_committed": {
+    "n": 4,
+    "candidate_accuracy": 0.5,
+    "legacy_accuracy": 0.0,
+    "delta": 0.5,
+    "p_value": 0.6685,
+    "ci_low": 0.0,
+    "ci_high": 1.0
+  }
+}

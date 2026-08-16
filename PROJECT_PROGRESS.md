@@ -106,6 +106,9 @@
   - committed coverage: 84/321
   - output: `data/processed/all_experiment_results_finmas_v5_wf_ensemble.csv`
   - analysis: `data/processed/finmas_v5_wf_ensemble_analysis.json`
+- Added `--llm-seed` prompt perturbation for multi-seed LLM sampling.
+- Added `scripts/aggregate_v5_seeds.py` for averaging multi-seed probability files.
+- Ran 2-seed LLM smoke aggregation on 5 rows; aggregation pipeline works.
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%

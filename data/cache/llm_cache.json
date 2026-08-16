@@ -1924,5 +1924,35 @@
     "model": "qwen2.5:32b",
     "provider": "ollama",
     "elapsed": 7.8778417110443115
+  },
+  "38b759905a45ab1f6dfbe49bec796173f4a8c1c43090ec8135fe1fe1f1bafaf3": {
+    "content": "{\n  \"event_summary\": \"央行宣布全面下调金融机构存款准备金率0.5个百分点\",\n  \"chain\": [\n    {\n      \"step\": 1,\n      \"layer\": \"industry\",\n      \"entity\": \"银行业\",\n      \"reasoning\": \"降低存款准备金率意味着银行需要保留的现金减少，可以增加贷款规模。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.8,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"中\"\n    },\n    {\n      \"step\": 2,\n      \"layer\": \"asset\",\n      \"entity\": \"银行股\",\n      \"reasoning\": \"由于银行业贷款能力增强，预期盈利能力提升，可能带动银行股价上涨。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.7,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"中\"\n    }\n  ],\n  \"overall_confidence\": 0.75,\n  \"evidence_gaps\": [\"缺少具体实施效果的证据\"],\n  \"recommendation\": \"预计此次政策调整将对银行业及银行股产生正面影响，但需进一步观察实际效果。\"\n}",
+    "model": "qwen2.5:32b",
+    "provider": "ollama",
+    "elapsed": 10.823661804199219
+  },
+  "0f265c75fc36552f693b3c2fd5df256bcae12fd67efdac61233ae0aab1456342": {
+    "content": "{\n  \"event_summary\": \"央行宣布全面下调金融机构存款准备金率0.5个百分点\",\n  \"chain\": [\n    {\n      \"step\": 1,\n      \"layer\": \"industry\",\n      \"entity\": \"银行业\",\n      \"reasoning\": \"降低存款准备金率意味着银行需要保留的现金减少，可以增加贷款规模，提高流动性。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.8,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"中\"\n    }\n  ],\n  \"overall_confidence\": 0.8,\n  \"evidence_gaps\": [\"缺少具体行业影响证据\"],\n  \"recommendation\": \"预计银行业流动性将增强，贷款规模可能扩大。\"\n}",
+    "model": "qwen2.5:32b",
+    "provider": "ollama",
+    "elapsed": 4.703035593032837
+  },
+  "a39b390be181773f338ee88464049ed24953a6851ea29bba4ddbb5d54ca374f1": {
+    "content": "{\n  \"event_summary\": \"央行宣布全面下调金融机构存款准备金率0.5个百分点\",\n  \"chain\": [\n    {\n      \"step\": 1,\n      \"layer\": \"industry\",\n      \"entity\": \"银行业\",\n      \"reasoning\": \"降低存款准备金率将增加银行的可贷资金，有利于提高银行业的盈利能力。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.8,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"中\"\n    },\n    {\n      \"step\": 2,\n      \"layer\": \"asset\",\n      \"entity\": \"银行股\",\n      \"reasoning\": \"银行业盈利能力的提升预期将带动银行股价上涨。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.7,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"中\"\n    }\n  ],\n  \"overall_confidence\": 0.75,\n  \"evidence_gaps\": [\"缺少具体实施效果的证据\"],\n  \"recommendation\": \"预计银行业和银行股将受到正面影响，但需关注实际执行情况。\"\n}",
+    "model": "qwen2.5:32b",
+    "provider": "ollama",
+    "elapsed": 5.838165760040283
+  },
+  "13e75f8815f209beb045a3727264f06631f19a72d64381504c0ae9407b87bdc1": {
+    "content": "{\n  \"event_summary\": \"央行开展1.2万亿元逆回购操作并下调7天、14天逆回购中标利率10个基点\",\n  \"chain\": [\n    {\n      \"step\": 1,\n      \"layer\": \"social\",\n      \"entity\": \"全社会\",\n      \"reasoning\": \"货币政策宽松，降低融资成本，有利于刺激经济增长和社会投资。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.8,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"中\"\n    },\n    {\n      \"step\": 2,\n      \"layer\": \"industry\",\n      \"entity\": \"金融行业\",\n      \"reasoning\": \"利率下调，银行间市场流动性增加，有利于降低金融机构的融资成本。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.75,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"中\"\n    },\n    {\n      \"step\": 3,\n      \"layer\": \"company\",\n      \"entity\": \"上市公司\",\n      \"reasoning\": \"融资成本降低，有利于企业扩大投资和生产。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.7,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"低\"\n    }\n  ],\n  \"overall_confidence\": 0.75,\n  \"evidence_gaps\": [\"缺少具体行业影响证据\"],\n  \"recommendation\": \"货币政策宽松，有利于刺激经济增长和降低融资成本。\"\n}",
+    "model": "qwen2.5:32b",
+    "provider": "ollama",
+    "elapsed": 7.154752254486084
+  },
+  "22029e52027a593d2735c98e47d5f8910d6b4b9adf83a35b4304f7e7b99ecae7": {
+    "content": "{\n  \"event_summary\": \"央行开展1.2万亿元逆回购操作并下调7天、14天逆回购中标利率10个基点\",\n  \"chain\": [\n    {\n      \"step\": 1,\n      \"layer\": \"social\",\n      \"entity\": \"全社会\",\n      \"reasoning\": \"货币政策宽松，增加市场流动性，有利于降低融资成本和社会整体借贷成本。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.7,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"中\"\n    },\n    {\n      \"step\": 2,\n      \"layer\": \"industry\",\n      \"entity\": \"801790\",\n      \"reasoning\": \"行业融资成本降低，有利于增加投资和生产活动。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.65,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"中\"\n    },\n    {\n      \"step\": 3,\n      \"layer\": \"company\",\n      \"entity\": \"行业内公司\",\n      \"reasoning\": \"融资成本降低，有利于改善企业财务状况和盈利能力。\",\n      \"evidence_ids\": [],\n      \"confidence\": 0.6,\n      \"impact_direction\": \"+\",\n      \"impact_magnitude\": \"中\"\n    }\n  ],\n  \"overall_confidence\": 0.65,\n  \"evidence_gaps\": [\"缺少具体行业影响证据\"],\n  \"recommendation\": \"货币政策宽松，可能对801790行业产生正面影响。\"\n}",
+    "model": "qwen2.5:32b",
+    "provider": "ollama",
+    "elapsed": 7.2534472942352295
   }
 }
