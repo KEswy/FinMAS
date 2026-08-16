@@ -30,3 +30,11 @@ def test_sentiment_snapshot_history_is_pre_event():
     late = store.sentiment_snapshot("2024-07-22")
     if early and late:
         assert early["n_hist"] < late["n_hist"]
+
+
+def test_macro_snapshot_history_is_pre_event():
+    store = FeatureStore()
+    early = store.macro_snapshot("2020-01-10")
+    late = store.macro_snapshot("2024-07-22")
+    if early and late:
+        assert early["n_hist"] < late["n_hist"]

@@ -185,6 +185,8 @@
 - Added pre-event history monotonicity tests for valuation and sentiment
   snapshots.
 - Test suite now 36 passing.
+- Added `n_hist` to macro snapshot and a macro pre-event history test.
+- Test suite now 37 passing.
 - Added 3-seed variance summary:
   - full mean 52.44% ± 1.28pp
   - committed mean 54.27% ± 1.84pp

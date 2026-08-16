@@ -201,7 +201,7 @@ class FeatureStore:
         if past.empty:
             return {}
         last = past.iloc[-1]
-        out: Dict[str, float] = {}
+        out: Dict[str, float] = {"n_hist": int(len(past))}
         for col in ("LPR1Y", "LPR5Y", "RATE_1", "RATE_2"):
             if col in past.columns and pd.notna(last[col]):
                 series = past[col].dropna()
@@ -295,4 +295,3 @@ class FeatureStore:
         if len(df) < lookback:
             return df
         return df.tail(lookback)
-
