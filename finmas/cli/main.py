@@ -10,6 +10,7 @@ from ..pipeline import FinMASPipeline
 from ..graph import FinMASGraph
 from ..quality import build_rag_ground_truth, evaluate_rag
 from ..quality.reports import generate_all_quality_reports
+from ..quality.explanation_quality import compute_explanation_metrics
 from ..report import build_markdown_report
 from ..schemas import EventInput
 from ..sim.simulator import MarketSimulator
@@ -60,6 +61,16 @@ def main() -> None:
     quality_all.add_argument(
         "--risk-json",
         default="data/processed/finmas_v5_final_risk_backtest.json",
+    )
+    quality_explanation = quality_sub.add_parser("explanation")
+    quality_explanation.add_argument(
+        "--state-json",
+        default="data/eval/sim_state.json",
+    )
+    quality_explanation.add_argument("--llm", action="store_true")
+    quality_explanation.add_argument(
+        "--output-json",
+        default="data/eval/quality_explanation.json",
     )
 
     sim = sub.add_parser("sim", help="continuous market simulation")
@@ -144,6 +155,17 @@ def main() -> None:
                 risk_json=args.risk_json,
             )
             print(json.dumps(reports, ensure_ascii=False, indent=2, default=str))
+            return
+        if args.quality_command == "explanation":
+            from ..sim.schemas import SimulationState
+
+            state = SimulationState.from_dict(
+                json.loads(Path(args.state_json).read_text(encoding="utf-8"))
+            )
+            report = compute_explanation_metrics(state, llm_judge=args.llm)
+            text = json.dumps(report.to_dict(), ensure_ascii=False, indent=2)
+            Path(args.output_json).write_text(text, encoding="utf-8")
+            print(text)
             return
 
     if args.command == "sim":

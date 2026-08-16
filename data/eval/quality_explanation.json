@@ -1,0 +1,50 @@
+{
+  "module": "explanation",
+  "metrics": [
+    {
+      "name": "evidence_coverage",
+      "value": 0.842105,
+      "passed": true,
+      "threshold": 0.8,
+      "operator": ">="
+    },
+    {
+      "name": "path_evidence_coverage",
+      "value": 1.0,
+      "passed": true,
+      "threshold": 0.95,
+      "operator": ">="
+    },
+    {
+      "name": "industry_mention_rate",
+      "value": 1.0,
+      "passed": true,
+      "threshold": 0.9,
+      "operator": ">="
+    },
+    {
+      "name": "event_mention_rate",
+      "value": 1.0,
+      "passed": true,
+      "threshold": 0.5,
+      "operator": ">="
+    },
+    {
+      "name": "avg_confidence",
+      "value": 0.48358,
+      "passed": true,
+      "threshold": 0.4,
+      "operator": ">="
+    },
+    {
+      "name": "cycle_rate",
+      "value": 0.0,
+      "passed": true,
+      "threshold": 0.1,
+      "operator": "<="
+    }
+  ],
+  "passed": true,
+  "n_samples": 38,
+  "notes": []
+}

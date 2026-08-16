@@ -286,3 +286,7 @@
 - Added optional northbound-flow field and live fallback.
 - Added event-detection test; test suite now 45 passing.
 - Implemented real akshare minute-snapshot attempt for detected events, with local fallback.
+- Added explanation quality report with evidence, path, event/industry mention,
+  confidence, and cycle metrics.
+- `quality explanation` now passes with 100% event mention on event days.
+- Test suite now 46 passing.

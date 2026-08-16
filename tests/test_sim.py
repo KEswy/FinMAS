@@ -4,6 +4,7 @@ from finmas.sim.causal_graph import CausalGraph
 from finmas.sim.data_source import MarketDataSource
 from finmas.sim.schemas import MarketTick
 from finmas.sim.simulator import MarketSimulator
+from finmas.quality.explanation_quality import compute_explanation_metrics
 
 
 def test_market_simulator_runs_and_produces_timeline(tmp_path):
@@ -49,3 +50,13 @@ def test_event_detection_flags_large_market_move():
     )
     detected = ds.detect_event(tick)
     assert detected.triggered_event
+
+
+def test_explanation_quality_report_from_state():
+    market = pd.read_csv("data/raw/hs300.csv")
+    market["日期"] = pd.to_datetime(market["日期"])
+    dates = market["日期"].head(5).dt.strftime("%Y-%m-%d").tolist()
+    state = MarketSimulator().run(dates)
+    report = compute_explanation_metrics(state)
+    assert report.module == "explanation"
+    assert report.metrics
