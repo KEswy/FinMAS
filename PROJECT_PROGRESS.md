@@ -130,6 +130,9 @@
   - T+5: v5 breach 6.85% / p=0.148; legacy breach 13.71%
   - T+20: v5 breach 5.61% / p=0.624; legacy breach 18.38%
   - output: `data/processed/finmas_v5_risk_backtest_multihorizon.json`
+- Added FastAPI `use_llm` switch and integration tests for `/health` and
+  no-LLM `/predict`.
+- Test suite now 32 passing.
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%

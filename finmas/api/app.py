@@ -18,6 +18,7 @@ class EventRequest(BaseModel):
     industry_code: str
     event_id: str = ""
     external_features: Dict[str, Any] = Field(default_factory=dict)
+    use_llm: bool = True
 
 
 app = FastAPI(title="FinMAS v5", version="5.0.0")
@@ -38,7 +39,6 @@ def predict_direction(request: EventRequest) -> dict:
         event_id=request.event_id,
         external_features=request.external_features,
     )
-    pipeline = FinMASPipeline()
+    pipeline = FinMASPipeline(use_llm=request.use_llm)
     decision = pipeline.predict(event)
     return decision.to_dict()
-
