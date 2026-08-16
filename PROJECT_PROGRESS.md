@@ -190,6 +190,8 @@
   - committed mean 54.27% ± 1.84pp
   - coverage mean 60.54%
   - output: `data/processed/finmas_v5_llm_3seed_summary.json`
+- Added `docs/V5_DECISIONS.md` documenting legacy-only Debate/RelDecomp,
+  in-memory KG, LLM role, and manual risk scale decisions.
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%

@@ -30,7 +30,7 @@ This document audits the original implementation plan against the current reposi
 - `DONE` Unified LLM provider with DeepSeek/Ollama, JSON mode, retries, cache, and cost tracking.
 - `DONE` `MechanismExtractor` emits factors, not final direction.
 - `DONE` Text-factor fallback and multi-seed prompt perturbation implemented.
-- `PARTIAL` Debate/RelDecomp are available in legacy code but not fully integrated into the new v5 evaluator as optional factors.
+- `DEFERRED` Debate/RelDecomp are legacy-only by documented v5 decision; see `docs/V5_DECISIONS.md`.
 
 ## Phase 4 — Time-series model pool
 
@@ -85,4 +85,3 @@ This document audits the original implementation plan against the current reposi
 3. Add explicit truncation-invariance tests for valuation, sentiment, macro, and text features.
 4. Integrate legacy Debate/RelDecomp into the new factor pipeline, or explicitly retire them.
 5. Add a final multi-seed variance summary table for all final ensemble components.
-
