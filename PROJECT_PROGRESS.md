@@ -38,6 +38,11 @@
 - Fixed graph evaluation logging to report forced full accuracy separately from
   committed accuracy.
 - Full real-LLM graph/debate run is in progress in background.
+- Full real-LLM graph/debate run completed:
+  - full accuracy: 27.73% (forced direction)
+  - committed accuracy: 57.42%
+  - committed coverage: 48.29%
+  - output: `data/processed/all_experiment_results_v6_graph_llm_debate1_v2_walk_forward.csv`
 
 ## Done
 
