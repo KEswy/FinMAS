@@ -139,6 +139,9 @@
   - T+5 breach 5.42% / Kupiec p=0.806
   - T+20 breach 4.82% / Kupiec p=0.914
   - output: `data/processed/finmas_v5_portfolio_risk.json`
+- Added leakage tests for TimeFirewall row filtering and retrieval future-chunk
+  filtering.
+- Test suite now 34 passing.
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
