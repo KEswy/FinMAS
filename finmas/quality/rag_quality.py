@@ -90,7 +90,9 @@ def evaluate_rag(
     recall_values = []
     rrs = []
     firewall_ok = True
-    citation_values = []
+    total_relevant = 0
+    total_min_denominator = 0
+    total_citation_hits = 0
 
     for sample in samples:
         relevant = set(sample["relevant_chunk_ids"])
@@ -111,16 +113,16 @@ def evaluate_rag(
         rrs.append(rr)
 
         firewall_ok = firewall_ok and package.passed_time_firewall
-        citation_values.append(
-            len(hit) / max(min(len(relevant), len(retrieved)), 1)
-        )
+        total_relevant += len(relevant)
+        total_min_denominator += min(len(relevant), len(retrieved))
+        total_citation_hits += len(hit)
 
     report = QualityReport(module="rag", n_samples=len(samples))
     observed = {
         "recall_at_5": float(sum(recall_values) / max(len(recall_values), 1)),
         "mrr": float(sum(rrs) / max(len(rrs), 1)),
         "firewall_pass_rate": float(firewall_ok),
-        "citation_coverage": float(sum(citation_values) / max(len(citation_values), 1)),
+        "citation_coverage": float(total_citation_hits / max(total_min_denominator, 1)),
     }
     for threshold in RAG_THRESHOLDS:
         value = observed.get(threshold.name, 0.0)

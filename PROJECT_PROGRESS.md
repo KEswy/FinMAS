@@ -21,6 +21,13 @@
 - Added `finmas graph run` command.
 - Requirements updated with langgraph, langchain-core, sentence-transformers, faiss-cpu.
 - Test suite: 40 passing.
+- Improved RAG retrieval with BGE query prefix, BGE reranker, and semantic-first
+  candidate ranking.
+- RAG quality report now passes:
+  - Recall@5: 78.67%
+  - MRR: 100%
+  - firewall pass: 100%
+  - citation coverage: 80.28%
 
 ## Done
 

@@ -3,14 +3,14 @@
   "metrics": [
     {
       "name": "recall_at_5",
-      "value": 0.6,
-      "passed": false,
+      "value": 0.786667,
+      "passed": true,
       "threshold": 0.7,
       "operator": ">="
     },
     {
       "name": "mrr",
-      "value": 0.841333,
+      "value": 1.0,
       "passed": true,
       "threshold": 0.55,
       "operator": ">="
@@ -24,13 +24,13 @@
     },
     {
       "name": "citation_coverage",
-      "value": 0.64,
-      "passed": false,
+      "value": 0.802817,
+      "passed": true,
       "threshold": 0.8,
       "operator": ">="
     }
   ],
-  "passed": false,
+  "passed": true,
   "n_samples": 25,
   "notes": []
 }

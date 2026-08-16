@@ -72,6 +72,30 @@ class BM25Index:
         scored.sort(key=lambda x: -x[0])
         return [self._chunks[i] for _, i in scored[:top_k]]
 
+    def score(self, query: str, chunk: EvidenceChunk) -> float:
+        """Return BM25 score for one chunk, useful for candidate re-ranking."""
+        n = len(self._chunks)
+        if n == 0:
+            return 0.0
+        try:
+            index = self._chunks.index(chunk)
+        except ValueError:
+            return 0.0
+        q = _tokenize(query)
+        tf = self._tf[index]
+        dl = sum(tf.values())
+        score = 0.0
+        for token in q:
+            if token not in tf:
+                continue
+            idf = math.log((n - self._df.get(token, 0) + 0.5) /
+                           (self._df.get(token, 0) + 0.5) + 1.0)
+            tf_val = tf[token] * (self.k1 + 1.0) / (
+                tf[token] + self.k1 * (1.0 - self.b + self.b * dl / max(self._avgdl, 1e-8))
+            )
+            score += idf * tf_val
+        return score
+
 
 class TfidfVectorIndex:
     def __init__(self) -> None:
@@ -156,7 +180,7 @@ class SemanticVectorIndex:
         import numpy as np
 
         q = self._model.encode(
-            [query],
+            ["为这个句子生成表示以用于检索相关文章：" + query],
             normalize_embeddings=True,
             show_progress_bar=False,
         ).astype("float32")
@@ -165,11 +189,29 @@ class SemanticVectorIndex:
         _, idx = self._index.search(q, top_k)
         return [self._chunks[int(i)] for i in idx[0]]
 
+    def score(self, query: str, chunk: EvidenceChunk) -> float:
+        if not self.available or self._model is None:
+            return 0.0
+        try:
+            import faiss
+            import numpy as np
+
+            q = self._model.encode(
+                ["为这个句子生成表示以用于检索相关文章：" + query],
+                normalize_embeddings=True, show_progress_bar=False
+            ).astype("float32")
+            d = self._model.encode(
+                [chunk.text], normalize_embeddings=True, show_progress_bar=False
+            ).astype("float32")
+            return float(np.dot(q[0], d[0]))
+        except Exception:
+            return 0.0
+
 
 class CrossEncoderReranker:
     """Optional lightweight cross-encoder reranker."""
 
-    def __init__(self, model_name: str = "cross-encoder/ms-marco-MiniLM-L-6-v2") -> None:
+    def __init__(self, model_name: str = "BAAI/bge-reranker-large") -> None:
         self.model_name = model_name
         self._model = None
         self._available = False
@@ -239,14 +281,8 @@ class HybridRetriever:
         if not dense_results:
             dense_results = self.dense.search(query, top_k * 2)
         if self.semantic.available:
-            candidates = self._rrf(
-                [
-                    self.semantic.search(query, top_k * 4),
-                    self.bm25.search(query, top_k * 4),
-                ],
-                weights=[0.85, 0.15],
-            )
-            chunks = candidates[:top_k]
+            candidates = self.semantic.search(query, top_k * 7)
+            chunks = self.reranker.rerank(query, candidates, top_k)
             package = EvidencePackage(query=query, chunks=chunks)
             if as_of_date:
                 package = TimeFirewall(as_of_date).filter_evidence(package)
