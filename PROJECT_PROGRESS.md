@@ -142,6 +142,15 @@
 - Added leakage tests for TimeFirewall row filtering and retrieval future-chunk
   filtering.
 - Test suite now 34 passing.
+- Ran full 321-scenario LLM seed=1 evaluation.
+- 2-seed LLM aggregation (seed0 + seed1):
+  - full accuracy: 52.02%
+  - committed accuracy: 55.40%
+  - committed coverage: 213/321
+  - seed0: 53.89% full / 55.29% committed
+  - seed1: 52.65% full / 55.84% committed
+  - output: `data/processed/all_experiment_results_finmas_v5_oof_llm_2seed_agg.csv`
+  - analysis: `data/processed/finmas_v5_oof_llm_2seed_analysis.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
