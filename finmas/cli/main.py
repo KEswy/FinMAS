@@ -15,6 +15,10 @@ from ..report import build_markdown_report
 from ..schemas import EventInput
 from ..sim.simulator import MarketSimulator
 from ..sim.report import save_json, to_html
+from ..causal.graph import TemporalCausalGraph
+from ..causal.extractor import CausalExtractor
+from ..causal.explanation import CausalExplainer
+from ..causal.quality import compute_quality
 
 
 def main() -> None:
@@ -86,6 +90,22 @@ def main() -> None:
     sim_report.add_argument("--output-html", required=True)
     sim_graph = sim_sub.add_parser("graph")
     sim_graph.add_argument("--state-json", required=True)
+
+    causal = sub.add_parser("causal", help="temporal causal graph")
+    causal_sub = causal.add_subparsers(dest="causal_command", required=True)
+    causal_extract = causal_sub.add_parser("extract")
+    causal_extract.add_argument("--event-text", required=True)
+    causal_extract.add_argument("--event-date", required=True)
+    causal_extract.add_argument("--industries", default="801780,801180,801790")
+    causal_extract.add_argument("--llm", action="store_true")
+    causal_graph = causal_sub.add_parser("graph")
+    causal_graph.add_argument("--state-json", default="data/eval/sim_state.json")
+    causal_explain = causal_sub.add_parser("explain")
+    causal_explain.add_argument("--event", default="event")
+    causal_explain.add_argument("--target", default="market")
+    causal_counter = causal_sub.add_parser("counterfactual")
+    causal_counter.add_argument("--event", default="event")
+    causal_counter.add_argument("--target", default="market")
 
     args = parser.parse_args()
     if args.command == "predict":
@@ -204,4 +224,56 @@ def main() -> None:
             raw = _json.loads(Path(args.state_json).read_text(encoding="utf-8"))
             state = SimulationState.from_dict(raw)
             print(_json.dumps(state.trace, ensure_ascii=False, indent=2))
+            return
+
+    if args.command == "causal":
+        if args.causal_command == "extract":
+            extractor = CausalExtractor(use_llm=args.llm)
+            edges = extractor.extract(
+                args.event_text,
+                args.event_date,
+                [x.strip() for x in args.industries.split(",") if x.strip()],
+            )
+            print(json.dumps([e.to_dict() for e in edges], ensure_ascii=False, indent=2))
+            return
+
+        if args.causal_command == "graph":
+            from ..sim.schemas import SimulationState
+            from ..causal.schemas import CausalEdge
+
+            raw = json.loads(Path(args.state_json).read_text(encoding="utf-8"))
+            state = SimulationState.from_dict(raw)
+            graph = TemporalCausalGraph()
+            for entry in state.timeline:
+                for path in entry.causal_paths:
+                    graph.add_edge(
+                        CausalEdge(
+                            source=path.source,
+                            target=path.target,
+                            relation=path.relation,
+                            time=entry.date,
+                            weight=path.weight,
+                            confidence=0.7,
+                            evidence_ids=path.evidence_ids,
+                        )
+                    )
+            print(json.dumps(graph.to_dict(), ensure_ascii=False, indent=2))
+            return
+
+        if args.causal_command == "explain":
+            graph = TemporalCausalGraph()
+            explainer = CausalExplainer(graph)
+            result = explainer.explain(args.event, args.target)
+            print(json.dumps(result.to_dict(), ensure_ascii=False, indent=2))
+            return
+
+        if args.causal_command == "counterfactual":
+            graph = TemporalCausalGraph()
+            explainer = CausalExplainer(graph)
+            result = explainer.counterfactual(
+                args.event,
+                args.target,
+                {"flip": "first_edge"},
+            )
+            print(json.dumps(result, ensure_ascii=False, indent=2))
             return

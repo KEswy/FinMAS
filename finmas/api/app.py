@@ -12,6 +12,9 @@ import json as _json
 from ..pipeline import FinMASPipeline
 from ..schemas import EventInput
 from ..sim.simulator import MarketSimulator
+from ..causal.graph import TemporalCausalGraph
+from ..causal.explanation import CausalExplainer
+from ..causal.extractor import CausalExtractor
 
 
 class EventRequest(BaseModel):
@@ -91,3 +94,59 @@ def sim_report() -> dict:
     if not path.exists():
         return {}
     return _json.loads(path.read_text(encoding="utf-8"))
+
+
+@app.post("/causal/extract")
+def causal_extract(request: dict) -> dict:
+    edges = CausalExtractor(use_llm=bool(request.get("llm", False))).extract(
+        request.get("event_text", ""),
+        request.get("event_date", ""),
+        request.get("industries", []),
+    )
+    return {"edges": [e.to_dict() for e in edges]}
+
+
+@app.get("/causal/graph")
+def causal_graph() -> dict:
+    from ..sim.schemas import SimulationState
+    from ..causal.schemas import CausalEdge
+
+    path = Path("data/eval/sim_state.json")
+    graph = TemporalCausalGraph()
+    if path.exists():
+        state = SimulationState.from_dict(_json.loads(path.read_text(encoding="utf-8")))
+        for entry in state.timeline:
+            for path in entry.causal_paths:
+                graph.add_edge(
+                    CausalEdge(
+                        source=path.source,
+                        target=path.target,
+                        relation=path.relation,
+                        time=entry.date,
+                        weight=path.weight,
+                        confidence=0.7,
+                        evidence_ids=path.evidence_ids,
+                    )
+                )
+    return graph.to_dict()
+
+
+@app.post("/causal/explain")
+def causal_explain(request: dict) -> dict:
+    graph = TemporalCausalGraph()
+    explainer = CausalExplainer(graph)
+    return explainer.explain(
+        request.get("event", "event"),
+        request.get("target", "market"),
+    ).to_dict()
+
+
+@app.post("/causal/counterfactual")
+def causal_counterfactual(request: dict) -> dict:
+    graph = TemporalCausalGraph()
+    explainer = CausalExplainer(graph)
+    return explainer.counterfactual(
+        request.get("event", "event"),
+        request.get("target", "market"),
+        request.get("perturbation", {}),
+    )

@@ -290,3 +290,10 @@
   confidence, and cycle metrics.
 - `quality explanation` now passes with 100% event mention on event days.
 - Test suite now 46 passing.
+- Added `finmas/causal/` temporal causal graph package.
+- Implemented CausalEdge/TemporalCausalGraph with SQLite snapshots and time decay.
+- Implemented temporal PageRank and causal path extraction.
+- Implemented LLM causal edge extractor with rule fallback.
+- Added CLI causal extract/graph/explain/counterfactual.
+- Added FastAPI causal endpoints.
+- Test suite now 49 passing.
