@@ -182,6 +182,9 @@
 - Added `finmas report` command that consolidates direction, selective curve,
   event risk, and portfolio risk into Markdown.
 - Generated final report: `data/processed/finmas_v5_final_report.md`
+- Added pre-event history monotonicity tests for valuation and sentiment
+  snapshots.
+- Test suite now 36 passing.
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%

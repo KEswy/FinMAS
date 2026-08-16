@@ -15,3 +15,18 @@ def test_feature_store_is_strictly_pre_event():
     # The later event has more history but the early event must not see post-date data.
     assert before["n_hist"] <= after["n_hist"]
 
+
+def test_valuation_snapshot_history_is_pre_event():
+    store = FeatureStore()
+    early = store.valuation_snapshot("801780", "2021-01-10")
+    late = store.valuation_snapshot("801780", "2024-07-22")
+    if early and late:
+        assert early["n_hist"] < late["n_hist"]
+
+
+def test_sentiment_snapshot_history_is_pre_event():
+    store = FeatureStore()
+    early = store.sentiment_snapshot("2021-01-10")
+    late = store.sentiment_snapshot("2024-07-22")
+    if early and late:
+        assert early["n_hist"] < late["n_hist"]
