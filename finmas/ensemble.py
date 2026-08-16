@@ -22,6 +22,7 @@ def ensemble_results(
     weights: Sequence[float] = (0.5, 0.5),
     threshold: float = 0.12,
     abstain_event_types: Optional[Sequence[str]] = None,
+    abstain_event_name_contains: Optional[Sequence[str]] = None,
 ) -> pd.DataFrame:
     """Average two probability estimates on aligned event/industry rows."""
     wa, wb = float(weights[0]), float(weights[1])
@@ -33,7 +34,7 @@ def ensemble_results(
     left["_key"] = _key(left)
     right["_key"] = _key(right)
     merged = left.merge(
-        right[["_key", "prob_up", "abstain", "dir_correct", "real_dir"]],
+        right[["_key", "prob_up", "abstain", "dir_correct", "real_dir", "event_name"]],
         on="_key",
         how="inner",
         suffixes=("_a", "_b"),
@@ -52,6 +53,20 @@ def ensemble_results(
         merged["abstain"] = merged["abstain"] | merged[event_type_col].isin(
             set(abstain_event_types)
         )
+    if abstain_event_name_contains:
+        event_name_col = (
+            "event_name"
+            if "event_name" in merged.columns
+            else "event_name_a"
+            if "event_name_a" in merged.columns
+            else "event_name_b"
+        )
+        name_mask = np.zeros(len(merged), dtype=bool)
+        for fragment in abstain_event_name_contains:
+            name_mask = name_mask | merged[event_name_col].astype(str).str.contains(
+                str(fragment), na=False, regex=False
+            )
+        merged["abstain"] = merged["abstain"] | name_mask
     merged["final_dir"] = np.where(merged["prob_up"] >= 0.5, "+", "-")
     real_dir = merged["real_dir_a"] if "real_dir_a" in merged else merged["real_dir_b"]
     merged["real_dir"] = real_dir
@@ -88,6 +103,7 @@ def threshold_scan(
     weights: Sequence[float] = (0.5, 0.5),
     thresholds: Optional[Sequence[float]] = None,
     abstain_event_types: Optional[Sequence[str]] = None,
+    abstain_event_name_contains: Optional[Sequence[str]] = None,
 ) -> pd.DataFrame:
     thresholds = list(thresholds or np.linspace(0.0, 0.5, 21))
     rows = []
@@ -98,6 +114,7 @@ def threshold_scan(
             weights=weights,
             threshold=threshold,
             abstain_event_types=abstain_event_types,
+            abstain_event_name_contains=abstain_event_name_contains,
         )
         committed = df[~df["abstain"]]
         rows.append(

@@ -29,6 +29,7 @@ def main() -> None:
     parser.add_argument("--weight-b", type=float, default=0.5)
     parser.add_argument("--threshold", type=float, default=0.12)
     parser.add_argument("--abstain-event-types", default="")
+    parser.add_argument("--abstain-event-name-contains", default="")
     parser.add_argument("--output-csv", required=True)
     parser.add_argument("--output-json", default=None)
     parser.add_argument(
@@ -40,15 +41,39 @@ def main() -> None:
         [x.strip() for x in args.abstain_event_types.split(",") if x.strip()]
         or None
     )
+    abstain_name_fragments = (
+        [x.strip() for x in args.abstain_event_name_contains.split(",") if x.strip()]
+        or None
+    )
 
     a = pd.read_csv(args.a)
     b = pd.read_csv(args.b)
+    event_meta = pd.read_csv("data/processed/car_results_expanded.csv")
+    event_meta = event_meta[event_meta["window"] == 5][
+        ["event_date", "industry_code", "event_name"]
+    ].drop_duplicates()
+    event_meta["event_date"] = event_meta["event_date"].astype(str).str[:10]
+    event_meta["industry_code"] = event_meta["industry_code"].astype(str)
+    def _add_event_name(frame: pd.DataFrame) -> pd.DataFrame:
+        frame = frame.copy()
+        frame["event_date"] = frame["event_date"].astype(str).str[:10]
+        frame["industry_code"] = frame["industry_code"].astype(str)
+        frame = frame.drop(columns=["event_name"], errors="ignore")
+        return frame.merge(
+            event_meta,
+            on=["event_date", "industry_code"],
+            how="left",
+        )
+
+    a = _add_event_name(a)
+    b = _add_event_name(b)
     df = ensemble_results(
         a,
         b,
         weights=(args.weight_a, args.weight_b),
         threshold=args.threshold,
         abstain_event_types=abstain_types,
+        abstain_event_name_contains=abstain_name_fragments,
     )
     df.to_csv(args.output_csv, index=False, encoding="utf-8-sig")
 
@@ -63,6 +88,7 @@ def main() -> None:
             b,
             weights=(args.weight_a, args.weight_b),
             abstain_event_types=abstain_types,
+            abstain_event_name_contains=abstain_name_fragments,
         ).to_dict("records"),
         "paired_bootstrap_full": paired_bootstrap(legacy, df, n_boot=2000),
         "paired_bootstrap_committed": committed_paired_bootstrap(legacy, df, n_boot=2000),

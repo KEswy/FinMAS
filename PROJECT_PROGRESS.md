@@ -109,6 +109,13 @@
 - Added `--llm-seed` prompt perturbation for multi-seed LLM sampling.
 - Added `scripts/aggregate_v5_seeds.py` for averaging multi-seed probability files.
 - Ran 2-seed LLM smoke aggregation on 5 rows; aggregation pipeline works.
+- Added event-name substring abstention to ensemble.
+- 60/40 ensemble with `market_event` + five worst geopolitical event names abstained:
+  - full accuracy: 57.94%
+  - committed accuracy: 57.32%
+  - committed coverage: 157/321
+  - output: `data/processed/all_experiment_results_finmas_v5_ensemble_abstain_market_geo.csv`
+  - analysis: `data/processed/finmas_v5_ensemble_abstain_market_geo_analysis.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
