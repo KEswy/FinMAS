@@ -201,6 +201,8 @@
 - 2024 policy-package scenario portfolio PnL: +34.71%.
 - 2025 tariff scenario portfolio PnL: -5.60%.
 - output: `data/processed/finmas_v5_final_stress.json`
+- Added native v5 return attribution for final ensemble results.
+- Attribution output: `data/processed/finmas_v5_final_attribution.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%

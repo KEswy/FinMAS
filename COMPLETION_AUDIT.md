@@ -52,7 +52,8 @@ This document audits the original implementation plan against the current reposi
 - `DONE` Event-level VaR/ES/MDD estimation implemented.
 - `DONE` T+1/T+5/T+20 risk backtests implemented and compared against legacy.
 - `DONE` Portfolio and industry risk aggregation implemented for committed v5 rows.
-- `PARTIAL` Stress tests and attribution are still primarily served by legacy `risk_center`; the new v5 module has basic attribution only.
+- `DONE` Basic v5 synthetic/historical stress tests implemented in `finmas/risk/stress.py`.
+- `PARTIAL` Attribution is still primarily served by legacy `risk_center`; the new v5 module does not yet have a native attribution module.
 
 ## Phase 7 — CLI, API, and reports
 
