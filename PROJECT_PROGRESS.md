@@ -185,6 +185,11 @@
 - Added pre-event history monotonicity tests for valuation and sentiment
   snapshots.
 - Test suite now 36 passing.
+- Added 3-seed variance summary:
+  - full mean 52.44% ± 1.28pp
+  - committed mean 54.27% ± 1.84pp
+  - coverage mean 60.54%
+  - output: `data/processed/finmas_v5_llm_3seed_summary.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%

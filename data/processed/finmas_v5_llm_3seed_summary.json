@@ -1,0 +1,27 @@
+{
+  "details": [
+    {
+      "file": "data\\processed\\all_experiment_results_finmas_v5_oof_llm_walk_forward.csv",
+      "full_accuracy": 0.5389408099688473,
+      "committed_accuracy": 0.5528846153846154,
+      "coverage": 0.6479750778816199
+    },
+    {
+      "file": "data\\processed\\all_experiment_results_finmas_v5_oof_llm_seed1_walk_forward.csv",
+      "full_accuracy": 0.5264797507788161,
+      "committed_accuracy": 0.5583756345177665,
+      "coverage": 0.6137071651090342
+    },
+    {
+      "file": "data\\processed\\all_experiment_results_finmas_v5_oof_llm_seed2_walk_forward.csv",
+      "full_accuracy": 0.5077881619937694,
+      "committed_accuracy": 0.5168539325842697,
+      "coverage": 0.5545171339563862
+    }
+  ],
+  "full_mean": 0.5244029075804776,
+  "full_std": 0.012802521293808882,
+  "committed_mean": 0.5427047274955505,
+  "committed_std": 0.01841621605974809,
+  "coverage_mean": 0.6053997923156801
+}
