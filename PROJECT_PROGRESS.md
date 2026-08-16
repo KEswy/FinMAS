@@ -99,6 +99,13 @@
   - committed accuracy: 54.82%
   - committed coverage: 166/321
   - analysis: `data/processed/finmas_v5_oof_ensemble_abstain_market_analysis.json`
+- Added walk-forward ensemble weight/threshold selection from past rows.
+- Walk-forward ensemble with market_event abstention:
+  - full accuracy: 53.27%
+  - committed accuracy: 65.48%
+  - committed coverage: 84/321
+  - output: `data/processed/all_experiment_results_finmas_v5_wf_ensemble.csv`
+  - analysis: `data/processed/finmas_v5_wf_ensemble_analysis.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
