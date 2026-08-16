@@ -67,6 +67,15 @@
   - full delta: +2.80pp, p=0.570
   - committed same-row delta: +0.61pp, p=0.952
   - real-LLM improves full-sample mean but is not yet significant at n=321.
+- Added no-LLM + real-LLM probability ensemble.
+- 50/50 ensemble at threshold=0.12:
+  - full accuracy: 57.32%
+  - committed accuracy: 54.44%
+  - committed coverage: 180/321
+  - top 10% confidence accuracy: 81.25%
+- Weight grid suggests 60% no-LLM / 40% LLM gives full accuracy 57.94%.
+- Ensemble output: `data/processed/all_experiment_results_finmas_v5_ensemble_walk_forward.csv`
+- Ensemble analysis: `data/processed/finmas_v5_ensemble_analysis.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
