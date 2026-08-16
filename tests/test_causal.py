@@ -2,6 +2,9 @@ from finmas.causal.extractor import CausalExtractor
 from finmas.causal.graph import TemporalCausalGraph
 from finmas.causal.schemas import CausalEdge
 from finmas.causal.quality import compute_quality
+from finmas.causal.benchmark import run_benchmark
+from finmas.sim.simulator import MarketSimulator
+import pandas as pd
 
 
 def test_extractor_fallback_edges():
@@ -32,3 +35,11 @@ def test_causal_quality(tmp_path):
     assert report.edge_count == 1
     assert report.evidence_coverage == 1.0
 
+
+def test_causal_benchmark_from_sim_state():
+    market = pd.read_csv("data/raw/hs300.csv")
+    market["日期"] = pd.to_datetime(market["日期"])
+    dates = market["日期"].head(3).dt.strftime("%Y-%m-%d").tolist()
+    state = MarketSimulator().run(dates)
+    report = run_benchmark(state)
+    assert report["edge_counts"]["temporal_graph"] > 0

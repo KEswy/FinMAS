@@ -19,6 +19,7 @@ from ..causal.graph import TemporalCausalGraph
 from ..causal.extractor import CausalExtractor
 from ..causal.explanation import CausalExplainer
 from ..causal.quality import compute_quality
+from ..causal.benchmark import run_benchmark
 
 
 def main() -> None:
@@ -106,6 +107,9 @@ def main() -> None:
     causal_counter = causal_sub.add_parser("counterfactual")
     causal_counter.add_argument("--event", default="event")
     causal_counter.add_argument("--target", default="market")
+    causal_benchmark = causal_sub.add_parser("benchmark")
+    causal_benchmark.add_argument("--state-json", default="data/eval/sim_state.json")
+    causal_benchmark.add_argument("--output-json", default="data/eval/causal_benchmark.json")
 
     args = parser.parse_args()
     if args.command == "predict":
@@ -276,4 +280,15 @@ def main() -> None:
                 {"flip": "first_edge"},
             )
             print(json.dumps(result, ensure_ascii=False, indent=2))
+            return
+
+        if args.causal_command == "benchmark":
+            from ..sim.schemas import SimulationState
+
+            raw = json.loads(Path(args.state_json).read_text(encoding="utf-8"))
+            state = SimulationState.from_dict(raw)
+            report = run_benchmark(state)
+            text = json.dumps(report, ensure_ascii=False, indent=2, default=str)
+            Path(args.output_json).write_text(text, encoding="utf-8")
+            print(text)
             return

@@ -297,3 +297,7 @@
 - Added CLI causal extract/graph/explain/counterfactual.
 - Added FastAPI causal endpoints.
 - Test suite now 49 passing.
+- Added causal benchmark with rule-KG, LLM/rule, ordinary PageRank, and
+  temporal PageRank comparison.
+- Added optional LLM edge validation.
+- Test suite now 50 passing.

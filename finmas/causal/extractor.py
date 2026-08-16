@@ -72,3 +72,26 @@ class CausalExtractor:
             )
         return edges
 
+    def validate(self, edge: CausalEdge) -> CausalEdge:
+        if not self.use_llm:
+            return edge
+        try:
+            data = self.provider.chat_json(
+                system="你是因果边验证器。只输出JSON：{\"valid\":true/false,\"confidence\":0到1}",
+                user=(
+                    f"判断这条因果边是否合理：{edge.source} -[{edge.relation}]-> {edge.target}，"
+                    f"时间{edge.time}，证据{edge.evidence_ids}"
+                ),
+                temperature=0.0,
+                use_cache=True,
+            )
+            if not bool(data.get("valid", True)):
+                edge.confidence *= 0.3
+            else:
+                edge.confidence = min(
+                    1.0,
+                    edge.confidence * float(data.get("confidence", edge.confidence)),
+                )
+        except Exception:
+            pass
+        return edge
