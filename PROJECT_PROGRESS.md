@@ -76,6 +76,14 @@
 - Weight grid suggests 60% no-LLM / 40% LLM gives full accuracy 57.94%.
 - Ensemble output: `data/processed/all_experiment_results_finmas_v5_ensemble_walk_forward.csv`
 - Ensemble analysis: `data/processed/finmas_v5_ensemble_analysis.json`
+- Tested `60% no-LLM / 40% LLM` ensemble with forced abstention on `market_event`:
+  - full accuracy: 57.94%
+  - committed accuracy: 54.82%
+  - committed coverage: 166/321
+  - `market_event` committed coverage reduced to 0, removing the worst tail risk.
+  - output: `data/processed/all_experiment_results_finmas_v5_ensemble_abstain_market.csv`
+  - analysis: `data/processed/finmas_v5_ensemble_abstain_market_analysis.json`
+- Threshold scan shows committed accuracy can reach ~81.6% at 11.8% coverage.
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%

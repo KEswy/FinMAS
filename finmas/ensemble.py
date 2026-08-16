@@ -21,6 +21,7 @@ def ensemble_results(
     b: pd.DataFrame,
     weights: Sequence[float] = (0.5, 0.5),
     threshold: float = 0.12,
+    abstain_event_types: Optional[Sequence[str]] = None,
 ) -> pd.DataFrame:
     """Average two probability estimates on aligned event/industry rows."""
     wa, wb = float(weights[0]), float(weights[1])
@@ -40,6 +41,17 @@ def ensemble_results(
     merged["prob_up"] = wa * merged["prob_up_a"] + wb * merged["prob_up_b"]
     merged["confidence"] = (merged["prob_up"] - 0.5).abs() * 2.0
     merged["abstain"] = merged["confidence"] < threshold
+    if abstain_event_types:
+        event_type_col = (
+            "event_type"
+            if "event_type" in merged.columns
+            else "event_type_a"
+            if "event_type_a" in merged.columns
+            else "event_type_b"
+        )
+        merged["abstain"] = merged["abstain"] | merged[event_type_col].isin(
+            set(abstain_event_types)
+        )
     merged["final_dir"] = np.where(merged["prob_up"] >= 0.5, "+", "-")
     real_dir = merged["real_dir_a"] if "real_dir_a" in merged else merged["real_dir_b"]
     merged["real_dir"] = real_dir
@@ -75,11 +87,18 @@ def threshold_scan(
     b: pd.DataFrame,
     weights: Sequence[float] = (0.5, 0.5),
     thresholds: Optional[Sequence[float]] = None,
+    abstain_event_types: Optional[Sequence[str]] = None,
 ) -> pd.DataFrame:
     thresholds = list(thresholds or np.linspace(0.0, 0.5, 21))
     rows = []
     for threshold in thresholds:
-        df = ensemble_results(a, b, weights=weights, threshold=threshold)
+        df = ensemble_results(
+            a,
+            b,
+            weights=weights,
+            threshold=threshold,
+            abstain_event_types=abstain_event_types,
+        )
         committed = df[~df["abstain"]]
         rows.append(
             {

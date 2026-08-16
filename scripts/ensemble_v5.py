@@ -28,6 +28,7 @@ def main() -> None:
     parser.add_argument("--weight-a", type=float, default=0.5)
     parser.add_argument("--weight-b", type=float, default=0.5)
     parser.add_argument("--threshold", type=float, default=0.12)
+    parser.add_argument("--abstain-event-types", default="")
     parser.add_argument("--output-csv", required=True)
     parser.add_argument("--output-json", default=None)
     parser.add_argument(
@@ -35,6 +36,10 @@ def main() -> None:
         default="data/processed/all_experiment_results_deepseek-v4-flash_wf_deepseek_flash_321_gpu_20260815_204839.csv",
     )
     args = parser.parse_args()
+    abstain_types = (
+        [x.strip() for x in args.abstain_event_types.split(",") if x.strip()]
+        or None
+    )
 
     a = pd.read_csv(args.a)
     b = pd.read_csv(args.b)
@@ -43,6 +48,7 @@ def main() -> None:
         b,
         weights=(args.weight_a, args.weight_b),
         threshold=args.threshold,
+        abstain_event_types=abstain_types,
     )
     df.to_csv(args.output_csv, index=False, encoding="utf-8-sig")
 
@@ -56,6 +62,7 @@ def main() -> None:
             a,
             b,
             weights=(args.weight_a, args.weight_b),
+            abstain_event_types=abstain_types,
         ).to_dict("records"),
         "paired_bootstrap_full": paired_bootstrap(legacy, df, n_boot=2000),
         "paired_bootstrap_committed": committed_paired_bootstrap(legacy, df, n_boot=2000),
@@ -68,4 +75,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
