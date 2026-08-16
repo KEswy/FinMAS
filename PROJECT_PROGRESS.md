@@ -195,6 +195,12 @@
 - Ran full 321-scenario time-series model-pool benchmark:
   - full direction accuracy: 51.40%
   - output: `data/processed/all_experiment_results_v5_model_pool_full_walk_forward.csv`
+- Added lightweight v5 stress tests for final committed weights.
+- Synthetic -5% market shock portfolio PnL: -3.16%.
+- Historical COVID 2020 scenario portfolio PnL: -10.14%.
+- 2024 policy-package scenario portfolio PnL: +34.71%.
+- 2025 tariff scenario portfolio PnL: -5.60%.
+- output: `data/processed/finmas_v5_final_stress.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
