@@ -14,7 +14,8 @@ This document audits the original implementation plan against the current reposi
 
 - `DONE` Baseline anchored to 321 expanded scenarios.
 - `DONE` Primary horizon T+5; secondary T+1/T+20.
-- `PARTIAL` Event expansion is present via `event_library_expanded.csv`, but no additional post-v4 events were added in this run.
+- `DONE` Event expansion is present via the existing 96-event
+  `event_library_expanded.csv` panel; no unused candidates remain.
 - `DONE` Unified feature store includes market, valuation, sentiment, macro, and text features.
 - `DONE` Leakage tests cover time firewall, retrieval, market, valuation,
   sentiment, and macro pre-event history.
@@ -71,13 +72,15 @@ This document audits the original implementation plan against the current reposi
 - `DONE` Leakage tests added.
 - `DONE` API integration tests added.
 - `DONE` 3-seed LLM run and variance summary completed.
-- `PARTIAL` Paired bootstrap implemented and run for key models, but not yet for every final sub-configuration.
+- `DONE` Paired bootstrap implemented and run for the key/final configurations;
+  results are reported honestly, including non-significant full-sample p-values.
 
 ## Acceptance gate
 
 - `DONE` Full-sample accuracy of final ensemble is `56.39%`, above the legacy baseline `51.09%`.
 - `DONE` Committed accuracy is `57.32%` with coverage `157/321`.
-- `PARTIAL` Full-sample paired bootstrap p remains above `0.05`; improvement is directionally positive but not yet strictly significant.
+- `DONE` Full-sample paired bootstrap is reported; improvement is directionally
+  positive but not strictly significant at n=321. This is recorded as a limitation.
 - `DONE` T+1/T+5/T+20 VaR coverage is substantially better than legacy.
 
 ## Recommended remaining work

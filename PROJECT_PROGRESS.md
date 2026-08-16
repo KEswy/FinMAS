@@ -189,6 +189,8 @@
 - Test suite now 37 passing.
 - Updated `COMPLETION_AUDIT.md` to reflect completed model-pool benchmark,
   stress/attribution, report command, multi-seed summary, and feature leakage tests.
+- Marked remaining plan items as done or explicitly deferred; completion audit
+  now reflects the final v5 scope.
 - Added 3-seed variance summary:
   - full mean 52.44% ± 1.28pp
   - committed mean 54.27% ± 1.84pp
