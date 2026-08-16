@@ -151,6 +151,14 @@
   - seed1: 52.65% full / 55.84% committed
   - output: `data/processed/all_experiment_results_finmas_v5_oof_llm_2seed_agg.csv`
   - analysis: `data/processed/finmas_v5_oof_llm_2seed_analysis.json`
+- Ran full 321-scenario LLM seed=2 evaluation.
+- 3-seed LLM aggregation (seed0/seed1/seed2):
+  - full accuracy: 52.02%
+  - committed accuracy: 54.93%
+  - committed coverage: 213/321
+  - seed2: 50.78% full / 51.69% committed
+  - output: `data/processed/all_experiment_results_finmas_v5_oof_llm_3seed_agg.csv`
+  - analysis: `data/processed/finmas_v5_oof_llm_3seed_analysis.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
