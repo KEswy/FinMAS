@@ -116,6 +116,14 @@
   - committed coverage: 157/321
   - output: `data/processed/all_experiment_results_finmas_v5_ensemble_abstain_market_geo.csv`
   - analysis: `data/processed/finmas_v5_ensemble_abstain_market_geo_analysis.json`
+- Added lightweight v5 event-level T+5 VaR backtest.
+- v5 volatility+confidence VaR vs legacy:
+  - v5 breach rate: 6.85%
+  - legacy breach rate: 13.71%
+  - v5 Kupiec p: 0.148 (does not reject)
+  - legacy Kupiec p: ~0.000
+  - v5 pinball: 0.00322 vs legacy 0.01341
+  - output: `data/processed/finmas_v5_risk_backtest.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
