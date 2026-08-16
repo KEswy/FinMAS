@@ -180,8 +180,23 @@ class MarketDataSource:
         try:
             import akshare as ak
 
-            df = ak.stock_zh_a_minute(symbol="sh000300", period="1")
-            # Keep the implementation tolerant to provider schema differences.
+            df = ak.index_zh_a_hist_min_em(symbol="000300", period="1")
+            if df is not None and len(df):
+                last = df.iloc[-1]
+                close_col = "收盘" if "收盘" in df.columns else "close"
+                prev = df.iloc[-2][close_col] if len(df) > 1 else last[close_col]
+                minute_return = (
+                    float(last[close_col]) / float(prev) - 1.0
+                    if prev
+                    else 0.0
+                )
+                return MarketTick(
+                    date=date,
+                    market_return=float(minute_return),
+                    industry_returns={},
+                    capital_flow={},
+                    triggered_event="minute_snapshot",
+                )
             return MarketTick(
                 date=date,
                 market_return=0.0,

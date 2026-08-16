@@ -285,3 +285,4 @@
 - Added LLM-driven agent opinions, narrative, and counterfactual narrative modes.
 - Added optional northbound-flow field and live fallback.
 - Added event-detection test; test suite now 45 passing.
+- Implemented real akshare minute-snapshot attempt for detected events, with local fallback.
