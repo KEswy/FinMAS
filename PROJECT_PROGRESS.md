@@ -28,6 +28,11 @@
   - MRR: 100%
   - firewall pass: 100%
   - citation coverage: 80.28%
+- Added `scripts/run_v6_graph_eval.py` for full walk-forward graph evaluation.
+- Full no-LLM graph 321:
+  - committed accuracy: 57.79%
+  - committed coverage: 47.98%
+  - output: `data/processed/all_experiment_results_v6_graph_no_llm_walk_forward.csv`
 
 ## Done
 
