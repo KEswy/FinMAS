@@ -1,0 +1,6 @@
+﻿event_date,event_type,industry_code,real_dir,final_dir,dir_correct,pred_mean_5,real_CAR
+2020-01-01,monetary_policy,801780,-,+,False,0.004648202139351081,-0.010662
+2020-01-01,monetary_policy,801790,-,+,False,0.01297765550319716,-0.019126
+2020-01-01,monetary_policy,801180,-,+,False,0.011183845461202815,-0.010388
+2020-02-03,monetary_policy,801780,-,-,True,-0.006610856793312176,-0.026806
+2020-02-03,monetary_policy,801790,-,-,True,-0.0018194517091439145,-0.027079
