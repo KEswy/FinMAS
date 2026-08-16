@@ -153,6 +153,7 @@ class WalkForwardEvaluator:
         history_x: List[np.ndarray] = []
         history_y: List[int] = []
         history_types: List[str] = []
+        history_conf: List[float] = []
         results: List[Dict[str, object]] = []
 
         for row_no, (_, row) in enumerate(rows.iterrows()):
@@ -172,8 +173,10 @@ class WalkForwardEvaluator:
             else:
                 prob = self._raw_score(vec)
 
-            threshold = self._selective_threshold(history_types, history_y, row["event_type"])
             confidence = abs(prob - 0.5) * 2.0
+            threshold = self._selective_threshold(
+                history_types, history_y, history_conf, row["event_type"]
+            )
             abstain = confidence < threshold
             direction = "+" if prob >= 0.5 else "-"
             results.append(
@@ -196,6 +199,7 @@ class WalkForwardEvaluator:
             history_x.append(vec)
             history_y.append(label)
             history_types.append(str(row["event_type"]))
+            history_conf.append(float(confidence))
             if (row_no + 1) % int(max(log_every, 1)) == 0:
                 print(
                     f"[v5 eval] processed={row_no + 1}/{len(rows)} "
@@ -220,13 +224,31 @@ class WalkForwardEvaluator:
         return float(np.clip(score, 0.0, 1.0))
 
     @staticmethod
-    def _selective_threshold(types: List[str], labels: List[int], event_type: str) -> float:
-        if len(types) < 10:
+    def _selective_threshold(
+        types: List[str],
+        labels: List[int],
+        confidences: List[float],
+        event_type: str,
+    ) -> float:
+        if len(types) < 12:
             return 0.12
         arr = np.asarray(types, dtype=str)
         mask = arr == event_type
-        if int(mask.sum()) < 5:
+        if int(mask.sum()) < 8:
             return 0.12
         y = np.asarray(labels, dtype=int)[mask]
-        # A simple abstention threshold: require confidence above the observed imbalance.
-        return float(min(max(abs(y.mean() - 0.5) * 2.0, 0.10), 0.25))
+        c = np.asarray(confidences, dtype=float)[mask]
+        grid = np.linspace(0.05, 0.40, 15)
+        best_threshold = 0.12
+        best_score = -1.0
+        for threshold in grid:
+            committed = c >= threshold
+            coverage = float(committed.mean())
+            if coverage < 0.20:
+                continue
+            accuracy = float(y[committed].mean()) if committed.any() else 0.0
+            score = accuracy + 0.10 * coverage
+            if score > best_score:
+                best_score = score
+                best_threshold = float(threshold)
+        return best_threshold

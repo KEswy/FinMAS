@@ -84,6 +84,21 @@
   - output: `data/processed/all_experiment_results_finmas_v5_ensemble_abstain_market.csv`
   - analysis: `data/processed/finmas_v5_ensemble_abstain_market_analysis.json`
 - Threshold scan shows committed accuracy can reach ~81.6% at 11.8% coverage.
+- Replaced simple class-imbalance abstention with out-of-fold confidence threshold
+  calibration based on past same-event-type predictions.
+- OOF no-LLM full 321:
+  - full accuracy: 52.34%
+  - committed accuracy: 56.85%
+  - committed coverage: 197/321
+- OOF real-LLM full 321:
+  - full accuracy: 53.89%
+  - committed accuracy: 55.29%
+  - committed coverage: 208/321
+- OOF 60/40 ensemble with market_event abstention:
+  - full accuracy: 57.94%
+  - committed accuracy: 54.82%
+  - committed coverage: 166/321
+  - analysis: `data/processed/finmas_v5_oof_ensemble_abstain_market_analysis.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%
