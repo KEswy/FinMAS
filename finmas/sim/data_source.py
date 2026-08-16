@@ -97,6 +97,20 @@ class MarketDataSource:
             return self._local_market_returns(start, end)
 
     def load_capital_flow(self, start: str, end: str) -> pd.Series:
+        if self.use_live:
+            try:
+                import akshare as ak
+
+                df = ak.stock_margin_sse(
+                    start_date=pd.Timestamp(start).strftime("%Y%m%d"),
+                    end_date=pd.Timestamp(end).strftime("%Y%m%d"),
+                )
+                df = df.rename(columns={"信用交易日期": "date", "融资余额": "balance"})
+                df["date"] = pd.to_datetime(df["date"], format="%Y%m%d")
+                df = df.sort_values("date").set_index("date")["balance"]
+                return df.pct_change().fillna(0.0)
+            except Exception:
+                pass
         margin = pd.read_csv(self.data_dir / "raw" / "margin_daily.csv")
         margin["date"] = pd.to_datetime(margin["date"])
         margin = margin.sort_values("date").set_index("date")["total_fin"]

@@ -279,3 +279,4 @@
 - Added SimulationState/TimelineEntry `from_dict` for loading saved states.
 - Improved `/sim/timeline`, `/sim/causal-graph`, and `/sim/report` endpoints.
 - Added sim timeline API test; test suite now 44 passing.
+- Verified live akshare HS300, Shenwan industry, and SSE margin data paths.
