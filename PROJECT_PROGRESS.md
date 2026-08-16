@@ -179,6 +179,9 @@
   - T+20 breach 4.46% / Kupiec p=0.751
   - output: `data/processed/finmas_v5_final_portfolio_risk.json`
 - Added `COMPLETION_AUDIT.md` with requirement-by-requirement status.
+- Added `finmas report` command that consolidates direction, selective curve,
+  event risk, and portfolio risk into Markdown.
+- Generated final report: `data/processed/finmas_v5_final_report.md`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%

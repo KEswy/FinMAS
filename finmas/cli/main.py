@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import argparse
 import json
+from pathlib import Path
 
 from ..pipeline import FinMASPipeline
+from ..report import build_markdown_report
 from ..schemas import EventInput
 
 
@@ -23,6 +25,12 @@ def main() -> None:
     serve = sub.add_parser("serve", help="start FastAPI server")
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8000)
+
+    report = sub.add_parser("report", help="build a consolidated Markdown report")
+    report.add_argument("--result-csv", required=True)
+    report.add_argument("--risk-json", default=None)
+    report.add_argument("--portfolio-json", default=None)
+    report.add_argument("--output-md", default=None)
 
     args = parser.parse_args()
     if args.command == "predict":
@@ -43,3 +51,15 @@ def main() -> None:
         uvicorn.run("finmas.api.app:app", host=args.host, port=args.port)
         return
 
+    if args.command == "report":
+        text = build_markdown_report(
+            result_csv=args.result_csv,
+            risk_json=args.risk_json,
+            portfolio_json=args.portfolio_json,
+        )
+        if args.output_md:
+            Path(args.output_md).write_text(text, encoding="utf-8")
+            print(f"wrote {args.output_md}")
+        else:
+            print(text)
+        return
