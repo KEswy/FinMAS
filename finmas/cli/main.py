@@ -12,6 +12,8 @@ from ..quality import build_rag_ground_truth, evaluate_rag
 from ..quality.reports import generate_all_quality_reports
 from ..report import build_markdown_report
 from ..schemas import EventInput
+from ..sim.simulator import MarketSimulator
+from ..sim.report import save_json, to_html
 
 
 def main() -> None:
@@ -59,6 +61,19 @@ def main() -> None:
         "--risk-json",
         default="data/processed/finmas_v5_final_risk_backtest.json",
     )
+
+    sim = sub.add_parser("sim", help="continuous market simulation")
+    sim_sub = sim.add_subparsers(dest="sim_command", required=True)
+    sim_run = sim_sub.add_parser("run")
+    sim_run.add_argument("--start", default="2024-01-02")
+    sim_run.add_argument("--end", default="2024-03-01")
+    sim_run.add_argument("--output-json", default="data/eval/sim_state.json")
+    sim_run.add_argument("--output-html", default="data/eval/sim_report.html")
+    sim_report = sim_sub.add_parser("report")
+    sim_report.add_argument("--state-json", required=True)
+    sim_report.add_argument("--output-html", required=True)
+    sim_graph = sim_sub.add_parser("graph")
+    sim_graph.add_argument("--state-json", required=True)
 
     args = parser.parse_args()
     if args.command == "predict":
@@ -128,4 +143,39 @@ def main() -> None:
                 risk_json=args.risk_json,
             )
             print(json.dumps(reports, ensure_ascii=False, indent=2, default=str))
+            return
+
+    if args.command == "sim":
+        if args.sim_command == "run":
+            import pandas as pd
+
+            market = pd.read_csv("data/raw/hs300.csv")
+            market["日期"] = pd.to_datetime(market["日期"])
+            mask = (market["日期"] >= pd.Timestamp(args.start)) & (
+                market["日期"] <= pd.Timestamp(args.end)
+            )
+            dates = market.loc[mask, "日期"].dt.strftime("%Y-%m-%d").tolist()
+            sim_runner = MarketSimulator()
+            state = sim_runner.run(dates)
+            save_json(state, args.output_json)
+            Path(args.output_html).write_text(to_html(state), encoding="utf-8")
+            print(f"dates={len(dates)} output={args.output_json}")
+            return
+        if args.sim_command == "report":
+            state = __import__("finmas.sim.schemas", fromlist=["SimulationState"]).SimulationState()
+            # Load a minimal reconstruction for reporting purposes.
+            import json as _json
+
+            raw = _json.loads(Path(args.state_json).read_text(encoding="utf-8"))
+            Path(args.output_html).write_text(
+                "<pre>" + _json.dumps(raw, ensure_ascii=False, indent=2) + "</pre>",
+                encoding="utf-8",
+            )
+            print(f"report={args.output_html}")
+            return
+        if args.sim_command == "graph":
+            import json as _json
+
+            raw = _json.loads(Path(args.state_json).read_text(encoding="utf-8"))
+            print(_json.dumps(raw.get("trace", []), ensure_ascii=False, indent=2))
             return

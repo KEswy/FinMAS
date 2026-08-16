@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 
 from ..pipeline import FinMASPipeline
 from ..schemas import EventInput
+from ..sim.simulator import MarketSimulator
 
 
 class EventRequest(BaseModel):
@@ -42,3 +43,21 @@ def predict_direction(request: EventRequest) -> dict:
     pipeline = FinMASPipeline(use_llm=request.use_llm)
     decision = pipeline.predict(event)
     return decision.to_dict()
+
+
+@app.post("/sim/run")
+def sim_run(request: dict) -> dict:
+    dates = request.get("dates")
+    if not dates:
+        import pandas as pd
+
+        market = pd.read_csv("data/raw/hs300.csv")
+        market["日期"] = pd.to_datetime(market["日期"])
+        dates = market["日期"].head(30).dt.strftime("%Y-%m-%d").tolist()
+    state = MarketSimulator().run(dates)
+    return state.to_dict()
+
+
+@app.get("/sim/timeline")
+def sim_timeline() -> dict:
+    return {"message": "use /sim/run to generate a timeline"}

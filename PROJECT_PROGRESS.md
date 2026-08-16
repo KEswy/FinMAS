@@ -262,3 +262,14 @@
 ## Blockers
 
 - None.
+
+## v7 Progress
+
+- Added `finmas/sim/` continuous market simulation package.
+- Implemented market data source with akshare optional and local CSV fallback.
+- Implemented Observer/Technician/Fundamental/News/Causal/Storyteller/Judge agents.
+- Implemented NetworkX + SQLite causal graph.
+- Implemented simulation runner and counterfactual narrative generation.
+- Added CLI: `finmas sim run`, `finmas sim report`, `finmas sim graph`.
+- Added FastAPI `/sim/run` and `/sim/timeline` endpoints.
+- Added sim tests; test suite now 43 passing.
