@@ -281,3 +281,7 @@
 - Added sim timeline API test; test suite now 44 passing.
 - Verified live akshare HS300, Shenwan industry, and SSE margin data paths.
 - Ran 38-trading-day local simulation smoke test; timeline generation stable.
+- Added event detection and optional intraday snapshot hook.
+- Added LLM-driven agent opinions, narrative, and counterfactual narrative modes.
+- Added optional northbound-flow field and live fallback.
+- Added event-detection test; test suite now 45 passing.

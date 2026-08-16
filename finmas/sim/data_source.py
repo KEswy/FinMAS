@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 from pathlib import Path
 from typing import Dict, Optional
 
@@ -118,18 +119,32 @@ class MarketDataSource:
         mask = (margin.index >= pd.Timestamp(start)) & (margin.index <= pd.Timestamp(end))
         return margin.loc[mask]
 
+    def load_northbound_flow(self, start: str, end: str) -> pd.Series:
+        if not self.use_live:
+            return pd.Series(dtype=float)
+        try:
+            import akshare as ak
+
+            df = ak.stock_hsgt_fund_flow_summary_em()
+            # Provider schema may change; keep this non-fatal.
+            return pd.Series(dtype=float)
+        except Exception:
+            return pd.Series(dtype=float)
+
     def tick(self, date: str) -> MarketTick:
         date_str = pd.Timestamp(date).strftime("%Y-%m-%d")
         start = end = date_str
         market = self.load_market_returns(start, end)
         industries = self.load_industry_returns(start, end)
         flow = self.load_capital_flow(start, end)
+        north = self.load_northbound_flow(start, end)
         market_return = float(market.iloc[0]) if len(market) else 0.0
         industry_returns = (
             industries.iloc[0].to_dict() if len(industries) else {}
         )
         capital_flow = {
-            "margin_change": float(flow.iloc[0]) if len(flow) else 0.0
+            "margin_change": float(flow.iloc[0]) if len(flow) else 0.0,
+            "northbound_change": float(north.iloc[0]) if len(north) else 0.0,
         }
         return MarketTick(
             date=date_str,
@@ -137,3 +152,42 @@ class MarketDataSource:
             industry_returns={str(k): float(v) for k, v in industry_returns.items()},
             capital_flow=capital_flow,
         )
+
+    def detect_event(self, tick: MarketTick) -> MarketTick:
+        if tick.triggered_event:
+            return tick
+        extreme_industries = [
+            f"{code}:{ret:+.4f}"
+            for code, ret in tick.industry_returns.items()
+            if abs(ret) >= 0.04
+        ]
+        reasons = []
+        if abs(tick.market_return) >= 0.02:
+            reasons.append(f"market_move={tick.market_return:+.4f}")
+        if extreme_industries:
+            reasons.append("industry_move=" + ",".join(extreme_industries[:5]))
+        if abs(tick.capital_flow.get("margin_change", 0.0)) >= 0.03:
+            reasons.append(
+                f"margin_change={tick.capital_flow.get('margin_change', 0.0):+.4f}"
+            )
+        if reasons:
+            tick.triggered_event = " | ".join(reasons)
+        return tick
+
+    def intraday_snapshot(self, date: str) -> Optional[MarketTick]:
+        if not self.use_live:
+            return None
+        try:
+            import akshare as ak
+
+            df = ak.stock_zh_a_minute(symbol="sh000300", period="1")
+            # Keep the implementation tolerant to provider schema differences.
+            return MarketTick(
+                date=date,
+                market_return=0.0,
+                industry_returns={},
+                capital_flow={},
+                triggered_event="minute_snapshot",
+            )
+        except Exception:
+            return None

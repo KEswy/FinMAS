@@ -49,6 +49,7 @@ class TimelineEntry:
     opinions: List[AgentOpinion] = field(default_factory=list)
     causal_paths: List[CausalPath] = field(default_factory=list)
     narrative: str = ""
+    intraday_snapshot: Optional[MarketTick] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -57,6 +58,9 @@ class TimelineEntry:
             "opinions": [o.to_dict() for o in self.opinions],
             "causal_paths": [p.to_dict() for p in self.causal_paths],
             "narrative": self.narrative,
+            "intraday_snapshot": self.intraday_snapshot.to_dict()
+            if self.intraday_snapshot
+            else None,
         }
 
     @classmethod
@@ -70,6 +74,9 @@ class TimelineEntry:
             opinions=opinions,
             causal_paths=paths,
             narrative=data.get("narrative", ""),
+            intraday_snapshot=MarketTick(**data["intraday_snapshot"])
+            if data.get("intraday_snapshot")
+            else None,
         )
 
 

@@ -1,6 +1,8 @@
 import pandas as pd
 
 from finmas.sim.causal_graph import CausalGraph
+from finmas.sim.data_source import MarketDataSource
+from finmas.sim.schemas import MarketTick
 from finmas.sim.simulator import MarketSimulator
 
 
@@ -36,3 +38,14 @@ def test_causal_graph_persists(tmp_path):
     reloaded = CausalGraph(str(path))
     assert reloaded.paths()
 
+
+def test_event_detection_flags_large_market_move():
+    ds = MarketDataSource()
+    tick = MarketTick(
+        date="2024-01-02",
+        market_return=-0.03,
+        industry_returns={"801780": -0.05},
+        capital_flow={"margin_change": -0.02},
+    )
+    detected = ds.detect_event(tick)
+    assert detected.triggered_event

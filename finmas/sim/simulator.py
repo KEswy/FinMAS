@@ -29,6 +29,8 @@ class MarketSimulator:
         state = SimulationState()
         for date in dates:
             tick = self._tick(date)
+            tick = self.data_source.detect_event(tick)
+            intraday = self.data_source.intraday_snapshot(date) if tick.triggered_event else None
             opinions, paths, narrative, disagreement = self.agents.run(tick)
             for path in paths:
                 self.causal_graph.add_path(path)
@@ -39,6 +41,7 @@ class MarketSimulator:
                     opinions=opinions,
                     causal_paths=paths,
                     narrative=narrative,
+                    intraday_snapshot=intraday,
                 )
             )
             state.trace.append(
@@ -69,6 +72,20 @@ class MarketSimulator:
             ),
         )
         counter_opinions, counter_paths, counter_narrative, _ = self.agents.run(modified)
+        if self.agents.use_llm:
+            try:
+                counter_narrative = self.agents.provider.chat(
+                    system="你是反事实解释Agent。说明如果事件不同，市场叙事会如何变化。",
+                    user=(
+                        f"原始市场收益{tick.market_return:+.4f}\n"
+                        f"扰动后市场收益{modified.market_return:+.4f}\n"
+                        f"扰动：{perturbation}"
+                    ),
+                    temperature=0.3,
+                    use_cache=True,
+                ).content.strip()
+            except Exception:
+                pass
         changed = [p for p in counter_paths if p not in original_paths]
         return CounterfactualResult(
             perturbation=perturbation,

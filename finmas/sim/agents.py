@@ -9,10 +9,33 @@ from .schemas import AgentOpinion, CausalPath, MarketTick
 
 
 class SimulationAgents:
-    def __init__(self, provider: Optional[LLMProvider] = None) -> None:
+    def __init__(self, provider: Optional[LLMProvider] = None,
+                 use_llm: bool = False) -> None:
         self.provider = provider or LLMProvider()
+        self.use_llm = use_llm
+
+    def _llm_opinion(self, agent: str, prompt: str) -> str:
+        system = (
+            f"你是金融多智能体系统中的{agent}。只输出3-5句中文观点，"
+            "必须基于给定市场快照，不要编造具体数字。"
+        )
+        try:
+            return self.provider.chat(
+                system=system,
+                user=prompt,
+                temperature=0.3,
+                use_cache=True,
+            ).content.strip()
+        except Exception:
+            return prompt
 
     def observer(self, tick: MarketTick) -> AgentOpinion:
+        if self.use_llm:
+            text = self._llm_opinion(
+                "Observer",
+                f"市场收益{tick.market_return:+.4f}，资金流{tick.capital_flow}",
+            )
+            return AgentOpinion("Observer", text, 0.65, ["llm_observer"])
         confidence = min(max(abs(tick.market_return) * 20.0, 0.2), 0.95)
         return AgentOpinion(
             agent="Observer",
@@ -25,6 +48,12 @@ class SimulationAgents:
         )
 
     def technician(self, tick: MarketTick) -> AgentOpinion:
+        if self.use_llm:
+            text = self._llm_opinion(
+                "Technician",
+                f"行业收益：{tick.industry_returns}",
+            )
+            return AgentOpinion("Technician", text, 0.60, ["llm_technician"])
         top = sorted(tick.industry_returns.items(), key=lambda x: -x[1])[:3]
         bottom = sorted(tick.industry_returns.items(), key=lambda x: x[1])[:3]
         return AgentOpinion(
@@ -35,6 +64,12 @@ class SimulationAgents:
         )
 
     def fundamental(self, tick: MarketTick) -> AgentOpinion:
+        if self.use_llm:
+            text = self._llm_opinion(
+                "Fundamental",
+                f"市场收益{tick.market_return:+.4f}，资金流{tick.capital_flow}",
+            )
+            return AgentOpinion("Fundamental", text, 0.55, ["llm_fundamental"])
         return AgentOpinion(
             agent="Fundamental",
             opinion="从估值与宏观状态看，市场短期方向仍取决于政策和资金流持续性。",
@@ -43,6 +78,12 @@ class SimulationAgents:
         )
 
     def news(self, tick: MarketTick) -> AgentOpinion:
+        if self.use_llm:
+            text = self._llm_opinion(
+                "News",
+                f"触发事件：{tick.triggered_event or '无'}",
+            )
+            return AgentOpinion("News", text, 0.70, ["llm_news"])
         if tick.triggered_event:
             opinion = f"触发事件：{tick.triggered_event}"
             confidence = 0.8
@@ -68,6 +109,17 @@ class SimulationAgents:
         return paths
 
     def storyteller(self, tick: MarketTick, opinions: List[AgentOpinion]) -> str:
+        if self.use_llm:
+            parts = "\n".join(f"{o.agent}: {o.opinion}" for o in opinions)
+            try:
+                return self.provider.chat(
+                    system="你是金融叙事Storyteller。用3-5句中文整合多Agent观点，形成连贯叙事。",
+                    user=f"市场收益{tick.market_return:+.4f}\n{parts}",
+                    temperature=0.3,
+                    use_cache=True,
+                ).content.strip()
+            except Exception:
+                pass
         parts = [o.opinion for o in opinions if o.confidence >= 0.5]
         event = tick.triggered_event or "无明显事件"
         return f"今日{event}。市场收益{tick.market_return:+.4f}。{' '.join(parts[:3])}"
@@ -90,4 +142,3 @@ class SimulationAgents:
         narrative = self.storyteller(tick, opinions)
         disagreement = self.judge(opinions)
         return opinions, paths, narrative, disagreement
-

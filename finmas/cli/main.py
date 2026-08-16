@@ -69,6 +69,7 @@ def main() -> None:
     sim_run.add_argument("--end", default="2024-03-01")
     sim_run.add_argument("--output-json", default="data/eval/sim_state.json")
     sim_run.add_argument("--output-html", default="data/eval/sim_report.html")
+    sim_run.add_argument("--llm", action="store_true")
     sim_report = sim_sub.add_parser("report")
     sim_report.add_argument("--state-json", required=True)
     sim_report.add_argument("--output-html", required=True)
@@ -155,7 +156,11 @@ def main() -> None:
                 market["日期"] <= pd.Timestamp(args.end)
             )
             dates = market.loc[mask, "日期"].dt.strftime("%Y-%m-%d").tolist()
-            sim_runner = MarketSimulator()
+            from ..sim.agents import SimulationAgents
+
+            sim_runner = MarketSimulator(
+                agents=SimulationAgents(use_llm=args.llm)
+            )
             state = sim_runner.run(dates)
             save_json(state, args.output_json)
             Path(args.output_html).write_text(to_html(state), encoding="utf-8")
