@@ -159,6 +159,15 @@
   - seed2: 50.78% full / 51.69% committed
   - output: `data/processed/all_experiment_results_finmas_v5_oof_llm_3seed_agg.csv`
   - analysis: `data/processed/finmas_v5_oof_llm_3seed_analysis.json`
+- Final recommended ensemble:
+  - inputs: 60% OOF no-LLM + 40% 3-seed LLM
+  - abstain: `market_event` + five worst geopolitical event names
+  - full accuracy: 56.39%
+  - committed accuracy: 57.32%
+  - committed coverage: 157/321
+  - committed same-row bootstrap CI: [0.006, 0.204]
+  - output: `data/processed/all_experiment_results_finmas_v5_final_ensemble.csv`
+  - analysis: `data/processed/finmas_v5_final_ensemble_analysis.json`
 - Ran full 321-scenario deterministic v5 walk-forward baseline:
   - forced full-sample direction accuracy: 52.34%
   - committed subset accuracy: 61.26%

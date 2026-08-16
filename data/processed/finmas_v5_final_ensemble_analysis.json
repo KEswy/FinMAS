@@ -1,0 +1,391 @@
+{
+  "weights": [
+    0.6,
+    0.4
+  ],
+  "threshold": 0.12,
+  "summary": {
+    "full": {
+      "n": 321,
+      "accuracy": 0.5638629283489096
+    },
+    "selective": {
+      "n": 157,
+      "coverage": 0.48909657320872274,
+      "accuracy": 0.5732484076433121
+    },
+    "by_event_type": [
+      {
+        "event_type": "market_event",
+        "n": 13.0,
+        "full_accuracy": 0.38461538461538464,
+        "committed_n": 0.0,
+        "committed_accuracy": NaN
+      },
+      {
+        "event_type": "monetary_policy",
+        "n": 118.0,
+        "full_accuracy": 0.5338983050847458,
+        "committed_n": 75.0,
+        "committed_accuracy": 0.52
+      },
+      {
+        "event_type": "industry_policy",
+        "n": 62.0,
+        "full_accuracy": 0.5483870967741935,
+        "committed_n": 27.0,
+        "committed_accuracy": 0.5925925925925926
+      },
+      {
+        "event_type": "capital_market_policy",
+        "n": 47.0,
+        "full_accuracy": 0.5957446808510638,
+        "committed_n": 25.0,
+        "committed_accuracy": 0.6
+      },
+      {
+        "event_type": "geopolitical",
+        "n": 81.0,
+        "full_accuracy": 0.6296296296296297,
+        "committed_n": 30.0,
+        "committed_accuracy": 0.6666666666666666
+      }
+    ],
+    "by_industry": [
+      {
+        "industry_code": "801040",
+        "n": 2.0,
+        "full_accuracy": 0.0,
+        "committed_n": 2.0,
+        "committed_accuracy": 0.0
+      },
+      {
+        "industry_code": "801160",
+        "n": 2.0,
+        "full_accuracy": 0.0,
+        "committed_n": 1.0,
+        "committed_accuracy": 0.0
+      },
+      {
+        "industry_code": "801890",
+        "n": 10.0,
+        "full_accuracy": 0.3,
+        "committed_n": 5.0,
+        "committed_accuracy": 0.4
+      },
+      {
+        "industry_code": "801030",
+        "n": 11.0,
+        "full_accuracy": 0.36363636363636365,
+        "committed_n": 3.0,
+        "committed_accuracy": 0.6666666666666666
+      },
+      {
+        "industry_code": "801050",
+        "n": 8.0,
+        "full_accuracy": 0.375,
+        "committed_n": 4.0,
+        "committed_accuracy": 0.25
+      },
+      {
+        "industry_code": "801710",
+        "n": 21.0,
+        "full_accuracy": 0.47619047619047616,
+        "committed_n": 9.0,
+        "committed_accuracy": 0.0
+      },
+      {
+        "industry_code": "801150",
+        "n": 4.0,
+        "full_accuracy": 0.5,
+        "committed_n": 1.0,
+        "committed_accuracy": 0.0
+      },
+      {
+        "industry_code": "801780",
+        "n": 59.0,
+        "full_accuracy": 0.5084745762711864,
+        "committed_n": 38.0,
+        "committed_accuracy": 0.6052631578947368
+      },
+      {
+        "industry_code": "801790",
+        "n": 56.0,
+        "full_accuracy": 0.5357142857142857,
+        "committed_n": 32.0,
+        "committed_accuracy": 0.5
+      },
+      {
+        "industry_code": "801110",
+        "n": 9.0,
+        "full_accuracy": 0.5555555555555556,
+        "committed_n": 3.0,
+        "committed_accuracy": 0.0
+      },
+      {
+        "industry_code": "801180",
+        "n": 44.0,
+        "full_accuracy": 0.5681818181818182,
+        "committed_n": 26.0,
+        "committed_accuracy": 0.5769230769230769
+      },
+      {
+        "industry_code": "801770",
+        "n": 14.0,
+        "full_accuracy": 0.6428571428571429,
+        "committed_n": 3.0,
+        "committed_accuracy": 1.0
+      },
+      {
+        "industry_code": "801750",
+        "n": 30.0,
+        "full_accuracy": 0.6666666666666666,
+        "committed_n": 14.0,
+        "committed_accuracy": 0.8571428571428571
+      },
+      {
+        "industry_code": "801880",
+        "n": 15.0,
+        "full_accuracy": 0.6666666666666666,
+        "committed_n": 3.0,
+        "committed_accuracy": 1.0
+      },
+      {
+        "industry_code": "801760",
+        "n": 7.0,
+        "full_accuracy": 0.7142857142857143,
+        "committed_n": 4.0,
+        "committed_accuracy": 1.0
+      },
+      {
+        "industry_code": "801730",
+        "n": 5.0,
+        "full_accuracy": 0.8,
+        "committed_n": 1.0,
+        "committed_accuracy": 1.0
+      },
+      {
+        "industry_code": "801080",
+        "n": 23.0,
+        "full_accuracy": 0.8695652173913043,
+        "committed_n": 7.0,
+        "committed_accuracy": 1.0
+      },
+      {
+        "industry_code": "801010",
+        "n": 1.0,
+        "full_accuracy": 1.0,
+        "committed_n": 1.0,
+        "committed_accuracy": 1.0
+      }
+    ]
+  },
+  "selective_curve": [
+    {
+      "cumulative_rows": 32,
+      "coverage": 0.09968847352024922,
+      "accuracy": 0.8125,
+      "min_confidence": 0.42726204765651576
+    },
+    {
+      "cumulative_rows": 64,
+      "coverage": 0.19937694704049844,
+      "accuracy": 0.640625,
+      "min_confidence": 0.26799244310793935
+    },
+    {
+      "cumulative_rows": 96,
+      "coverage": 0.29906542056074764,
+      "accuracy": 0.5625,
+      "min_confidence": 0.19989204710170005
+    },
+    {
+      "cumulative_rows": 128,
+      "coverage": 0.3987538940809969,
+      "accuracy": 0.578125,
+      "min_confidence": 0.1562339825936676
+    },
+    {
+      "cumulative_rows": 160,
+      "coverage": 0.4984423676012461,
+      "accuracy": 0.5375,
+      "min_confidence": 0.12653627841013781
+    },
+    {
+      "cumulative_rows": 192,
+      "coverage": 0.5981308411214953,
+      "accuracy": 0.46875,
+      "min_confidence": 0.10187795555026713
+    },
+    {
+      "cumulative_rows": 224,
+      "coverage": 0.6978193146417445,
+      "accuracy": 0.4017857142857143,
+      "min_confidence": 0.07452964692553055
+    },
+    {
+      "cumulative_rows": 256,
+      "coverage": 0.7975077881619937,
+      "accuracy": 0.3515625,
+      "min_confidence": 0.050746634947799296
+    },
+    {
+      "cumulative_rows": 288,
+      "coverage": 0.897196261682243,
+      "accuracy": 0.3125,
+      "min_confidence": 0.024687051450555053
+    },
+    {
+      "cumulative_rows": 321,
+      "coverage": 1.0,
+      "accuracy": 0.2803738317757009,
+      "min_confidence": 0.0004179640946329055
+    }
+  ],
+  "threshold_scan": [
+    {
+      "threshold": 0.0,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.8940809968847352,
+      "committed_accuracy": 0.5888501742160279
+    },
+    {
+      "threshold": 0.025,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.8130841121495327,
+      "committed_accuracy": 0.578544061302682
+    },
+    {
+      "threshold": 0.05,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.7320872274143302,
+      "committed_accuracy": 0.5787234042553191
+    },
+    {
+      "threshold": 0.07500000000000001,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.6386292834890965,
+      "committed_accuracy": 0.5756097560975609
+    },
+    {
+      "threshold": 0.1,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.5669781931464174,
+      "committed_accuracy": 0.5714285714285714
+    },
+    {
+      "threshold": 0.125,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.470404984423676,
+      "committed_accuracy": 0.5695364238410596
+    },
+    {
+      "threshold": 0.15000000000000002,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.3862928348909657,
+      "committed_accuracy": 0.6209677419354839
+    },
+    {
+      "threshold": 0.17500000000000002,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.3395638629283489,
+      "committed_accuracy": 0.5963302752293578
+    },
+    {
+      "threshold": 0.2,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.2772585669781931,
+      "committed_accuracy": 0.6067415730337079
+    },
+    {
+      "threshold": 0.225,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.2398753894080997,
+      "committed_accuracy": 0.6233766233766234
+    },
+    {
+      "threshold": 0.25,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.19937694704049844,
+      "committed_accuracy": 0.671875
+    },
+    {
+      "threshold": 0.275,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.17757009345794392,
+      "committed_accuracy": 0.7017543859649122
+    },
+    {
+      "threshold": 0.30000000000000004,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.1557632398753894,
+      "committed_accuracy": 0.76
+    },
+    {
+      "threshold": 0.325,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.13395638629283488,
+      "committed_accuracy": 0.7674418604651163
+    },
+    {
+      "threshold": 0.35000000000000003,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.12461059190031153,
+      "committed_accuracy": 0.75
+    },
+    {
+      "threshold": 0.375,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.11838006230529595,
+      "committed_accuracy": 0.7894736842105263
+    },
+    {
+      "threshold": 0.4,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.11214953271028037,
+      "committed_accuracy": 0.7777777777777778
+    },
+    {
+      "threshold": 0.42500000000000004,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.102803738317757,
+      "committed_accuracy": 0.7878787878787878
+    },
+    {
+      "threshold": 0.45,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.09345794392523364,
+      "committed_accuracy": 0.8
+    },
+    {
+      "threshold": 0.47500000000000003,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.08411214953271028,
+      "committed_accuracy": 0.8148148148148148
+    },
+    {
+      "threshold": 0.5,
+      "full_accuracy": 0.5638629283489096,
+      "coverage": 0.08099688473520249,
+      "committed_accuracy": 0.8076923076923077
+    }
+  ],
+  "paired_bootstrap_full": {
+    "n": 321,
+    "candidate_accuracy": 0.5638629283489096,
+    "legacy_accuracy": 0.5109034267912772,
+    "delta": 0.052959501557632405,
+    "p_value": 0.5075,
+    "ci_low": -0.02180685358255452,
+    "ci_high": 0.12468847352024881
+  },
+  "paired_bootstrap_committed": {
+    "n": 157,
+    "candidate_accuracy": 0.5732484076433121,
+    "legacy_accuracy": 0.4713375796178344,
+    "delta": 0.10191082802547768,
+    "p_value": 0.5235,
+    "ci_low": 0.006369426751592355,
+    "ci_high": 0.20382165605095537
+  }
+}
