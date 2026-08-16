@@ -91,6 +91,7 @@ def compare_graphs(
 def run_benchmark(
     state: SimulationState,
     events: Optional[List[dict]] = None,
+    llm_judge: bool = False,
 ) -> Dict[str, object]:
     graph = TemporalCausalGraph()
     for edge in edges_from_sim(state):
@@ -108,8 +109,11 @@ def run_benchmark(
             )
     rule = rule_kg_edges(events)
     llm_rule = llm_or_rule_edges(events, use_llm=False)
+    judge_score = _llm_judge_edges(reference) if llm_judge else 0.0
+    quality = compute_quality(graph).to_dict()
+    quality["llm_judge_score"] = judge_score
     return {
-        "graph_quality": compute_quality(graph).to_dict(),
+        "graph_quality": quality,
         "edge_counts": {
             "temporal_graph": len(reference),
             "rule_kg": len(rule),
@@ -122,3 +126,27 @@ def run_benchmark(
             "temporal": graph.temporal_pagerank(),
         },
     }
+
+
+def _llm_judge_edges(edges: List[CausalEdge], n: int = 5) -> float:
+    from ..agents.llm_provider import LLMProvider
+
+    provider = LLMProvider()
+    scores = []
+    for edge in edges[: min(n, len(edges))]:
+        try:
+            raw = provider.chat(
+                system="你是金融因果边裁判。只输出1到5的整数。",
+                user=(
+                    f"判断这条因果边的合理性：{edge.source} -[{edge.relation}]-> {edge.target}，"
+                    f"时间{edge.time}，证据{edge.evidence_ids}"
+                ),
+                temperature=0.0,
+                use_cache=True,
+            ).content.strip()
+            score = float(raw[:1])
+            if 1 <= score <= 5:
+                scores.append(score)
+        except Exception:
+            continue
+    return float(sum(scores) / max(len(scores), 1)) if scores else 0.0

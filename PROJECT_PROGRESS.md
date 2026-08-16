@@ -304,3 +304,4 @@
 - Enriched v7 simulator causal paths with event-to-industry edges.
 - Causal benchmark now produces meaningful rule-vs-temporal edge comparison:
   - precision 95.24%, recall 86.96%, F1 90.91%.
+- Added optional LLM judge score for causal benchmark.

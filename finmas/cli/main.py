@@ -110,6 +110,7 @@ def main() -> None:
     causal_benchmark = causal_sub.add_parser("benchmark")
     causal_benchmark.add_argument("--state-json", default="data/eval/sim_state.json")
     causal_benchmark.add_argument("--output-json", default="data/eval/causal_benchmark.json")
+    causal_benchmark.add_argument("--llm", action="store_true")
 
     args = parser.parse_args()
     if args.command == "predict":
@@ -287,7 +288,7 @@ def main() -> None:
 
             raw = json.loads(Path(args.state_json).read_text(encoding="utf-8"))
             state = SimulationState.from_dict(raw)
-            report = run_benchmark(state)
+            report = run_benchmark(state, llm_judge=args.llm)
             text = json.dumps(report, ensure_ascii=False, indent=2, default=str)
             Path(args.output_json).write_text(text, encoding="utf-8")
             print(text)
