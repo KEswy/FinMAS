@@ -273,3 +273,6 @@
 - Added CLI: `finmas sim run`, `finmas sim report`, `finmas sim graph`.
 - Added FastAPI `/sim/run` and `/sim/timeline` endpoints.
 - Added sim tests; test suite now 43 passing.
+- Installed `akshare` and added optional live data path.
+- Verified live HS300 fetch from akshare works when `FINMAS_SIM_USE_LIVE=1`.
+- Live industry/capital-flow paths are wired with local fallback.

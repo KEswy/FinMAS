@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Dict, Optional
 
@@ -16,6 +17,7 @@ class MarketDataSource:
         self.data_dir = Path(data_dir)
         self.cache_dir = Path(cache_dir)
         self.cache_dir.mkdir(parents=True, exist_ok=True)
+        self.use_live = os.environ.get("FINMAS_SIM_USE_LIVE", "0") == "1"
 
     def _cache(self, name: str, loader):
         path = self.cache_dir / f"{name}.json"
@@ -50,16 +52,47 @@ class MarketDataSource:
 
     def load_industry_returns(self, start: str, end: str) -> pd.DataFrame:
         try:
-            import akshare as ak  # noqa: F401
-            # Optional live path placeholder: future akshare integration.
-            raise ImportError
+            if not self.use_live:
+                raise RuntimeError("live disabled")
+            import akshare as ak
+
+            frames = {}
+            for code in [
+                "801010", "801030", "801040", "801050", "801080",
+                "801110", "801120", "801130", "801140", "801150",
+                "801160", "801170", "801180", "801200", "801210",
+                "801230", "801710", "801720", "801730", "801740",
+                "801750", "801760", "801770", "801780", "801790",
+                "801880", "801890", "801950",
+            ]:
+                df = ak.index_hist_sw(symbol=code)
+                df = df.rename(columns={"日期": "date", "收盘": "close"})
+                df["date"] = pd.to_datetime(df["date"])
+                df["industry_code"] = code
+                df["return"] = df.groupby("industry_code")["close"].pct_change()
+                frames[code] = df[["date", "industry_code", "return"]].dropna()
+            all_frames = pd.concat(frames.values(), ignore_index=True)
+            wide = all_frames.pivot_table(
+                index="date", columns="industry_code", values="return", aggfunc="last"
+            ).sort_index()
+            mask = (wide.index >= pd.Timestamp(start)) & (wide.index <= pd.Timestamp(end))
+            return wide.loc[mask].fillna(0.0)
         except Exception:
             return self._local_industry_returns(start, end)
 
     def load_market_returns(self, start: str, end: str) -> pd.Series:
         try:
-            import akshare as ak  # noqa: F401
-            raise ImportError
+            if not self.use_live:
+                raise RuntimeError("live disabled")
+            import akshare as ak
+
+            df = ak.stock_zh_index_daily(symbol="sh000300")
+            df = df.rename(columns={"date": "date", "close": "close"})
+            df["date"] = pd.to_datetime(df["date"])
+            df["return"] = df["close"].pct_change()
+            df = df.dropna().set_index("date")["return"].sort_index()
+            mask = (df.index >= pd.Timestamp(start)) & (df.index <= pd.Timestamp(end))
+            return df.loc[mask].fillna(0.0)
         except Exception:
             return self._local_market_returns(start, end)
 
@@ -90,4 +123,3 @@ class MarketDataSource:
             industry_returns={str(k): float(v) for k, v in industry_returns.items()},
             capital_flow=capital_flow,
         )
-

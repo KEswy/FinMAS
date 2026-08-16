@@ -19,6 +19,7 @@ langgraph>=0.2.0
 langchain-core>=0.3.0
 sentence-transformers>=2.7.0
 faiss-cpu>=1.7.4
+akshare>=1.18.0
 
 # Web 服务（v2.0 新增）
 fastapi>=0.110.0
